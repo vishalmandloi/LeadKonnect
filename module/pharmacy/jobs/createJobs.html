@@ -1,0 +1,208 @@
+﻿<section class="pharmacy-create-job" ng-init="vm.init()">
+    <form name="vm.myDataForm">
+        <!-- <div class="error-box" ng-show="isShowing">
+            <p>Please verify your data before submitting</p>
+            <div>
+                <p ng-hide="vm.isSinglePharmacy">Branch: {{vm.GetBranchName(vm.JobModel.branchId)}}</p>
+                <p>You are Paying: {{vm.JobModel.costPerHours}}</p>
+                <p>Job Description: {{vm.JobModel.jobDescription}}</p>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Start</th>
+                            <th>Start Time</th>
+                            <th>Finish Time</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="(key,evt) in events">
+                        <td>{{evt.start|date:'fullDate'}}</td>
+                        <td>{{evt.startTime+':00'}} </td>
+                        <td>{{evt.finishTime+':00'}}</td>
+                        <td>{{(vm.JobModel.costPerHours)*(evt.finishTime-evt.startTime)}}</td>
+                    </tr>
+                </table>
+            </div>
+            <button ng-click='vm.CreateAJob()'>Ok</button>
+            <button ng-click='isShowing = !isShowing'>Cancel</button>
+        </div> -->
+        <div class="container">
+            <!-- <h2>Welcome {{ vm.pharmacyName }}</h2> -->
+            <div class="pcj-create-job" ng-hide="vm.isSinglePharmacy">
+                <div class="col-md-2 col-sm-3">
+                    <label>Branch</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <select class="form-control" ng-model="vm.JobModel.branchId" ng-disabled="events.length>0"
+                            ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.JobModel.branchId && !isSinglePharmacy }">
+                        <option value="">Select Branch</option>
+                        <option value="{{br.id}}" ng-repeat="br in vm.branchList">{{br.value}}</option>
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <!--Adding time slot-->
+            <div class="pcj-confirm col-md-12 calendar-pg">
+
+                <div class="pcj-confirm_sub col-md-6">
+                    <div id="myCal" ui-calendar="uiConfig.calendar" class="span12 calendar" data-ng-model="eventSources" calendar="myCal" config="uiConfig.calendar"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="cal-time-table table-responsive">
+                        <div class="alert alert-danger" ng-show="vm.timeError">{{vm.timeError}}</div>
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Start Time</th>
+                                    <th>Finish Time</th>
+                                    <th>£ Cost</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tr ng-repeat="(key,evt) in events">
+                                <td>{{evt.start|date:'dd-MMM-yy'}}</td>
+                                <td>
+                                    <select ng-model="evt.startTime" ng-change="vm.Validate();evt.finishTime=null" required ng-required="true">
+                                        <option value="">Start Time</option>
+                                        <option value ="{{hr}}" ng-repeat="(skey, hr) in vm.housrList">{{hr}}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select ng-model="evt.finishTime" ng-change="vm.Validate()" required>
+                                        <option value="">Finish Time</option>
+                                        <option value="{{hr}}" ng-show="fkey>vm.housrList.indexOf(evt.startTime)"  ng-repeat="(fkey,hr) in vm.housrList">
+                                        {{hr}}</option>
+                                    </select>
+                                </td>
+                                <!--<td>{{vm.positive((vm.JobModel.costPerHours)*(evt.finishTime-evt.startTime)-((vm.JobModel.costPerHours)*(vm.breakTime/60)))}}</td>-->
+                                <td>{{evt.cost}}</td>
+                                <td><span ng-click="remove(key, evt)"><i class="fa fa-trash"></i></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="pcj-pay">
+                <div class="col-md-2 col-sm-3">
+                    <label>You Pay</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <div>
+                        <p style="display:inline">£</p> 
+                        <input type="text" ng-disabled="events.length==0" class="form-control text-adjust" ng-model="vm.JobModel.costPerHours" placeholder="{{vm.JobModel.costPlaceholder}}" onkeypress="return event.charCode >= 8 && event.charCode <= 57" required 
+                               ng-change="vm.Validate()" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.JobModel.costPerHours }"/>
+                        <p style="display:inline">Per hour </p>
+                        <div class="tooltip1"><i class="fa fa-info-circle" aria-hidden="true" style="font-size: 18px; cursor: pointer;"></i>
+                          <span class="tooltiptext1">Sorry, we currently only list jobs £20/hr or more. I am sure you’d agree to protect the pharmacist profession collectively. Thank you for supporting us.</span>
+                        </div>
+                    </div>
+                    <div>
+                       <!--  <p>+ £ 0 p/h pension contribution for the locum</p> -->
+                        <p class="info-box"><i class="fa fa-info-circle" aria-hidden="true"></i> + £ {{vm.normalShiftCharge}} service fee to Smart Locum, Or + £ {{vm.emergencyShift}} emergency service fee to Smart Locum</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="pcj-cost">
+                <div class="col-md-2 col-sm-3">
+                    <label>Total Cost</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <p> £ {{vm.JobModel.costPerHours}} x {{vm.positive(vm.JobModel.totalHour) || 0}} + £ {{vm.serviceCharge}}  =  £ {{vm.positive(vm.getEventTotalAmount())}}</p>
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="pcj-description">
+                <div class="col-md-2 col-sm-3">
+                    <label>Job Description</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <textarea rows="3" class="form-control" ng-model="vm.JobModel.jobDescription"></textarea>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+    
+            <div class="pcj-terms">
+                <div class="cal-accept">
+                    <input type="checkbox" ng-model= "vm.agree" required> <span>I accept to the terms and condition</span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="pcj-confirm">
+                <div class="">
+                    <button class="pcj-confirm-btn" ng-click="vm.Validate()">Confirm</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </form>
+  
+    <!--modal -->
+    <div class="modal fade" id="message-modal" ng-class="{'in modalShow': isShowing==true}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" ng-click='isShowing = !isShowing'><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Please verify your data before submitting</h4>
+          </div>
+          <div class="modal-body">
+            <div class="mm-msg-section">
+                <p ng-hide="vm.isSinglePharmacy">Branch: {{vm.GetBranchName(vm.JobModel.branchId)}}</p>
+                <p>You are Paying: £{{vm.JobModel.costPerHours}} Per hour</p>
+                <p>Job Description: {{vm.JobModel.jobDescription}}</p>
+            </div>
+            <div class="mm-msg-section">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>Finish Time</th>
+                            <th>Service Fee</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="(key,evt) in events">
+                        <td>{{evt.start|date:'dd-MMM-yy'}}</td>
+                        <td>{{evt.startTime}} </td>
+                        <td>{{evt.finishTime}}</td>
+                        <td>£{{evt.serviceCharge}}</td>
+                        <!--<td>£{{(vm.JobModel.costPerHours)*(evt.finishTime-evt.startTime)}}</td>-->
+                        <td>£{{evt.cost}}</td>
+                    </tr>
+                </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="mf-textbox">
+                <button class="mf-submit-btn" ng-click='vm.CreateAJob()'>Ok</button>
+                <button class="mf-reset-btn" ng-click='isShowing = !isShowing'>Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<style>
+    .full button span {
+        background-color: limegreen;
+        border-radius: 32px;
+        color: black;
+    }
+
+    .partially button span {
+        background-color: orange;
+        border-radius: 32px;
+        color: black;
+    }
+</style>

@@ -1,0 +1,34 @@
+<header class="header">
+    <a href="index.html" class="logo">
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
+
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+
+    <aside class="form-box">
+        <h1 class="signup-header">
+            Forgot Password<br />
+        </h1>
+            <small>Help us set up your account so that we can serve you in the best way possible.</small>
+        <form name="login" class="login-form" ng-click="vm.goToLandingScreen(vm.credentials)">
+
+            <div class="form-group">
+                <label>User Name</label>
+                <input type="text" class="form-control" placeholder="User Name" ng-model="vm.credentials.userName" required/>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit"  ng-disabled="login.$invalid">Submit</button>
+                <div class="card padding" ng-if="vm.error !== null">Error: {{vm.error}}</div>
+            </div>
+        </form>
+    </aside>
+</div>
+
+

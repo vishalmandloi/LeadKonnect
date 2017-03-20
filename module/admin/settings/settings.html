@@ -1,0 +1,22 @@
+﻿<div class="settings">
+    <div class="container">
+        <h2 class="pharmacy-setting-title">Settings</h2>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="setting-password" ng-init="vm.GetAdminSettings()">
+                    <div class="sp-title"><h4>Update Settings</h4></div>
+                    <form name="vm.myDataForm" class="sp-inner sp-inner-inner1">
+                        <input type="text" ng-model="vm.settingModel.emergencyShift" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.settingModel.emergencyShift }"
+                               placeholder="Emergency Shift" required>
+                        <input type="text" ng-model="vm.settingModel.normalShift" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.settingModel.normalShift}"
+                               placeholder="Normal Shift" required>
+
+                        <button type="button" class="btn-locum" ng-click="vm.SaveAdminSettings()">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+[{
+	"details": {
+		"playGroundDetails": {
+			"name": "eden gardens",
+			"lat":"22.5644",
+			"lon": "88.3433",
+			"location": "kolkata, West Bengal, India"
+		},
+		"playGroundImgUrl": {
+			"green": "img/bg/green/layer.jpg",
+			"blue": "img/bg/blue/layer.jpg"
+		},
+		"playGroundTheme":"blue",
+		"numberOfRow": 20,
+		"numberOfColumn": 40,
+		"unitSize": {
+			"height": "18",
+			"width": "18"
+		},
+		"squareDetails": [
+			{
+				"id": 1,
+				"price":2
+			},
+			{
+				"id": 2,
+				"price":3
+			},
+			{
+				"id": 3,
+				"price":3
+			},
+			{
+				"id": 4,
+				"price":3
+			},
+			{
+				"id": 5,
+				"price":3
+			},
+			{
+				"id": 6,
+				"price":3
+			},
+			{
+				"id": 7,
+				"price":3
+			},
+			{
+				"id": 8,
+				"price":3
+			},
+			{
+				"id": 9,
+				"price":3
+			}
+		],
+		"defaultPrice": 2,
+		"userDetails":[
+			{
+				"id":1,
+				"name": "Saurav Suman",
+				"imgUrl":"img/profile/Saurav_Suman.png",
+				"purchaseId":[
+					1,
+					2
+				]
+			},
+			{
+				"id":2,
+				"name": "Vishal Mandloi",
+				"imgUrl":"",
+				"purchaseId":[
+					34,
+					35
+				]
+			}
+		]
+	}
+}]

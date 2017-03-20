@@ -1,0 +1,24 @@
+﻿<div class="reg-form">
+    <div class="container">
+        <div class="row">
+            <div class="rf-inner">
+                <div class="rf-title"><i class="fa fa-medkit"></i> Admin Login</div>
+                <form class="rf-form" name="vm.myDataForm">
+                    <div class="rf-input">
+                        <input type="email" placeholder="Email" ng-model=" vm.credentials.userId" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.signupModel.EmailId }">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                   
+                    <div class="rf-input">
+                        <input type="password" placeholder="password" ng-model=" vm.credentials.password" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.signupModel.LastName }">
+                        <i class="fa fa-user"></i>
+                    </div>
+                   
+                    <button type="submit" class="rf-sub" ng-click="vm.login()">Login</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>

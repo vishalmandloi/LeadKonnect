@@ -1,0 +1,148 @@
+﻿    <div class="leads">
+    <form class="form-horizontal" name="vm.myDataFForm">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend ng-show="vm.postModel.PostFor=='1'">Create a Lead</legend>
+            <legend ng-show="vm.postModel.PostFor=='2'">Create a Opportunity</legend>
+            <legend ng-show="vm.postModel.PostFor=='3'">Create a Forum</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-md-2" for="name">Title</label>
+                <div class="col-md-10">
+                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md" required ng-model="vm.postModel.Title">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-md-2" for="email">Category</label>
+                <div class="col-md-10">
+                    <select class="form-control" required ng-model="vm.postModel.CategoryId" ng-class="{ 'has-error' :vm.myDataAdminAppoint.submitted && vm.appointmentsModel.CategoryId == '0' }" ng-change="vm.GetSubCategories()">
+                        <option value="0">Category Selection</option>
+                        <option ng-repeat="cate in vm.categories" value="{{cate.CategoryId}}" >{{cate.CategoryName}}</option>
+                    </select>                
+                </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="row">
+                <div class="col-md-6 nopadding-left">
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="password">Sub Category</label>
+                        <div class="col-md-8">
+                            <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.SubcategoryId">
+                                <option value="0"> SUb Category Selection</option>
+                                <option ng-repeat="sub in vm.subcategories" value="{{sub.SubCategoryId}}" >{{sub.SubCategoryName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 nopadding-right">
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="name">Others</label>
+                        <div class="col-md-10">
+                            <input id="name" name="name" type="text" placeholder="" class="form-control input-md" ng-model="vm.postModel.OtherCategory">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-md-2" for="contact">Location</label>
+                <div class="col-md-10">
+                  <input vs-google-autocomplete
+                       ng-model="vm.postModel.Location"
+                       vs-place="address.place"
+                       vs-place-id="address.components.placeId"
+                       vs-street-number="address.components.streetNumber"
+                       vs-street="address.components.street"
+                       vs-city="address.components.city"
+                       vs-state="address.components.state"
+                       vs-country-short="address.components.countryCode"
+                       vs-country="address.components.country"
+                       vs-post-code="address.components.postCode"
+                       vs-district="address.components.district"
+                       vs-latitude="vm.postModel.Latitude"
+                       vs-longitude="vm.postModel.Longitude"
+                       type="text"
+                       name="address"
+                       id="address"
+                       class="form-control"
+                       placeholder="Area, state, Country">
+                </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label class="control-label col-md-2" for="blood_group">Description</label>
+                <div class="col-md-10">
+                    <input id="contact" name="contact" type="text" placeholder="" class="form-control input-md" required="" ng-model="vm.postModel.Description">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-md-2" for="street">Split/Share %</label>
+                <div class="col-md-10">
+                    <input id="street" name="street" type="text" placeholder="Controlled way of entering percentage" class="form-control input-md" required ng-model="vm.postModel.SharePercentage">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-md-2" for="area">Est. Deal Amount</label>
+                <div class="col-md-10">
+                    <input id="area" name="area" type="text" placeholder="Enter your area" class="form-control input-md" required ng-model="vm.postModel.LeadAmount">
+
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-md-2" for="city">Need</label>
+                <div class="col-md-10">
+                    <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.LeanNeed">
+                       <option value="0">Select Need</option>
+                       <option ng-repeat="need in vm.leadneeds" value="{{need.NeedId}}" >{{need.NeedName}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group" ng-show="vm.postModel.PostFor=='1'">
+                <label class="control-label col-md-2" for="dist">Type</label>
+                <div class="col-md-10">
+                    <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.LeanType">
+                        <option value="0">Select Type</option>
+                        <option ng-repeat="type in vm.leadtypes" value="{{type.TypeId}}" >{{type.TypeName}}</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="control-label col-md-2" for="dist">Show my</label>
+                <div class="col-md-10">
+                    <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.ShowDetails">
+                        <option value="0">Select ShowDetail</option>
+                        <option ng-repeat="show in vm.showdetails" value="{{show.DetailId}}" >{{show.ShowDetailName}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">        
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-info pull-right" ng-click="vm.CreatePost()">Submit</button>
+              </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

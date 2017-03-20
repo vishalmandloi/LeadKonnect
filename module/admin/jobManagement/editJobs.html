@@ -1,0 +1,154 @@
+﻿<section class="pharmacy-create-job" ng-init="isShowing = false">
+    <form name="vm.myDataForm">
+        <div class="container" ng-init="vm.GetBranchForDrobdown();vm.GetJobById()">
+            <h2>Welcome {{ vm.pharmacyName }}</h2>
+
+            <div class="pcj-create-job" ng-if="vm.JobModel.branchId!='0'">
+                <div class="col-md-2 col-sm-3">
+                    <label>Create your job</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <select class="form-control" ng-model="vm.JobModel.branchId" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.JobModel.branchId && !isSinglePharmacy }">
+                        <option value="{{br.id}}" ng-repeat="br in vm.branchList">{{br.value}}</option>
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="pcj-create-job">
+                <div class="col-md-2 col-sm-3">
+                    <label>Start Date</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <input id="datepick1" type="text" readonly="readonly"
+                           ng-click="openFromDatePicker($event)"
+                           datepicker-popup="{{format}}"
+                           ng-model="vm.JobModel.start"
+                           is-open="fromDateopened"
+                           datepicker-options="dateOptions"
+                           date-disabled="disabled(date, mode)"
+                           close-text="Close"
+                           placeholder="Select Date" required />
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="pcj-create-job" ng-hide="vm.isSinglePharmacy">
+                <div class="col-md-2 col-sm-3">
+                    <label>Job Timing</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <select ng-model="vm.JobModel.startTime" required ng-required="true" ng-change="+vm.JobModel.startTime > +vm.JobModel.finishTime ? evt.finishTime = null : null">
+                        <option value="">Start Time</option>
+                        <option ng-selected="skey==vm.JobModel.startTime" value="{{skey}}" ng-repeat="(skey, hr) in vm.housrList">{{hr}}</option>
+                    </select>
+
+
+                    <select ng-model="vm.JobModel.finishTime" required>
+
+                        <option value="">Finish Time</option>
+                        <option ng-selected="fkey==vm.JobModel.finishTime" value="{{fkey}}" ng-show="fkey>vm.JobModel.startTime" ng-repeat="(fkey,hr) in vm.housrList">
+                            {{hr}}
+                        </option>
+                    </select>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="pcj-pay">
+                <div class="col-md-2 col-sm-3">
+                    <label>You Pay</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <div class="col-md-12 col-sm-12">
+                        <p style="display:inline">£</p>
+                        <input type="text" class="form-control text-adjust" ng-model="vm.JobModel.costPerHours" placeholder="{{vm.JobModel.costPlaceholder}}" onkeypress="return event.charCode >= 8 && event.charCode <= 57" required ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.JobModel.costPerHours }" />
+                        <p style="display:inline">Pay hour direct to the locum</p>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <!--  <p>+ £ 0 p/h pension contribution for the locum</p> -->
+                        <p>+ £ 0 p/h service fee to Smart Locum</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="pcj-cost">
+                <div class="col-md-2 col-sm-3">
+                    <label>Total Cost</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <p> £ {{vm.JobModel.costPerHours}} x {{vm.positive(vm.JobModel.totalHour) || 0}} Hrs =  £ {{vm.positive(vm.getEventTotalAmount())}}</p>
+                    <!--<p>{{'('+vm.JobModel.costPerHours+'X'+vm.JobModel.totalHour+')=' +vm.totalCost}}</p>-->
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="pcj-description">
+                <div class="col-md-2 col-sm-3">
+                    <label>Job Description</label>
+                </div>
+                <div class="col-md-10 col-sm-9">
+                    <textarea rows="3" class="form-control" ng-model="vm.JobModel.jobDescription"></textarea>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="pcj-terms">
+                <div class="cal-accept">
+                    <input type="checkbox" ng-model="vm.agree" required> <span>I accept to the terms and condition</span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="pcj-confirm">
+                <div class="">
+                    <button class="pcj-confirm-btn" ng-click="vm.Validate()">Confirm</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </form>
+  
+    <!--modal -->
+    <div class="modal fade" id="message-modal" ng-class="{'in modalShow': isShowing==true}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" ng-click='isShowing = !isShowing'><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Please verify your data before submitting</h4>
+          </div>
+          <div class="modal-body">
+            <div class="mm-msg-section">
+                <p ng-if="vm.JobModel.branchId!='0'">Branch: {{vm.branchName}}</p>
+                <p>You are Paying: {{vm.JobModel.costPerHours}}</p>
+                <p>Job Description: {{vm.JobModel.jobDescription}}</p>
+                <p>Start: {{vm.JobModel.start | date:'fullDate'}}</p>
+                <p>Start Time: {{vm.JobModel.startTime+':00'}}</p>
+                <p>Finish Time: {{vm.JobModel.finishTime+':00'}}</p>
+            </div>
+           
+          </div>
+          <div class="modal-footer">
+            <div class="mf-textbox">
+                <button class="mf-submit-btn" ng-click='vm.CreateAJob()'>Ok</button>
+                <button class="mf-reset-btn" ng-click='isShowing = !isShowing'>Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<style>
+    .full button span {
+        background-color: limegreen;
+        border-radius: 32px;
+        color: black;
+    }
+
+    .partially button span {
+        background-color: orange;
+        border-radius: 32px;
+        color: black;
+    }
+</style>

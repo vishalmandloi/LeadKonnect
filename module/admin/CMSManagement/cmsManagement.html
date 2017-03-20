@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="row" ng-init = "vm.GetPagesForDropdown()">
+        <div class="col-sm-12">
+            <div class="dmp-container">
+             
+                <h2>CMS Managament</h2>
+                <div class="tab-content">
+                    <!-- <button class="admin-reset-btn pull-right" ng-click="vm.openModalPoup(1,null)">Add Content</button> -->
+                    <div class="alert alert-success" role="alert" ng-show="vm.SuccessMsg">{{vm.SuccessMsg}}</div>
+                    <div class="alert alert-danger" role="alert" ng-show="vm.ErrorMsg">{{vm.ErrorMsg}}</div>
+                    <div id="available-job" class="add-branch-form-container">
+
+                        <form name="vm.myDataForm">
+
+                        <div class="form-group">
+                         <label class="class-for-label">Page Name</label>
+                           <select ng-model="vm.contentModel.pageId" ng-required="true" class="for-dropdown" ng-change = "vm.changePageName(vm.contentModel.pageId)" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.contentModel.pageId }">
+                                    <option value="">Select Page</option>
+                                    <option ng-selected="d.id==vm.contentModel.pageId" value="{{d.id}}" ng-repeat="d in vm.pageList" >{{d.value}}</option>
+                           </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="class-for-label">Content</label>
+                            <!-- <textarea class="form-control" rows="3" placeholder="Content" ng-model=" vm.contentModel.pageContent" required
+                                      ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.contentModel.pageContent }"></textarea> -->
+
+                                      <textarea ui-tinymce ng-model="vm.contentModel.pageContent" required ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.contentModel.pageContent }"></textarea>
+
+                        </div>  
+
+                         <div class="modal-footer">
+                <button type="submit" class="popup-submit" ng-click="vm.AddUpdatePageContent()">Submit</button>
+            </div>
+
+                         
+                    </form>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

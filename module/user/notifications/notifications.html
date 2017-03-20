@@ -1,0 +1,43 @@
+﻿
+<div class="clearfix"></div>
+
+<div class="">
+    <div class="container" ng-init="vm.GetNotificationByType()">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="dmp-container">
+                    <div class="tab-content">
+                        <div>
+
+                            <!--table Start here-->
+                            <div id="">
+                                <div class="alert alert-info" ng-show="vm.jobList.length==0">No records found!</div>
+                                <div ng-scrollbars ng-scrollbars-config="config" ng-scrollbars-update=updateScrollbar class="table-responsive default-skin demo content">
+                                    <table class="table table-bordered table-hover jobs-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Job ID</th>
+                                                <th>Message</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="d in vm.notificationList track by $index">
+                                                <td>{{d.createdDate}}</td>
+                                               <td>
+                                                   <a ng-if="d.jobStatus==1 || d.jobStatus==2" ui-sref="user.jobs">{{d.jobUniqueId}}</a>
+                                                   <a ng-if="d.jobStatus==4 || d.jobStatus==6 || d.jobStatus==7 || d.jobStatus==8" ui-sref="user.finance">{{d.jobUniqueId}}</a>
+                                               </td>
+                                                <td>{{d.message}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

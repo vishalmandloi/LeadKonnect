@@ -1,0 +1,168 @@
+﻿<section class="profile-container pc2 pharmacy_main" ng-init="vm.GetLatLongList();vm.GetDashbaordDataForPharmacy();">
+    <div class="pc-dp">
+        <img ng-if="vm.dashboardData.profilePic==''" src="images/mp-dp.png" class="pc-dp-profile-img img-responsive" id="blah" />
+        <img ng-if="vm.dashboardData.profilePic!=''" src="{{vm.dashboardData.profilePic}}" class="pc-dp-profile-img img-responsive" id="blah" />
+
+    </div>
+    <div class="col-md-3 col-sm-5 col-sm-offset-2 pc2-content">
+        <div class="pc-name">
+            <h3>{{vm.pharmacyName}}</h3>
+            <!--<ul class="star-list list-unstyled list-inline">
+                <li><img src="images/star-f.png"></li>
+                <li><img src="images/star-f.png"></li>
+                <li><img src="images/star-f.png"></li>
+                <li><img src="images/star-u.png"></li>
+                <li><img src="images/star-u.png"></li>
+            </ul>
+            <p>234 Reviews</p>-->
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4" style="display:none">
+        <div class="pc-progress">
+            <h5>Profile {{tot}}% compelete</h5>
+            <div class="progress" style="height:12px;">
+                <div class="progress-bar" role="progressbar"
+                     aria-valuenow="{{tot}}" aria-valuemin="0" aria-valuemax="100" style="width:{{tot}}%;background-color:#003761;height:12px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="clearfix"></div>
+
+<div class="container">
+    <div class="dsh-jobs">
+        <div class="row pharmacy">
+            <div class="col-sm-2 dj-icon-container">
+                <div class="dj-icon text-center"><img src="images/icn1.png" class="img-responsive"></div>
+            </div>
+            <div class="col-sm-10 dsh-jobs-cont">
+                <div class="dsh-jobs-btns-container">
+                    <a ui-sref="pharmacy.jobs({ tab:0 })">
+                        <button class="dsh-jobs-btn">TOTAL JOBS LISTED <div class="badge">{{vm.dashboardData.totalAvailableJobs}}</div></button>
+                    </a>
+                    <a ui-sref="pharmacy.jobs({ tab:0 })">
+                        <button class="dsh-jobs-btn">AWAITING APPROVAL <div class="badge">{{vm.dashboardData.awaitingApproval}}</div></button>
+                    </a>
+                    <a ui-sref="pharmacy.jobs({ tab:2 })">
+                        <button class="dsh-jobs-btn">UPCOMING JOBS <div class="badge">{{vm.dashboardData.yourUpcommingJobs}}</div></button>
+                    </a>                    
+                    <a ui-sref="pharmacy.jobs({ tab:4 })">
+                        <button class="dsh-jobs-btn">TOTAL JOBS COMPLETED <div class="badge">{{vm.dashboardData.totalJobsCompleted}}</div></button>
+                    </a>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="dsh-jobs2">
+        <div class="row">
+            <div class="col-sm-2 dj-icon-container">
+                <div class="dj-icon text-center"><img src="images/icn2.png" class="img-responsive"></div>
+            </div>
+            <div class="col-sm-10 dsh-jobs-cont">
+                <div class="dsh-jobs-btns-container2">
+                    <a ui-sref="pharmacy.finance({ tab:0 })">
+                        <button class="dsh-jobs-btn">TOTAL JOBS COMPLETED <div class="badge">{{vm.dashboardData.jobsCompleted}}</div></button>
+                    </a>
+                    <a ui-sref="pharmacy.finance({ tab:6 })">
+                        <button class="dsh-jobs-btn">PENDING PAYMENTS <div class="badge">{{vm.dashboardData.pendingPayments}}</div></button>
+                    </a>                    
+                    <a ui-sref="pharmacy.finance({ tab:7 })">
+                        <button class="dsh-jobs-btn">COMPLETED PAYMENTS <div class="badge">{{vm.dashboardData.completedPayments}}</div></button>
+                    </a>
+
+                    <a ui-sref="pharmacy.finance({ tab:0 })">
+                        <button class="dsh-jobs-btn">TOTAL MONEY SPENT <div class="badge"><i class="fa fa-gbp"></i>{{vm.dashboardData.totalEarned}}</div></button>
+                    </a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="fl-container">
+
+                <h2>Favourite Locums <span>{{vm.favoriteLoc}}</span> </h2>
+                <div class="fl-section">
+                    <div class="col-sm-6" ng-repeat="locum in vm.favLocum">
+                        <div class="fl">
+                            <!--<img src="images/favt-locum.png" />-->
+                            <img src="{{locum.profileImage}}" /> 
+                            <h4 ui-sref="pharmacy.profile({id:locum.locumId})"><a href="#">{{locum.locumName}}</a></h4>
+                          <!--   <p>
+                                <span ng-if="locum.avgRating==0"><img src="images/star0.PNG" class="img-responsive favt-locum-stars"></span>
+                                <span ng-if="locum.avgRating==1"><img src="images/star1.PNG" class="img-responsive favt-locum-stars"></span>
+                                <span ng-if="locum.avgRating==2"><img src="images/star2.PNG" class="img-responsive favt-locum-stars"></span>
+                                <span ng-if="locum.avgRating==3"><img src="images/star3.PNG" class="img-responsive favt-locum-stars"></span>
+                                <span ng-if="locum.avgRating==4"><img src="images/star4.PNG" class="img-responsive favt-locum-stars"></span>
+                                <span ng-if="locum.avgRating==5"><img src="images/star5.PNG" class="img-responsive favt-locum-stars"></span>
+                            </p> -->
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-sm-6">
+                        <div class="fl">
+                            <img src="images/favt-locum.png" />
+                            <h4><a href="#">Lorem Ipsum</a></h4>
+                            <p>set dolor em</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fl">
+                            <img src="images/favt-locum.png" />
+                            <h4><a href="#">Lorem Ipsum</a></h4>
+                            <p>set dolor em</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fl">
+                            <img src="images/favt-locum.png" />
+                            <h4><a href="#">Lorem Ipsum</a></h4>
+                            <p>set dolor em</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fl">
+                            <img src="images/favt-locum.png" />
+                            <h4><a href="#">Lorem Ipsum</a></h4>
+                            <p>set dolor em</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="fl">
+                            <img src="images/favt-locum.png" class="img-responsive" />
+                            <h4><a href="#">Lorem Ipsum</a></h4>
+                            <p>set dolor em</p>
+                        </div>
+                    </div> -->
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="fl-container">
+                <h2 style="margin-bottom: 20px;">Locums near you <span>{{vm.locumLength}}</span> </h2>
+                <!-- <div class="locum-map">
+                    <img src="images/locum-map.jpg" class="img-responsive" />
+                </div> -->
+                <!-- <div id="googleMap" style="width:500px;height:550px;">
+
+                </div> -->
+                <div id="map_canvas"></div>
+            </div>
+        </div>
+        <!--<div class="col-sm-6">
+            <div class="locum-map">
+                <img src="images/locum-map.jpg" class="img-responsive" />
+            </div>
+        </div> -->
+        <div class="clearfix"></div>
+    </div>
+</div>

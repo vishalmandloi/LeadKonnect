@@ -1,0 +1,50 @@
+﻿<div class="reg-form">
+    <div class="container">
+        <div class="row">
+            <div class="rf-inner">
+                <div class="rf-title"><i class="fa fa-medkit"></i> Multiple Pharmacy Registration</div>
+                <form class="rf-form2" name="vm.myDataForm">
+                    <div class="rf-input">
+                        <input type="text" ng-model=" vm.pharmacySignupModel.pharmacyName " name="pharmacyname1" placeholder="Pharmacy Name" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.pharmacyName }">
+                               <div class="validation-error"
+                                ng-show="vm.myDataForm.pharmacyname1.$dirty && vm.myDataForm.pharmacyname1.$error.required">
+                                <p class="validate-message">Pharmacy Name is must required.</p>
+                                </div>
+                    </div>
+                        <div class="rf-input">
+                        <input type="text" ng-model=" vm.pharmacySignupModel.firstName " name="pharmacyname2" placeholder="Name" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.firstName }">
+                               <div class="validation-error"
+                                ng-show="vm.myDataForm.pharmacyname2.$dirty && vm.myDataForm.pharmacyname2.$error.required">
+                                <p class="validate-message"> Name is must required.</p>
+                                </div>
+
+                    </div>
+
+                        <div class="rf-input">
+                        <input type="text" ng-model=" vm.pharmacySignupModel.mobileNumber "maxlength="11" ng-minlength="11"
+                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="mobileno" placeholder="Contact Person Mobile Number" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.mobileNumber }">
+                               <div class="validation-error"
+                                ng-show="vm.myDataForm.mobileno.$dirty && vm.myDataForm.mobileno.$error.required">
+                                <p class="validate-message"> Mobile Number is must required.</p>
+                                </div>
+                    </div>
+
+                      <div class="rf-input">
+                        <input type="email" ng-model=" vm.pharmacySignupModel.emailId " name="email"placeholder="Email" ng-pattern="vm.regexEmail" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.emailId }">
+                               <div class="validation-error"
+                                ng-show="vm.myDataForm.email.$dirty && vm.myDataForm.email.$error.required">
+                                <p class="validate-message">Email is must required.</p>
+                                </div>
+                    </div>
+
+
+                    <button type="button" class="psr-rf-sub" ng-click=" vm.MultiplePharmacySignup()">Next</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,262 @@
+﻿  <div class="LeadKonnect" ng-init="vm.init()">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" ui-sref="user.dashboard">LeadKonnect</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">10</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 10 notifications</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-red"></i> 5 new members joined
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-user text-red"></i> You changed your username
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">View all</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="images/person.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">{{vm.currentUser.FirstName}} {{vm.currentUser.LastName}}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="images/person.jpg" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        {{vm.currentUser.FirstName}} {{vm.currentUser.LastName}}
+                                        <!-- <small>Member since Nov. 2012</small> -->
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <div class="row">
+                                     <!--    <div class="col-xs-4 text-center">
+                                            <a href="#">Followers</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Sales</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Friends</a>
+                                        </div> -->
+                                    </div>
+                                    <!-- /.row -->
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a data-ng-click="vm.logout()" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right nav-list">
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lead<span class="caret"></span></a>
+                        <ul class="dropdown-menu item">
+                          <li><a href="#">Lead 1</a></li>
+                          <li><a href="#">Lead 2</a></li>
+                          <li><a href="#">Lead 3</a></li>
+                        </ul>
+                      </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Oppurtunity<span class="caret"></span></a>
+                        <ul class="dropdown-menu item">
+                          <li><a href="#">Oppurtunity 1</a></li>
+                          <li><a href="#">Oppurtunity 2</a></li>
+                          <li><a href="#">Oppurtunity 3</a></li>
+                        </ul>
+                      </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Partners<span class="caret"></span></a>
+                        <ul class="dropdown-menu item">
+                          <li><a href="#">Partners 1</a></li>
+                          <li><a href="#">Partners 2</a></li>
+                          <li><a href="#">Partners 3</a></li>
+                        </ul>
+                      </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Messages<span class="caret"></span></a>
+                        <ul class="dropdown-menu item">
+                          <li><a href="#">Messages 1</a></li>
+                          <li><a href="#">Messages 2</a></li>
+                          <li><a href="#">Messages 3</a></li>
+                        </ul>
+                      </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+                        <ul class="dropdown-menu item">
+                          <li><a href="#">Reports 1</a></li>
+                          <li><a href="#">Reports 2</a></li>
+                          <li><a href="#">Reports 3</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="search-select">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <div class="search-option">
+                            <input type="text" class="form-control" name="x" ng-model="vm.text" placeholder="Search term..." ng-enter="vm.searchData(vm.text, vm.searchType)">
+                            <select class="all-options" ng-model="vm.searchType">
+                                <option value="0">All</option>
+                                <option value="1">Leads</option>
+                                <option value="2">Opportunity</option>
+                                <option value="3">Forum</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button" ng-click="vm.searchData(vm.text, vm.searchType)"><span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-sec">
+            <div class="">
+                <div class="row">
+                    <div class="col-sm-2 filter-section">
+                        <!-- <select class="form-control" ng-change="vm.createlead()" ng-model="vm.createFor">
+                            <option value="0">Create</option>
+                            <option value="1">Lead</option>
+                            <option value="2">Opportunity</option>
+                            <option value="3">Forum</option>
+                        </select>
+                        <select class="form-control">
+                            <option>My View</option>
+                            <option>Lead</option>
+                            <option>Opportunity</option>
+                            <option>Forum</option>
+                        </select>
+                        <select class="form-control">
+                            <option>Messages</option>
+                            <option>New</option>
+                            <option>Inbox</option>
+                            <option>Sent</option>
+                        </select>
+                        <select class="form-control">
+                            <option>Partners</option>
+                            <option>Add a Partners</option>
+                            <option>Remove a Partners</option>
+                            <option>Bussiness w Partners</option>
+                        </select> -->
+                        <div aria-multiselectable="true" role="tablist" id="accordion" class="panel-group">
+                            <div class="panel panel-default"> <a title="Tab 1" aria-controls="collapse1" aria-expanded="false" target="_self" href="#collapse1" data-parent="#accordion" data-toggle="collapse" id="heading1" role="tab" class="panel-heading collapsed"> <span class="panel-title">Create</span><span class="glyphicon icon-indicator pull-right"></span> </a>
+                                <div aria-labelledby="heading1" role="tabpanel" class="panel-collapse collapse" id="collapse1" aria-expanded="false">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li ng-click="vm.createlead(1)">Lead</li>
+                                            <li ng-click="vm.createlead(2)">Opportunity</li>
+                                            <li ng-click="vm.createlead(3)">Forum</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default"> <a title="Tab 2" aria-controls="collapse2" aria-expanded="false" target="_self" href="#collapse2" data-parent="#accordion" data-toggle="collapse" id="heading2" role="tab" class="panel-heading collapsed"><span class="panel-title">My View</span><span class="glyphicon icon-indicator pull-right"></span> </a>
+                                <div aria-labelledby="heading2" role="tabpanel" class="panel-collapse collapse" id="collapse2" aria-expanded="false">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li>Lead</li>
+                                            <li>Opportunity</li>
+                                            <li>Discussion</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default"> <a title="Tab 3" aria-controls="collapse3" aria-expanded="false" target="_self" href="#collapse3" data-parent="#accordion" data-toggle="collapse" id="heading3" role="tab" class="panel-heading collapsed"><span class="panel-title">Messages</span> <span class="glyphicon icon-indicator pull-right"></span></a>
+                                <div aria-labelledby="heading3" role="tabpanel" class="panel-collapse collapse" id="collapse3" aria-expanded="false">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li>New</li>
+                                            <li>Inbox</li>
+                                            <li>Sent</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="panel panel-default"> <a title="Tab 4" aria-controls="collapse4" aria-expanded="false" target="_self" href="#collapse4" data-parent="#accordion" data-toggle="collapse" id="heading4" role="tab" class="panel-heading collapsed"><span class="panel-title">Partners</span> <span class="glyphicon icon-indicator pull-right"></span></a>
+                                <div aria-labelledby="heading4" role="tabpanel" class="panel-collapse collapse" id="collapse4" aria-expanded="false">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li>Add a Partners</li>
+                                            <li>Remove a Partners</li>
+                                            <li>Bussiness w Partners</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="shortcuts">
+                            <li>Shortcuts
+                                <ul>
+                                    <li><a href="#"> New Apartment Sale</a></li>
+                                    <li><a href="#">Apartment Rent</a></li>
+                                    <li><a href="#">Apartment Resale</a></li>
+                                    <li><a href="#">Office Lease</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-10 form-section">
+                        <div class="col-sm-10">
+                            <div ui-view="menuInnerContent"></div>
+                        </div>
+                        <div class="col-sm-2 advertisement">
+                            <ul>
+                                <li><img src="images/add.png">
+                                </li>
+                                <li><img src="images/add-2.jpg">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

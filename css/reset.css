@@ -1,0 +1,181 @@
+@media only screen and (min-width:768px) and (max-width:1024px){
+	.pc-status .unavailableBox {
+	    width: 70%;
+	}
+	/*.pc-status .availableBox {
+	    width: 70%;
+	}*/
+	.error-box{
+		width: 45%;
+		left: 28%;
+	}
+	.alert-wrapper{
+		width: 30%;
+	}
+	.pc-status .availableBox i { padding-left: 2px; }
+	.select-wrapper {
+	    top: 0px;
+	    right: 40%;
+	}
+	section.pharmacy .select-wrapper {
+		top: 10px;
+		right: 17%;
+	}
+	.dmp-container .tab-content .container {
+	    width: 100%;
+	}
+	#map-userLatLong {
+	    width: 96%;
+	    margin: auto;
+	}
+	.container.pharmacy_finance .dmp-container ul li a { font-size: 11px; }
+}
+@media(max-width:768px){
+	.pc-status .unavailableBox {
+	    width: 14%;
+		margin-left: 36%;
+	}
+	.pc-status .availableBox {
+	    width: 100%;
+    	text-align: center;
+	}
+
+	.pc-status  p {
+	    line-height: 9px;
+	}
+	
+	.pc-image {
+	    margin-top: 4%;
+	}
+	.pc-image img {
+	    width: 50%;
+	    margin-left: 26%;
+	}
+	.error-box{
+		width: 45%;
+		left: 28%;
+	}
+	.alert-wrapper{
+		width: 30%;
+	}
+	.leftChat {
+	    margin-right: 0;
+	}
+	h2.pharmacy-setting-title:after{
+		width: 100%;
+	}
+}
+@media(max-width:669px){
+	.mbl input{
+		width: 100% !important;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.error-box{
+		width: 75%;
+		left: 13%;
+	}
+	.alert-wrapper{
+		width: 30%;
+	}
+	.select-wrapper {
+	    top: 0px;
+	    right: 38%;
+	}
+	section.pharmacy .select-wrapper {
+		top: 10px;
+	}
+	.dmp-container .tab-content select {
+	     width: 100% !important; 
+	}
+	/*.dmp-container .tab-content input { width: 100%; }*/
+	#profile-submit-btn{
+		margin-bottom: 20px;
+	}
+	.container.pharmacy_finance .dmp-container ul li { width: 47%; margin-bottom: 5px;}
+	.dmp-container.head_office .nav-tabs li {
+	    width: 47%;
+	    margin-bottom: 10px;
+	    border-bottom: solid 2px #0e91cf;
+	}
+}
+@media(max-width:480px){
+	.pc-status .unavailableBox {
+	    width: 20%;
+	}
+	/*.pc-status .availableBox {
+	    width: 20%;
+	}*/
+	.dsh-jobs-btns-container .badge {
+	    width: 100%;
+	}
+	.dsh-jobs-btns-container2 .badge {
+	    width: 100%;
+	}
+	.mbl input{
+		width: 100% !important;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.error-box{
+		width: 75%;
+		left: 13%;
+	}
+	.alert-wrapper{
+		width: 100%;
+	}
+	.select-wrapper {
+	    top: 0px;
+	    right: 31%;
+	}
+	section.pharmacy .select-wrapper {
+		top: 10px;
+	}
+	.du-doc-upload div.form-group label {
+	    color: #666;
+	    font-size: 12px;
+	}
+	.dmp-container .nav-tabs li a {
+	    font-size: 11px;
+	}
+	.dmp-container.finance ul li a {
+	    font-size: 8px;
+	}
+
+
+}
+@media(max-width:320px){
+	.pc-status .unavailableBox {
+	    width: 30%;
+	}
+	/*.pc-status .availableBox {
+	    width: 30%;
+	}*/
+	.mbl input{
+		width: 100% !important;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.error-box{
+		width: 75%;
+		left: 13%;
+	}
+	.alert-wrapper{
+		width: 100%;
+	}
+	.select-wrapper {
+	    top: 0px;
+	    right: 25%;
+	}
+	section.pharmacy .select-wrapper {
+		top: 10px;
+	}
+	.dmp-container .nav-tabs li a{font-size:10px;}
+	.dmp-container.finance ul li a { font-size: 7px; }
+}
+
+@media only screen and (min-width:1024px){
+	.alert-wrapper {
+		width: 30%;
+	}
+}

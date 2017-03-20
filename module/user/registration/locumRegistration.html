@@ -1,0 +1,76 @@
+﻿<div class="sign-up">
+    <div class="containe-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="login-wrap">
+                    <div class="login-html">
+                        <div class="title">
+                            <h1 class="tab">Sign Up</h1>
+                        </div>
+                        <div class="login-form">
+                          <form class="rf-form2" name="vm.myDataForm">
+                            <div class="sign-in-htm">
+                                <div class="social-share">
+                                    <ul>
+                                        <li class="fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li class="gplus"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                                 <div class="ui horizontal divider">
+                                    OR       
+                                </div>
+                                <div class="search-panel">
+                                   <select id="blood_group" name="blood_group" class="form-control grp-individual" ng-model="vm.signupModel.UserType">
+                                        <option value="1">Individual</option>
+                                        <option value="2">Group</option>
+                                    </select>
+                                </div>
+                                <div class="individual" data-ng-show="vm.signupModel.UserType=='1'">
+                                    <div class="group">
+                                        <label for="user" class="label" ng-model="vm.signupModel.FirstName">First Name</label>
+                                        <input id="user" type="text" class="input" ng-model="vm.signupModel.FirstName">
+                                    </div>
+                                    <div class="group">
+                                        <label for="user" class="label">Last Names</label>
+                                        <input id="user" type="text" class="input" ng-model="vm.signupModel.LastName">
+                                    </div>
+                                </div>
+                                 <div class="grp" data-ng-show="vm.signupModel.UserType=='2'">
+                                    <div class="group">
+                                        <label for="user" class="label">Group Name</label>
+                                        <input id="user" type="text" class="input" ng-model="vm.signupModel.GroupName">
+                                    </div>
+                                </div>
+                                <div class="group">
+                                    <label for="user" class="label">Email  Address</label>
+                                    <input id="user" type="email" class="input" ng-model="vm.signupModel.EmailId">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Password</label>
+                                    <input id="pass" type="password" class="input" data-type="password" ng-model="vm.signupModel.Password">
+                                </div>
+                                <div class="group">
+                                    <label for="pass" class="label">Confirm Password</label>
+                                    <input id="pass" type="password" class="input" data-type="password" data-ng-model="vm.confirmPassword">
+                                </div>
+                                <div class="group">
+                                    <input id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Agree toterms and conditions</label>
+                                </div>
+                                <div class="group">
+                                    <input type="submit" class="button" value="Create Account" ng-click="vm.LocumRegistration()">
+                                </div>
+                                </form>
+                               
+                            </div>
+                            <div class="footer-signup">
+                                <p id="account-message">Already have a Leadkonnect account?</p>
+                                <h1><a href="#">Sign in</a></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

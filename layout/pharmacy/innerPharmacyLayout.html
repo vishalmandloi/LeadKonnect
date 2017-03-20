@@ -1,0 +1,138 @@
+﻿<header>
+    <div class="header dsh-header" ng-init="vm.GetNotificationUnreadCount()" id="pharmacyHeaderId">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="logo pull-left">
+                        <a ui-sref="pharmacy.dashboard"><img src="images/logo.png" alt="" title="" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <div class="header-right">
+                        <nav class="custom-menu" ng-class="{ customMenuMb : clickStatus == true }" role="navigation">
+                            <div class="menu-close-btn"><a href="javascript:void(0)" ng-click='closeMenu()'><span class="fa fa-close"> <p>CLOSE</p></span></a></div>
+                            <div class="clearfix"></div>
+                            <ul class="mb-menu-list list-unstyled">
+                                <li><a ui-sref="pharmacy.dashboard" ng-click='setTab(1)' class="click-link" ng-class="{ active: isSet(1) }"><i class="icon-clipboard60"></i> Dashboard</a></li>
+                                <li><a ui-sref="pharmacy.createjobs" ng-click='setTab(2)' class="click-link" ng-class="{ active: isSet(2) }"><i class="fa fa-pencil"></i> Create a Job</a></li>
+                                <li><a ui-sref="pharmacy.singlepharmacyprofile" ng-click='setTab(3)' class="click-link" ng-class="{ active: isSet(3) }"><i class="icon-business12"></i> Profile</a></li>
+                                <li><a ui-sref="pharmacy.jobs" ng-click='setTab(4)' class="click-link" ng-class="{ active: isSet(4) }"><i class="icon-portfolio24"></i> Jobs</a></li>
+                                <li><a ui-sref="pharmacy.finance" ng-click='setTab(5)' class="click-link" ng-class="{ active: isSet(5) }"><i class="fa fa-gbp"></i> Finance</a></li>
+                                <li><a ui-sref="pharmacy.notifications" ng-click='setTab(6)' class="click-link" ng-class="{ active: isSet(6) }"><i class="icon-ring6"></i> Notification</a></li>
+                                <li><a ui-sref="pharmacy.message" ng-click='setTab(7)' class="click-link" ng-class="{ active: isSet(7) }"><i class="icon-message"></i> Message</a></li>
+                                <li><a ui-sref="pharmacy.settings" ng-click='setTab(8)' class="click-link" ng-class="{ active: isSet(8) }"><i class="icon-three115"></i> Settings</a></li>
+                                <li><a href="#" ng-click='setTab(9)' class="click-link" ng-class="{ active: isSet(9) }"><i class="icon-power27"></i> Logout</a></li>
+                            </ul>
+                        </nav>
+                        <a href="javascript:void(0)" ng-click='openMenu()' class="nav-toggle"><p>Menu</p> <span class="fa fa-bars"></span></a>
+                        <div class="dsh-menu">
+                            <!--<ul class="dsh-menu-list list-unstyled list-inline">
+                                <li><a ui-sref="pharmacy.dashboard" ng-click='setTab(1)' ng-class="{ active: isSet(1) }"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="pharmacy.createjobs" ng-click='setTab(2)' ng-class="{ active: isSet(2) }"><i class="fa fa-pencil"></i>Create a Job</a></li>
+                                <li ng-show="vm.isSinglePharmacy"><a ui-sref="pharmacy.singlepharmacyprofile" ng-click='setTab(3)' ng-class="{ active: isSet(3) }"><i class="icon-business12"></i>Profile</a></li>
+                                <li ng-hide="vm.isSinglePharmacy"><a ui-sref="pharmacy.multiplepharmacyprofile" ng-click='setTab(4)' ng-class="{ active: isSet(4) }"><i class="icon-business12"></i>Profile</a></li>
+                                <li><a ui-sref="pharmacy.jobs" ng-click='setTab(5)' ng-class="{ active: isSet(5) }"><i class="icon-portfolio24"></i>Jobs</a></li>
+                                <li><a ui-sref="pharmacy.finance" ng-click='setTab(6)' ng-class="{ active: isSet(6) }"><i class="fa fa-gbp"></i>Finance</a></li>
+                                <li><a ui-sref="pharmacy.notifications" ng-click='setTab(7)' ng-class="{ active: isSet(7) }"><i class="icon-ring6">{{vm.unreadCount}}</i>Notification</a></li>
+                                <li><a ui-sref="pharmacy.message" ng-click='setTab(8)' ng-class="{ active: isSet(8) }"><i class="icon-message">{{vm.msgUnreadCount}}</i>Message</a></li>
+                                <li><a ui-sref="pharmacy.settings" ng-click='setTab(9)' ng-class="{ active: isSet(9) }"><i class="icon-three115"></i>Settings</a></li>
+                                <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>-->
+
+                            <ul class="dsh-menu-list list-unstyled list-inline">
+                                <li><a ui-sref="pharmacy.dashboard" ui-sref-active="active"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="pharmacy.createjobs" ui-sref-active="active"><i class="fa fa-pencil"></i>Create a Job</a></li>
+                                <li ng-show="vm.isSinglePharmacy"><a ui-sref="pharmacy.singlepharmacyprofile" ui-sref-active="active"><i class="icon-business12"></i>Profile</a></li>
+                                <li ng-hide="vm.isSinglePharmacy"><a ui-sref="pharmacy.multiplepharmacyprofile" ui-sref-active="active"><i class="icon-business12"></i>Profile</a></li>
+                                <li><a ui-sref="pharmacy.jobs" ui-sref-active="active"><i class="icon-portfolio24"></i>Jobs</a></li>
+                                <li><a ui-sref="pharmacy.finance" ui-sref-active="active"><i class="fa fa-gbp"></i>Finance</a></li>
+                                <li><a ui-sref="pharmacy.notifications" ui-sref-active="active"><i class="icon-ring6">{{vm.unreadCount}}</i>Notification</a></li>
+                                <li><a ui-sref="pharmacy.message" ui-sref-active="active"><i class="icon-message">{{vm.msgUnreadCount}}</i>Message</a></li>
+                                <li><a ui-sref="pharmacy.settings" ui-sref-active="active"><i class="icon-three115"></i>Settings</a></li>
+                                <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <iui-alert-placeholder id="alert_app-top"></iui-alert-placeholder>
+    <div class="footerfixed" ui-view="pharmacyInnerContent"></div>
+</div>
+
+<footer>
+    <div class="footer" style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="f-col1">
+                        <h5>Company</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">What our customers say? </a></li>
+                            <li><a href="#">Contact Us </a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col2">
+                        <h5>Locums</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col3">
+                        <h5>Pharmacies</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col4">
+                        <h5>Social Media</h5>
+                        <ul class="list-unstyled list-inline footer-social-list">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="copyrights">
+        <div class="container">
+            <p class="col-sm-3" style="padding-top: 13px">© Smart Locum Inc.</p>
+            <div class="col-sm-4" style="float: right; text-align: right;">
+                <div class="f-col4">
+                    <ul class="list-unstyled list-inline footer-social-list">
+                        <li style="padding-right: 20px"><a href="#/user1/info/pharmacyfaqs" target="_blank">FAQs</a></li>
+                        <li><a href="https://www.facebook.com/SmartLocum" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.twitter.com/SmartLocum" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/smartlocum" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+

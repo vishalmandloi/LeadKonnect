@@ -1,0 +1,117 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="dmp-container">
+                <h2>Pharmacy Managament</h2>
+                <div class="tab-content">
+                    <div class="alert alert-success" role="alert" ng-show="vm.SuccessMsg">{{vm.SuccessMsg}}</div>
+                    <div class="alert alert-danger" role="alert" ng-show="vm.ErrorMsg">{{vm.ErrorMsg}}</div>
+                    <div id="available-job" class="tab-pane fade in active">
+                        <input type="text" class="searchBox" ng-model="vm.searchText" placeholder="search......" />
+                        <button class="admin-search-btn" ng-click="vm.GetAllPharmacyUsers()"><i class="fa fa-search"></i></button>
+                        <button class="admin-reset-btn" ng-click="vm.searchText='';vm.GetAllPharmacyUsers()">Reset</button>
+                        <br />
+                        <div class="alert alert-info" role="alert" ng-show="vm.pharmacyList.length==0">No record found</div>
+                        <div ng-show="vm.pharmacyList.length>0" class=" table-responsive default-skin demo clearfix" ng-init="vm.GetAllPharmacyUsers()">
+                            <div ng-scrollbars ng-scrollbars-config="config" ng-scrollbars-update=updateScrollbar class="table-responsive default-skin demo content">
+                                <table class="table table-bordered table-hover jobs-table">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Pharmacy Name</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>ITSystemId</th>
+                                            <th>Email</th>
+                                            <th>Mobile Number</th>
+                                            <th>Break Time</th>
+                                            <th>isBreakTime Paid</th>
+                                            <th>Travel Expense</th>
+                                            <th>Travel Expense PerMile</th>
+                                            <th>isSingle Pharmacy</th>
+                                            <th>Shift Charge</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key,d) in vm.pharmacyList">
+                                            <td>{{d.ROW_NUM}}</td>
+                                            <td>{{d.pharmacyName}}</td>
+                                            <td>{{d.firstName}}</td>
+                                            <td>{{d.lastName}}</td>
+                                            <td>{{d.ITSystemId}}</td>
+                                            <td>{{d.emailId}}</td>
+                                            <td>{{d.mobileNumber}}</td>
+                                            <td>{{d.breakTime}}</td>
+                                            <td>{{d.isBreakTimePaid=='1'?'Paid':'UnPaid'}}</td>
+                                            <td>{{d.travelExpense=='1'?'Paid':d.travelExpense=='2'?'Paid over 40 miles':'UnPaid'}}</td>
+                                            <td>{{d.travelExpensePerMile}}</td>
+                                            <td>{{d.isSinglePharmacy}}</td>
+                                            <td><button class="btn btn-info btn-admin" ng-click="vm.OpenShiftChargeModal (d)"><span>charges</span></button></td>
+                                            <td>
+                                                <button class="btn btn-info btn-admin" ng-show="d.isActive" ng-click="vm.confirmbox ('Block',d)"><span>Block</span></button>
+                                                <button class="btn btn-success btn-admin" ng-hide="d.isActive" ng-click="vm.confirmbox ('Unblock',d)"><span>Unblock</span></button>
+                                                <button class="btn btn-danger btn-admin" ng-click="vm.confirmbox('Delete',d)"><span><i class="fa fa-trash"></i></span></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="shiftChargeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="rf-inner">
+                        <div class="rf-title"><i class="fa fa-medkit"></i> Shift Charges</div>
+                        <form class="rf-form2" name="vm.myDataForm">
+
+                            <div class="rf-input">
+                                <input type="text" ng-model="vm.shiftChargeModel.emergencyShift"
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="mobileno" placeholder="Emergency Shift" required
+                                       ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.shiftChargeModel.emergencyShift }">
+                                <div class="validation-error"
+                                     ng-show="vm.myDataForm.submitted && !vm.shiftChargeModel.emergencyShift">
+                                    <p class="validate-message"> Emergency Shift is must required.</p>
+                                </div>
+                            </div>
+
+                            <div class="rf-input">
+                                <input type="text" id="hEmail" ng-model="vm.shiftChargeModel.normalShift " name="email" placeholder="Normal Shift" required
+                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.shiftChargeModel.normalShift }">
+                                <div class="validation-error"
+                                     ng-show="vm.myDataForm.submitted && !vm.shiftChargeModel.normalShift">
+                                    <p class="validate-message">Normal Shift is must required.</p>
+                                </div>
+                            </div>
+
+                            <button type="button" class="psr-rf-sub" ng-click="vm.UpdateShiftCharges()">SAVE</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

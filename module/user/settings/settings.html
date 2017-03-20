@@ -1,0 +1,65 @@
+﻿<div class="container">
+    <div class="my-profile" ng-init="vm.GetLocumSettings()">
+        <div class="row">
+            <div class="col-sm-5">
+                <h2 id="settings-title">Settings</h2>
+                <h4 id="location-preference">Location Preference</h4>
+                <form class="jobs-form" ng-init="isDisable = false">
+                    <div class="form-group">
+                        <label for="distance">Distance you are prepared to travel for work? :</label>
+                        <input type="text" placeholder="Numeric Value(miles)" ng-model="vm.settingModel.locationPreference" ng-change="vm.changeDistance()">
+                    </div>
+                    <div class="lp_setting_btn">
+                        <button type="submit" class="lp-submit" ng-click="vm.UpdateLocumSettings()">Submit</button>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" ng-click="isDisable = !isDisable" id="add-secondary-btn">secondary location</button>
+                    </div>
+                    <div class="form-group secondary-distance" ng-show="isDisable">
+                        <input type="text" ng-model="vm.settingModel.postalCode" placeholder="Post code" id="add-secondary-txtbox">
+                        <label for="distance">Distance :</label>
+                        <input type="text" ng-model="vm.settingModel.distanceTravalForWork" placeholder="Numerical value(miles)">
+                        <button type="submit" class="lp-submit" ng-click="vm.UpdateLocumSettings()">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-7" id="map-userLatLong">
+                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d617146.5473580752!2d-1.8054308!3d52.8272533!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1449549287939" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen class="map-iframe"></iframe> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="settings">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="setting-email">
+                    <div class="se-title"><h4><i class="fa fa-envelope"></i> Email</h4></div>
+                    <form class="se-inner">
+                        <div><input type="checkbox" ng-model="vm.settingModel.isDailyAvailableJobs"> Daily available jobs</div>
+                        <div><input type="checkbox" ng-model="vm.settingModel.isWeeklyNewsletter"> Weekly newsletter</div>
+                        <div><input type="checkbox" ng-model="vm.settingModel.isEmergencyShift"> Emergency shift with in 48hrs.</div>
+                        <div><input type="checkbox" ng-model="vm.settingModel.isWhenJobApproves"> When your applied job is confirmed</div>
+                        <div><input type="checkbox" ng-model="vm.settingModel.isReminderAfterConfirmedShiftOrCompletedShift"> Reminder email a day before you confirmed shift</div>
+                        <div><input type="checkbox" ng-model="vm.settingModel.isPaymentCompleted"> Reminder email to send invoice for completed shift</div>
+                        <div><input type="checkbox" ng-model="vm.settingModel.isEndOfTheMonthInvoice"> Payment awaiting confirmation</div>
+                        <button type="button" class="btn-locum" ng-click="vm.UpdateLocumSettings()">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="setting-password">
+                    <div class="sp-title"><h4><i class="fa fa-lock"></i> Change Password</h4></div>
+                    <form  name="vm.myDataForm" class="sp-inner">
+                        <input type="password" ng-model="vm.changePwdModel.oldPassword" placeholder="Old Password" required>
+                        <input type="password" ng-model="vm.changePwdModel.newPassword" placeholder="New Password"required>
+                        <input type="password" ng-model="vm.confirmPassword" placeholder="Re-type New Password" required>
+                        <button type="button" class="btn-locum" ng-click="vm.UpdateLocumPassword()">Update Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

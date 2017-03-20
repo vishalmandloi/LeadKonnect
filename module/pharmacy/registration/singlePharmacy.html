@@ -1,0 +1,126 @@
+﻿<div class="reg-form">
+    <div class="container">
+        <div class="row">
+            <div class="rf-inner">
+                <div class="rf-title"><i class="fa fa-medkit"></i> Smart way to locums in 30 seconds</div>
+                <form class="rf-form2" name="vm.myDataForm">
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.pharmacySignupModel.ODSCode" name="ODSCode" placeholder="ODS Code" typeahead="obj.ODSCode for obj in vm.getODScodes($viewValue)" typeahead-loading="loadingLocations" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.ODSCode }" ng-blur="vm.GetPharmacyDetail()" required autocomplete="off" typeahead-on-select="vm.GetPharmacyDetail()">
+
+                        <!-- <input type="text" ng-model="vm.pharmacySignupModel.ODSCode " name="ODSCode" placeholder="ODS Code" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.ODSCode }" ng-blur="vm.GetPharmacyDetail()"> -->
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.ODSCode.$dirty && vm.myDataForm.ODSCode.$error.required">
+                            <p class="validate-message">ODS Code is required.</p>
+                        </div>
+                    </div>
+                    <div class="rf-input">
+
+                        <input type="text" ng-model="vm.pharmacySignupModel.pharmacyName " name="pharmacyname" placeholder="Pharmacy Name" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.pharmacyName }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.pharmacyname.$dirty && vm.myDataForm.pharmacyname.$error.required">
+                            <p class="validate-message">Pharmacy Name is required.</p>
+                        </div>
+                    </div>
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.pharmacySignupModel.firstName " name="pharmacyname1" placeholder="Contact Person First Name" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.firstName }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.pharmacyname1.$dirty && vm.myDataForm.pharmacyname1.$error.required">
+                            <p class="validate-message">Contact Person First Name is required.</p>
+                        </div>
+                    </div>
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.pharmacySignupModel.lastName " name="pharmacyname2" placeholder="Contact Person Last Name" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.lastName }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.pharmacyname2.$dirty && vm.myDataForm.pharmacyname2.$error.required">
+                            <p class="validate-message">Contact Person Last Name is required.</p>
+                        </div>
+                    </div>
+                    <div class="rf-input">
+                        <input type="email" ng-model="vm.pharmacySignupModel.emailId " name="pharmacynamemail" placeholder="Email" ng-pattern="vm.regexEmail" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.emailId }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.pharmacynamemail.$dirty && vm.myDataForm.pharmacynamemail.$error.required">
+                            <p class="validate-message">Contact Person Email-Id required.</p>
+                        </div>
+                    </div>
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.pharmacySignupModel.mobileNumber " maxlength="11" ng-minlength="11"
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.mobileNumber }"
+                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="Pharmacy Tel number" required>
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.mobileNumber.$dirty && vm.myDataForm.mobileNumber.$error.required">
+                            <p class="validate-message">Pharmacy Tel number.</p>
+                        </div>
+                    </div>
+                    <div class="rf-input">
+                     <h5>Only for emergency shifts and emergency texts.</h5>
+                        <input type="text" ng-model="vm.pharmacySignupModel.phoneNumber" maxlength="11" ng-minlength="11"
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.phoneNumber }"
+                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="Contact Person Mobile Number" required>
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.phoneNumber.$dirty && vm.myDataForm.phoneNumber.$error.required">
+                            <p class="validate-message">Contact Person Mobile Number required.</p>
+                        </div>
+                    </div>
+                    <h5>Must be atleast 8 characters one uppercase and one number</h5>
+                    <div class="rf-input">
+                        <input type="password" ng-model="vm.pharmacySignupModel.password " name="password" placeholder="Password" ng-pattern="vm.passwordRegex" ng-minlength="8" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.password }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.password.$dirty && vm.myDataForm.password.$error.required">
+                            <p class="validate-message">Password is required.</p>
+                        </div>
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.password.$dirty && vm.myDataForm.password.$error.pattern">
+                            <p class="validate-message">Password is should be at least one uppercase and one number</p>
+                        </div>
+                    </div>
+                    <div class="rf-input">
+                        <input type="password" ng-model="vm.confirmPassword " name="repassword" placeholder="Re-type Password" ng-pattern="vm.passwordRegex" ng-minlength="8" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.confirmPassword }">
+                        <span class="validation-error"
+                              ng-show="vm.pharmacySignupModel.password != vm.confirmPassword">
+                            <p class="validate-message">Password does not match.</p>
+                        </span>
+                    </div>
+
+                    <div class="rf-input">
+
+                        <input type="text" ng-model="vm.pharmacySignupModel.address1 " name="address1" placeholder="Address 1" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.address1 }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.pharmacyname.$dirty && vm.myDataForm.pharmacyname.$error.required">
+                            <p class="validate-message">Address1 Name is required.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="rf-input">
+
+                        <input type="text" ng-model="vm.pharmacySignupModel.address2 " name="address2" placeholder="Address 2">
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.pharmacySignupModel.postalCode " name="address1" placeholder="Postal Code" ng-pattern="vm.ukPostCodeRegex" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.pharmacySignupModel.postalCode }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.submitted && !vm.pharmacySignupModel.postalCode">
+                            <p class="validate-message"> Can accept the following formats: GIR 0AA,A9 9ZZ,A99 9ZZ,AB9 9ZZ,AB99 9ZZ,A9C 9ZZ,AD9E 9ZZ.</p>
+                        </div>
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.pharmacySignupModel.city " name="city" placeholder="city">
+                    </div>
+
+                    <button type="button" class="psr-rf-sub" ng-click=" vm.SinglePharmacySignup()">Sign Up for free</button>
+                    <p id="rf-privacy-txt">By clicking 'Sign Up for free' you are agreeing with our <a ui-sref="user1.info({id:'pharmacyterms&conditions'})">terms and Privacy Policy</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

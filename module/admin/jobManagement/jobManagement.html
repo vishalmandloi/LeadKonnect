@@ -1,0 +1,126 @@
+<!-- `<h2>Job Management</h2> -->
+<div class="clearfix"></div>
+
+<div class="" ng-init="vm.GetPharmacyForDropdown()">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="dmp-container">
+                `<h2>Job Management</h2>
+                    <ul class="nav nav-tabs">
+                        <li ng-class="{'active':vm.active==0}" ng-click="vm.ActiveTab(0)"><a>All Listed Jobs</a></li>
+                        <li ng-class="{'active':vm.active==2}" ng-click="vm.ActiveTab(2)"><a>Approved Jobs</a></li>
+                        <li ng-class="{'active':vm.active==4}" ng-click="vm.ActiveTab(4)"><a>Completed Jobs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div>
+                            <select id="jobs-table-sort" ng-model="vm.jobReqModel.pharmacyId" ng-change="vm.GetPharmacyJob()">
+                                <option value="">All</option>
+                                <option ng-repeat="d in  vm.phatmacyList" value="{{d.id}}">{{d.value}}</option>
+                            </select>
+
+
+                            <input id="datepick1" type="text" readonly="readonly" ng-change="vm.GetPharmacyJob()"
+                                   ng-click="openFromDatePicker($event)"
+                                   datepicker-popup="{{format}}"
+                                   ng-model="vm.jobReqModel.date"
+                                   is-open="fromDateopened"
+                                   datepicker-options="dateOptions"
+                                   date-disabled="disabled(date, mode)"
+                                   class="cal-text"
+                                   close-text="Close"
+                                   placeholder="Select Date" required />
+
+                            <!--table Start here-->
+
+                            <div id="examples">
+                                <div class="table-responsive default-skin demo content mCustomScrollbar">
+                                    <table class="table table-bordered table-hover jobs-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Day</th>
+                                                <th>Time</th>
+                                                <th>Job ID</th>
+                                                <th>Pharmacy</th>
+                                                <th>Rate</th>
+                                                <!--<th>Break</th>-->
+                                                <th>Travel Expense</th>
+                                                <th>Status</th>
+                                                <th ng-show="vm.active==0">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="(key,d) in  vm.jobList">
+                                                <td>{{vm.ConvertDate(d.dateFrom)| date:'MMM-dd-yyyy'}}</td>
+                                                <td>{{vm.ConvertDate(d.dateFrom) | date:'EEE'}}</td>
+                                                <td>{{d.timeFrom+'-'+d.timeTo}}</td>
+                                                <td>{{d.jobUniqueId}}</td>
+                                                <td>{{d.pharmacyName}}</td>
+                                                <td>{{d.costPerHour}}/hr</td>
+                                                <!--<td>30mins</td>-->
+                                                <td>paid</td>
+                                                <td>
+                                                    <a ng-show="d.jobStatus=='0'" class="btn btn-primary btn-admin" ui-sref="admin.editjob({id:d.jobId,pid:vm.jobReqModel.pharmacyId})"><i class="fa fa-edit"></i></a>
+                                                    <button class="send-invoice-btn" data-toggle="modal" data-target="#waiting-locum" ng-click="vm.GetAppliedJobLocum(d)">
+                                                        <!--  <span>{{d.jobStatus=='0'?'Waiting for Locums':'View Locum'}}</span> -->
+
+                                                        <span ng-show="d.ApplyCount == 0 && d.jobStatus=='0'">Waiting for Locums </span>
+                                                        <span ng-show="d.ApplyCount >0 && d.jobStatus=='0'">Locum Available ({{d.ApplyCount}}) </span>
+                                                        <span ng-show="d.ApplyCount > 0 && d.jobStatus != '0'">View Locum </span>
+                                                    </button>
+                                                </td>
+                                                <td ng-show="vm.active==0"> <button ng-click="vm.confirmbox('Delete',d)"><i class="fa fa-trash"></i></button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!--<div class="alert alert-info" role="alert" ng-show="vm.jobList==0">No record found</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="waiting-locum" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Waiting for Locums</h4>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive default-skin demo content mCustomScrollbar">
+                    <table class="table table-bordered table-hover jobs-table">
+                        <thead>
+                            <tr>
+                                <th>Pharmacist Name</th>
+                                <th>Shifts Worked</th>
+                                <th>Star Rating</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="(akey,l) in  vm.appliedLocums">
+                                <td><a ui-sref="pharmacy.profile({id:l.locumId})">{{l.locumName}}</a></td>
+                                <td>10:00 - 18:00</td>
+                                <td><img src="images/stars.png" /></td>
+                                <td>
+                                    <button ng-show="l.status=='1'" class="ac-rj-btn" ng-click="vm.ApprovJob(l,1)">Accept</button>
+                                    <button ng-show="l.status=='2'" class="ac-rj-btn" ng-click="vm.ApprovJob(l,2)">Complete</button>
+                                    <span ng-show="l.status=='5'" class="ac-rj-btn">Rejected</span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,122 @@
+﻿
+<header>
+    <div class="header dsh-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo pull-left">
+                        <a href="index.html"><img src="images/logo.png" alt="" title="" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="header-right">
+                     <nav class="custom-menu" ng-class="{ customMenuMb : clickStatus == true }" role="navigation">
+                            <div class="menu-close-btn"><a href="javascript:void(0)" ng-click='closeMenu()'><span class="fa fa-close"> <p>CLOSE</p></span></a></div>
+                            <div class="clearfix"></div>
+                            <ul class="mb-menu-list list-unstyled">
+                                <li><a ui-sref="headoffice.dashboard" ng-click='setTab(1)' ng-class="{'active':tab==1}"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="headoffice.accountinfo" ng-click='setTab(2)'  ng-class="{'active':tab==2}"><i class="icon-business12"></i>Account Info</a></li>
+                                <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>
+                        </nav>
+                        <!-- <a href="#" class="nav-toggle"><p>Menu</p> <span class="fa fa-bars"></span></a> -->
+                         <a href="javascript:void(0)" ng-click='openMenu()' class="nav-toggle"><p>Menu</p> <span class="fa fa-bars"></span></a>
+                        <div class="dsh-menu">
+                            <!--<ul class="dsh-menu-list list-unstyled list-inline">
+                                <li><a ui-sref="headoffice.dashboard"  ng-click='setTab(1)'  ng-class="{'active':tab==1}"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="headoffice.accountinfo"  ng-click='setTab(2)'  ng-class="{'active':tab==2}"><i class="icon-business12"></i>Account Info</a></li>
+                                <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>-->
+
+                            <ul class="dsh-menu-list list-unstyled list-inline">
+                                <li><a ui-sref="headoffice.dashboard" ui-sref-active="active"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="headoffice.accountinfo" ui-sref-active="active"><i class="icon-business12"></i>Account Info</a></li>
+                                <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+
+    <div ui-view="menuContent"></div>
+
+</div>
+
+
+<footer>
+    <div class="footer" style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="f-col1">
+
+                        <h5>Company</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">What our dfhjhgd say? </a></li>
+                            <li><a href="#">Contact Us </a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col2">
+                        <h5>Locums</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col3">
+                        <h5>Pharmacies</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col4">
+                        <h5>Social Media</h5>
+                        <ul class="list-unstyled list-inline footer-social-list">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="copyrights">
+     <div class="container">
+          <p class="col-sm-3" style="padding-top: 13px">© Smart Locum Inc.</p>
+          <div class="col-sm-4" style="float: right; text-align: right;">
+            <div class="f-col4">
+                <ul class="list-unstyled list-inline footer-social-list">
+                    <li style="padding-right: 20px"><a href="#/user1/info/pharmacyfaqs" target="_blank">FAQs</a></li>
+                    <li><a href="https://www.facebook.com/SmartLocum" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.twitter.com/SmartLocum" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/smartlocum" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+</footer>

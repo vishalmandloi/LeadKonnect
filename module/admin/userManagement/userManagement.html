@@ -1,0 +1,209 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="dmp-container">
+                <h2>User Managament</h2>
+                <div class="tab-content">
+                    <div class="alert alert-success" role="alert" ng-show="vm.SuccessMsg">{{vm.SuccessMsg}}</div>
+                    <div class="alert alert-danger" role="alert" ng-show="vm.ErrorMsg">{{vm.ErrorMsg}}</div>
+                    <div id="available-job" class="tab-pane fade in active">
+                        <input type="text" class="searchBox" ng-model="vm.searchText" placeholder="search......" />
+                        <button class="admin-search-btn" ng-click="vm.GetAllLocums()"><i class="fa fa-search"></i></button>
+                        <button class="admin-reset-btn" ng-click="vm.searchText='';vm.GetAllLocums()">Reset</button>
+                        <br />
+                        <div class="alert alert-info" role="alert" ng-show="vm.locumList.length==0">No record found</div>
+                        <div ng-show="vm.locumList.length>0" class=" table-responsive default-skin demo clearfix" ng-init="vm.GetAllLocums()">
+                            <div ng-scrollbars ng-scrollbars-config="config" ng-scrollbars-update=updateScrollbar class="table-responsive default-skin demo content">
+                                <table class="table table-bordered table-hover jobs-table">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>GPHCNumber</th>
+                                            <th>Email</th>
+                                            <th>DOB</th>
+                                            <th>Mobile Number</th>
+                                            <th>Postal Code</th>
+                                            <th>Address</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key,d) in vm.locumList">
+                                            <td>{{d.ROW_NUM}}</td>
+                                            <td>{{d.firstName}}</td>
+                                            <td>{{d.lastName}}</td>
+                                            <td>{{d.GPHCNumber}}</td>
+                                            <td>{{d.emailId}}</td>
+                                            <td>{{d.dob}}</td>
+                                            <td>{{d.mobileNumber}}</td>
+                                            <td>{{d.postalCode}}</td>
+                                            <td>{{d.userAddress}}</td>
+                                            <td>
+                                                <button ng-show="d.isDocumentUploaded" class="btn-admin btn btn-doc" ng-click="vm.viewDocuments(d)"><span>Documents</span></button>
+                                                <button class="btn btn-info btn-admin" ng-show="d.isActive" ng-click="vm.confirmbox ('Block',d)"><span>Block</span></button>
+                                                <button class="btn btn-success btn-admin" ng-hide="d.isActive" ng-click="vm.confirmbox ('Unblock',d)"><span>Unblock</span></button>
+                                                <button class="btn btn-danger btn-admin" ng-click="vm.confirmbox('Delete',d)"><span><i class="fa fa-trash"></i></span></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--<table ng-table="tableParams" cellpadding="0" cellspacing="0" border="0" class="table-hover jobs-table datatable-1 table table-bordered table-striped  display dataTable" aria-describedby="DataTables_Table_0_info" style="width: 100%;">
+                                <tr ng-repeat="d in $data track by $index" class="gradeA odd">
+                                    <td data-title="'S.No.'" style=" vertical-align: middle; width:10px">
+                                        <span ng-bind="d.ROW_NUM"></span>
+                                    </td>
+                                    <td data-title="'First Name'" style=" vertical-align: middle;">
+                                        <span ng-bind="d.firstName"></span>
+                                    </td>
+                                    <td data-title="'Last Name'" style=" vertical-align: middle;">
+                                        <span ng-bind="d.lastName"></span>
+                                    </td>
+                                    <td data-title="'Email'" style=" vertical-align: middle;">
+                                        <span ng-bind="d.emailId"></span>
+                                    </td>
+                                    <td data-title="'GPHCNumber'" style=" vertical-align: middle;">
+                                        <span ng-bind="d.GPHCNumber"></span>
+                                    </td>
+                                    <td data-title="'Mobile'" style=" vertical-align: middle; width:10px">
+                                        <span ng-bind="d.mobileNumber"></span>
+                                    </td>
+                                    <td data-title="'levelOfExp'" style=" vertical-align: middle;">
+                                        <span ng-bind="d.levelOfExp"></span>
+                                    </td>
+                                    <td data-title="'indemnityInsurance'" style=" vertical-align: middle;">
+                                        <span ng-bind="d.indemnityInsurance"></span>
+                                    </td>
+                                    <td data-title="'DBSCheck'" style=" vertical-align: middle;">
+                                        <span ng-bind="d.DBSCheck"></span>
+                                    </td>
+                                    <td data-title="'WorkVisaPermit'" style=" vertical-align: middle;">
+                                        <span ng-bind="d.WorkVisaPermit"></span>
+                                    </td>
+                                    <td data-title="'Action'" style="vertical-align: middle;">
+                                        <button class="apply-btn" ng-show="d.isActive" ng-click="confirmbox('Block',d)">Block</button>
+                                        <button class="apply-btn" ng-hide="d.isActive" ng-click="confirmbox('Unblock',d)">Unblock</button>
+                                        <button class="apply-btn" ng-click="confirmbox('Delete',d)">Delete</button>
+                                    </td>
+                                </tr>
+                            </table>-->
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Branch poup start here-->
+<div class="modal fade" id="document_poup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog LoginDailog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Documents
+                <button type="button" class="close PopClose" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only"></span></button>
+            </div>
+            <div class="module-body">
+                <div class="mid-sec-popup">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="du-doc-upload">
+                                <h2>Essential Documents</h2>
+                                <p class="col-sm-12">Once your documents have been approve you will be able to start booking up the jobs you want.</p>
+                                <div class="clearfix"></div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-md-3"><label>ID Driving License/Passprot</label></div>
+                                    <a ng-show="vm.doccument.ID_DL_Passport" href="{{vm.siteUrl+vm.doccument.ID_DL_Passport}}" target="_blank">Download</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-md-3"><label>Indemnity Insurance</label></div>
+                                    <a ng-show="vm.doccument.indemnityInsurance" href="{{vm.siteUrl+vm.doccument.indemnityInsurance}}" target="_blank">Download</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-md-3"><label>DBS Check</label></div>
+                                    <a ng-show="vm.doccument.DBSCheck" href="{{vm.siteUrl+vm.doccument.DBSCheck}}" targe target="_blank">Download</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-4 col-md-3"><label>Work Permit Visa? if applicable</label></div>
+                                    <a ng-show="vm.doccument.workVisaPermit" href="{{vm.siteUrl+vm.doccument.workVisaPermit}}" target="_blank">Download</a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <section class="documents-declaration">
+                        <div class="dd-title">
+                            <h2>Declarations</h2>
+                            <p>*All declarations must be completed inorder to be approved.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Do you have a legal right to work in UK?*</label></div>
+                            <span>{{vm.doccument.isLegalRightToWork=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Have you been refused any Fitness to Purchase practise applications?*</label></div>
+                            <span>{{vm.doccument.isRefusedFitnessPurchase=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you VAT Registered?</label></div>
+                            <span>{{vm.doccument.isVATRegistered=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you accredited to provide Medicine Usage Reviews(MURS)?</label></div>
+                            <span>{{vm.doccument.isMURS=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you accredited to provide New Medicine Service(NMS)?</label></div>
+                            <span>{{vm.doccument.isNMS=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you accredited to provide Flu Vaccines?</label></div>
+                            <span>{{vm.doccument.isProvideFLUVaccine=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you Repeat Dispensing accredited?</label></div>
+                            <span>{{vm.doccument.isRepeatDispensing=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Have you had training on safe guarding children and vulnerable adults?</label></div>
+                            <span>{{vm.doccument.isSafeGuardingChild_Adults=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-md-6 col-xs-8"><label>Do you have a current NHS SmartCard?</label></div>
+                            <span>{{vm.doccument.isNHSSmartCard=='1'?'YES':'NO'}}</span>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                    </section>
+
+
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,213 @@
+﻿
+<div class="clearfix"></div>
+
+<div class="locum-profile" ng-init="vm.GetPharmacyProfile();vm.GetITSystemForDropdown();vm.GetBranchList()">
+    <div class="container">
+        <div class="row">
+            <form name="vm.myDataForm">
+                <div class="col-sm-12">
+                    <div class="dmp-container">
+
+                        <div class="tab-content">
+                            <!--Pharmacy Info-->
+                            <div>
+                                <div class="ph-accoutn-info">
+                                    <div class="form-group">
+                                        <label class="col-sm-3">
+                                            <img ng-if="vm.profileModel.profileImage==''" src="images/mp-dp.png" class="pc-dp-profile-img img-responsive" id="blah" />
+                                            <img ng-if="vm.profileModel.profileImage!=''" src="{{vm.profileModel.profileImage}}" class="pc-dp-profile-img img-responsive" id="blah" />
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <h3> {{vm.profileModel.pharmacyName}}</h3><br />
+                                            <!-- <h4 ng-show="vm.timingList.length>0">{{vm.profileModel.address1+','+vm.profileModel.address2+','+vm.profileModel.city+','+vm.profileModel.postalCode}}</h4>
+                                            <h4 ng-hide="vm.timingList.length>0">{{vm.profileModel.address1}}</h4> -->
+                                            <h4 ng-show="vm.profileModel.isSinglePharmacy==true">{{vm.profileModel.address1+','+vm.profileModel.address2+','+vm.profileModel.city+','+vm.profileModel.postalCode}}</h4>
+
+                                              <h4 ng-show="vm.profileModel.isSinglePharmacy==false">{{vm.profileModel.address2+','+vm.profileModel.city+','+vm.profileModel.postalCode}}</h4>
+
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+
+                                <div class="ph-accoutn-info" ng-show="vm.timingList.length>0">
+                                    <div class="form-group">
+                                        <label class="col-sm-3">ODS Code</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" readonly ng-model="vm.profileModel.ODSCode" class="form-control finances-txtbox" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.profileModel.ODSCode}">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="ph-accoutn-info">
+                                    <div class="form-group">
+                                        <label class="col-sm-3">First Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" readonly ng-model="vm.profileModel.firstName" class="form-control finances-txtbox" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.profileModel.firstName}">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="ph-accoutn-info">
+                                    <div class="form-group">
+                                        <label class="col-sm-3">Last Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" readonly ng-model="vm.profileModel.lastName" class="form-control finances-txtbox" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.profileModel.lastName}">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+<!--                                 <div class="ph-accoutn-info">
+                                    <div class="form-group">
+                                        <label class="col-sm-3">Email Address</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" readonly ng-model="vm.profileModel.emailId" class="form-control finances-txtbox" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.profileModel.emailId}">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="ph-accoutn-info">
+                                    <div class="form-group">
+                                        <label class="col-sm-3">Contact Person Mobile No.</label>
+                                        <div class="col-sm-9">
+                                            <input readonly type="text" ng-model="vm.profileModel.mobileNumber" onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control finances-txtbox" required
+                                                   maxlength="11" ng-minlength="11" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.profileModel.mobileNumber}">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div> -->
+
+                            </div>
+
+                            <!--Account Info-->
+                            <div>
+                                <div class="pharmcy-info-container">
+                                    <div class="">
+                                        <div class="it-systems">
+                                            <label class="col-sm-3">IT System :</label>
+                                            <div class="col-sm-9">
+                                                <select style="-webkit-appearance: inherit;" disabled="disabled" class="form-control finances-txtbox" ng-model="vm.profileModel.ITSystemId">
+                                                    <option value="0" selected="selected">Select</option>
+                                                    <option value="{{sys.id}}" ng-repeat="sys in vm.ItSystemList">{{sys.value}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="locum-brk">
+                                            <label class="col-sm-3">Break for Locum :</label>
+                                            <div class="col-sm-9">
+                                             <!--    <select disabled="disabled" class="lb-brk finances-txtbox" ng-model="vm.profileModel.isBreakTimePaid">
+                                                    <option value="1">Paid</option>
+                                                    <option value="0" selected>Unpaid</option>
+                                                </select> -->
+                                                 <input type="text" readonly  style="width:91px;" class="lb-minutes finances-txtbox" value="{{vm.profileModel.isBreakTimePaid==1?'Paid':'Unpaid'}}">
+                                                <input type="text" readonly ng-model="vm.profileModel.breakTime" style="width:91px;" class="lb-minutes finances-txtbox">
+                                                <!-- <select disabled="disabled" class="lb-brk-min finances-txtbox" ng-model="vm.profileModel.breakTime">
+                                                    <option value="0">Minutes</option>
+                                                    <option value="15">15</option>
+                                                    <option value="30">30</option>
+                                                    <option value="45">45</option>
+                                                    <option value="60">60</option>
+                                                    <option value="75">75</option>
+                                                    <option value="90">90</option>
+                                                    <option value="105">105</option>
+                                                    <option value="120">120</option>
+                                                </select> -->
+                                                <!--<input type="text" placeholder="Minutes"> -->
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="travel-expense">
+                                            <label class="col-sm-3">Travel Expense :</label>
+                                            <div class="col-sm-9">
+                                                <select style="-webkit-appearance: inherit; height:33px;"  disabled="disabled" class="lb-paid finances-txtbox" ng-model="vm.profileModel.travelExpense">
+                                                    <option value="1">Paid</option>
+                                                    <option value="2">Paid over 40 miles</option>
+                                                    <option value="3" selected>Unpaid</option>
+                                                </select>
+                                                <input readonly class="lb-minutes finances-txtbox" type="text" ng-model="vm.profileModel.travelExpensePerMile" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="Pence per mile" ng-disabled="vm.profileModel.travelExpense=='3'">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="table-responsive default-skin demo content mCustomScrollbar ph-single-info-tbl" ng-show="vm.timingList.length>0">
+                                        <table class="table table-bordered jobs-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Day</th>
+                                                    <th>Start Time</th>
+                                                    <th>Finish Time</th>
+                                                    <th>Close</th>
+                                                </tr>
+                                            </thead>
+                                            <tr ng-repeat="d in vm.timingList">
+                                                <td>{{d.dayId==1?'Sunday':d.dayId==2?'Monday':d.dayId==3?'Tuesday':d.dayId==4?'Wednesday':d.dayId==5?'Thusday':d.dayId==6?'Friday':'Saturday'}}</td>
+                                                <td>
+                                                    {{d.startTime}}
+                                                </td>
+                                                <td>
+                                                    {{d.finishTime}}
+                                                </td>
+                                                <td>
+                                                    <span>
+                                                        <input disabled="disabled" type="checkbox" class="finances-txtbox" ng-model="d.isOpen">
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <!--Branch List-->
+                                    <div class="table-responsive ph-single-info-tbl" ng-show="vm.branchList.length>0">
+                                        <table class="table table-bordered jobs-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Branch No</th>
+                                                    <th>Branch Name</th>
+                                                    <th>ODS code</th>
+                                                    <th>Branch mob No.</th>
+                                                    <th>Branch tel No.</th>
+                                                    <th>city</th>
+                                                    <th>Branch Address</th>
+                                                    <th>Address2</th>
+                                                    <th>Postal Code</th>
+                                                    <th>Opening Hours</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="bl in vm.branchList">
+                                                    <td>{{bl.branchNo}}</td>
+                                                    <td>{{bl.branchName}}</td>
+                                                    <td>{{bl.ODSCode}}</td>
+                                                    <td>{{bl.mobileNumber}}</td>
+                                                    <td>{{bl.telNumber}}</td>
+                                                    <td>{{bl.city}}</td>
+                                                    <td>{{bl.branchAddress}}</td>
+                                                    <td>{{bl.address2}}</td>
+                                                    <td>{{bl.postalCode}}</td>
+                                                    <td class="op-hr" cellpadding="0">
+                                                        <div ng-repeat="d in bl.timingSlot">
+                                                            {{d.dayId==1?'Sunday':d.dayId==2?'Monday':d.dayId==3?'Tuesday':d.dayId==4?'Wednesday':d.dayId==5?'Thusday':d.dayId==6?'Friday':'Saturday'}}
+                                                            ({{d.isOpen?'Closed' :(d.startTime+'-'+d.finishTime)}})
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

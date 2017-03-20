@@ -1,0 +1,227 @@
+    <section class="profile-container locum-profile-container" id='profile-container'>
+        <div class="col-md-2 col-sm-2">
+            <div class="pc-dp">
+                <img ng-if="vm.profileModel.profileImage==''" src="images/mp-dp.png" class="pc-dp-profile-img img-responsive" id="blah" />
+                <img ng-if="vm.profileModel.profileImage!=''" src="{{vm.profileModel.profileImage}}" class="pc-dp-profile-img img-responsive" id="blah" />
+                <span class="select-wrapper" ng-show="profileState==1">
+                    <input type="file" id="profilePic" name="profilePic" onchange="readURL(this);">
+                </span>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <div class="pc-name">
+                <h3>{{vm.profileModel.FirstName+' '+vm.profileModel.LastName}}</h3>
+                <h4>GPHC No. : {{vm.profileModel.GPHCNumber}}</h4>
+                <ul class="star-list list-unstyled list-inline">
+
+                   <li ng-repeat="n in vm.getRange(vm.profileModel.rating,0)"><img src="images/star-f.png">
+
+                   </li>
+                    <li ng-repeat="n in vm.getRange(vm.profileModel.rating,5)"><img src="images/star-u.png">
+
+                   </li>
+
+                </ul>
+                <!--<p>234 Reviews</p>-->
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+            <div class="pc-status">
+                <div style="margin-top: 0px" ng-class="{ availableBox: vm.DocDecModel.isMURS==1, unavailableBox : vm.DocDecModel.isMURS==2 }">
+                    <p class='mur' style="">MUR</p>
+                    <i ng-show='vm.DocDecModel.isMURS==1' class='fa fa-check'></i>
+                    <i ng-show='vm.DocDecModel.isMURS==2' class='fa fa-close'></i>
+                </div>
+                <div class="numCircle" ng-class="{ availableBox : vm.DocDecModel.isNMS==1, unavailableBox : vm.DocDecModel.isNMS==2  }">
+                    <p class='nms'>NMS</p>
+                    <i ng-show='vm.DocDecModel.isNMS==1' class='fa fa-check'></i>
+                    <i ng-show='vm.DocDecModel.isNMS==2' class='fa fa-close'></i>
+                </div>
+                <div class="fluCircle" ng-class="{ availableBox: vm.DocDecModel.isProvideFLUVaccine==1, unavailableBox : vm.DocDecModel.isProvideFLUVaccine==2  }">
+                    <p class='flu'>FLU</p>
+                    <i ng-show='vm.DocDecModel.isProvideFLUVaccine==1' class='fa fa-check'></i>
+                    <i ng-show='vm.DocDecModel.isProvideFLUVaccine==2' class='fa fa-close'></i>
+                </div>
+            </div>
+            <div class="pc-image">
+                <a href='https://www.cppe.ac.uk/view-record?id={{vm.profileModel.GPHCNumber}}' target="
+                _blank"><img src='../../../images/cppe.jpg'/></a>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <div class="pc-progress">
+                <h5>Profile 85% compelete</h5>
+                <div class="progress" style="height:12px;">
+                    <div class="progress-bar" role="progressbar"
+                         aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%;background-color:#003761;height:12px;">
+                    </div>
+                </div>
+            </div>
+                  <div class="add-favt-locum" ng-show="!isFavorite">
+            <button class="add-favt-locum-btn" ng-click="vm.AddFavorite()">Add to Favourite Locum List</button>
+        </div>
+        <div class="add-favt-locum" ng-show="isFavorite">
+            <button class="rem-favt-locum-btn" ng-click="vm.RemoveFavorite()">Remove From Favourite Locum List</button>
+        </div>
+        </div>
+    </section>
+<div class="clearfix"></div>
+<div class="container">
+<div class="locum-profile-table">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="profile-page">
+                <div class="col-sm-12">
+                    <h4 class="loe">Name / Level of Experience</h4>
+                    <div class="its-section lp-its-section">
+                        <div class="col-sm-3 its-title">
+                            <h4 class="text-center its-section-title">Name</h4>
+                            <div class="col-sm-12">Compass</div>
+                        </div>
+
+                        <div class="col-sm-9">
+                            <h4 class="text-center its-section-title">Level of Experience</h4>
+                            <div class="col-sm-4"><input type="radio" name="level" ng-model="vm.profileModel.levelOfExp.compass" value="1" class="readonly"> High</div>
+                            <div class="col-sm-4"><input type="radio" name="level" ng-model="vm.profileModel.levelOfExp.compass" value="2" class="readonly"> Medium</div>
+                            <div class="col-sm-4"><input type="radio" name="level" ng-model="vm.profileModel.levelOfExp.compass" value="3" class="readonly"> Low</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="its-section">
+                        <div class="col-sm-3 its-title">
+                            <div class="col-sm-12">Nexphase</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-sm-4"><input type="radio" name="nexphase" ng-model="vm.profileModel.levelOfExp.nextPhase" value="1" class="readonly"> High</div>
+                            <div class="col-sm-4"><input type="radio" name="nexphase" ng-model="vm.profileModel.levelOfExp.nextPhase" value="2" class="readonly"> Medium</div>
+                            <div class="col-sm-4"><input type="radio" name="nexphase" ng-model="vm.profileModel.levelOfExp.nextPhase" value="3" class="readonly"> Low</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="its-section">
+                        <div class="col-sm-3 its-title">
+                            <div class="col-sm-12">Proscript</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-sm-4"><input type="radio" name="proscript" ng-model="vm.profileModel.levelOfExp.proScript" value="1" class="readonly"> High</div>
+                            <div class="col-sm-4"><input type="radio" name="proscript" ng-model="vm.profileModel.levelOfExp.proScript" value="2" class="readonly"> Medium</div>
+                            <div class="col-sm-4"><input type="radio" name="proscript" ng-model="vm.profileModel.levelOfExp.proScript" value="3" class="readonly"> Low</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="its-section">
+                        <div class="col-sm-3 its-title">
+                            <div class="col-sm-12">Proscript Link</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-sm-4"><input type="radio" name="proscript-link" ng-model="vm.profileModel.levelOfExp.proScriptLink" value="1" class="readonly"> High</div>
+                            <div class="col-sm-4"><input type="radio" name="proscript-link" ng-model="vm.profileModel.levelOfExp.proScriptLink" value="2" class="readonly"> Medium</div>
+                            <div class="col-sm-4"><input type="radio" name="proscript-link" ng-model="vm.profileModel.levelOfExp.proScriptLink" value="3" class="readonly"> Low</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="its-section">
+                        <div class="col-sm-3 its-title">
+                            <div class="col-sm-12">Pharmacy Manager</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-sm-4"><input type="radio" name="ph-manager" ng-model="vm.profileModel.levelOfExp.pharmacyManager" value="1" class="readonly"> High</div>
+                            <div class="col-sm-4"><input type="radio" name="ph-manager" ng-model="vm.profileModel.levelOfExp.pharmacyManager" value="2" class="readonly"> Medium</div>
+                            <div class="col-sm-4"><input type="radio" name="ph-manager" ng-model="vm.profileModel.levelOfExp.pharmacyManager" value="3" class="readonly"> Low</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="its-section">
+                        <div class="col-sm-3 its-title">
+                            <div class="col-sm-12">Positive Solutions</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-sm-4"><input type="radio" name="solutions" ng-model="vm.profileModel.levelOfExp.positiveSolution" value="1" class="readonly"> High</div>
+                            <div class="col-sm-4"><input type="radio" name="solutions" ng-model="vm.profileModel.levelOfExp.positiveSolution" value="2" class="readonly"> Medium</div>
+                            <div class="col-sm-4"><input type="radio" name="solutions" ng-model="vm.profileModel.levelOfExp.positiveSolution" value="3" class="readonly"> Low</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="its-section">
+                        <div class="col-sm-3 its-title">
+                            <div class="col-sm-12">Analyst</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-sm-4"><input type="radio" name="analyst" ng-model="vm.profileModel.levelOfExp.analyst" value="1" class="readonly"> High</div>
+                            <div class="col-sm-4"><input type="radio" name="analyst" ng-model="vm.profileModel.levelOfExp.analyst" value="2" class="readonly"> Medium</div>
+                            <div class="col-sm-4"><input type="radio" name="analyst" ng-model="vm.profileModel.levelOfExp.analyst" value="3" class="readonly"> Low</div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+              <div class="verified-doc">
+                <h3>
+                    Verified Documents
+                    <span class="verified" ng-show="vm.DocDecModel.ID_DL_Passport!=null &&vm.DocDecModel.DBSCheck!=null && vm.DocDecModel.indemnityInsurance!=null && vm.DocDecModel.WorkVisaPermit!=null">(<i class="fa fa-check"></i> Verified ID)</span>
+                    <!-- <span class="notVerified" ng-show="vm.DocDecModel.ID_DL_Passport==null || vm.DocDecModel.DBSCheck==null || vm.DocDecModel.indemnityInsurance==null || vm.DocDecModel.WorkVisaPermit==null">(Verification Pending)</span> -->
+                </h3>
+                <ul>
+                    <li>
+                        <div class="row">
+                           <!--  <div class="col-md-1">
+                                <i ng-show="vm.DocDecModel.ID_DL_Passport==null" class="fa fa-circle notVerified"></i>
+                                <i ng-show="vm.DocDecModel.ID_DL_Passport==2" class="fa fa-circle notVerified"></i>
+                                <i ng-show="vm.DocDecModel.ID_DL_Passport==1" class="fa fa-circle verified"></i>
+                            </div> -->
+                            <div class="col-md-11">
+                                ID Verified
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                           <!--  <div class="col-md-1">
+                                <i ng-show="vm.DocDecModel.DBSCheck==null" class="fa fa-circle notVerified"></i>
+                                <i ng-show="vm.DocDecModel.DBSCheck==2" class="fa fa-circle notVerified"></i>
+                                <i ng-show="vm.DocDecModel.DBSCheck==1" class="fa fa-circle verified"></i>
+                            </div> -->
+                            <div class="col-md-11">
+                                DBS
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">                            
+                           <!--  <div class="col-md-1">
+                                <i ng-show="vm.DocDecModel.indemnityInsurance==null" class="fa fa-circle notVerified"></i>
+                                <i ng-show="vm.DocDecModel.indemnityInsurance==2" class="fa fa-circle notVerified"></i>
+                                <i ng-show="vm.DocDecModel.indemnityInsurance==1" class="fa fa-circle verified"></i>
+                            </div> -->
+                            <div class="col-md-11">
+                                Indemnity Insurance
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                           <!--  <div class="col-md-1">
+                                <i ng-show="vm.DocDecModel.WorkVisaPermit==null" class="fa fa-circle notVerified"></i>
+                                <i ng-show="vm.DocDecModel.WorkVisaPermit==2" class="fa fa-circle notVerified"></i>
+                                <i ng-show="vm.DocDecModel.WorkVisaPermit==1" class="fa fa-circle verified"></i>
+                            </div> -->
+                            <div class="col-md-11">
+                                Eligible to work in the UK if applicable
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+          </div>
+</div>

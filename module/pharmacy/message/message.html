@@ -1,0 +1,41 @@
+<div class="clearfix"></div>
+
+<div class="">
+    <div class="container pharmacy_msg">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="dmp-container">
+                    <div class="tab-content">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div id="examples">
+                                    <div ng-scrollbars ng-scrollbars-config="config" ng-scrollbars-update=updateScrollbar class="table-responsive default-skin demo content">
+                                        <ul class="message-list">
+                                            <li ng-repeat="job in vm.jobDetailsPharmacy track by $index" data-ng-class="{'active' : toggleObject.item == $index}">
+                                                <div class="profile-bar" ng-click="vm.showJobMessage(job);toggleObject.item = $index" ng-init="$index==0 ? vm.showJobMessage(job):''">
+                                                    <h5 ng-init="locumName = 'job.locumName'">{{job.jobDisplayId}} ({{job.locumName}})</h5>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">      
+                                <div schroll-bottom="vm.messageResult" class="table-responsive default-skin demo content">
+                                    <div class="mm-msg-section" ng-repeat="msg in vm.messageResult track by $index" ng-class="msg.type == 2 ? 'leftChat' : 'rightChat'" id="{{$last ? 'last' : ''}}">
+                                        <h5>{{ msg.type == 2 && chatData.locumName || msg.pharmacyName }}</h5>
+                                        <p>{{msg.message}}</p>
+                                    </div>
+                                </div>
+                                <div class="space-m"></div>
+                                <div class="mf-textbox">
+                                    <input type="text" class="form-control" ng-model="message" placeholder="Write a Message here" ng-enter="vm.sendMessage(message); message=''">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

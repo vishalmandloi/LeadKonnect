@@ -1,0 +1,107 @@
+
+<header>
+    <div class="header dsh-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo pull-left">
+                        <a href="index.html"><img src="images/logo.png" alt="" title="" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="header-right">
+                        <nav class="custom-menu" role="navigation">
+                            <div class="menu-close-btn"><span class="fa fa-close"> <p>CLOSE</p></span></div>
+                            <div class="clearfix"></div>
+                            <ul class="mb-menu-list list-unstyled">
+                                <li><a ui-sref="admin.dashboard" class="click-link active"><i class="icon-clipboard60"></i> Dashboard</a></li>
+                                <li><a ui-sref="profile.html" class="click-link"><i class="icon-business12"></i> Profile</a></li>
+                                <li><a ui-sref="user.jobs" class="click-link"><i class="icon-portfolio24"></i> Jobs</a></li>
+                                <li><a ui-sref="user.finance" class="click-link"><i class="fa fa-gbp"></i> Finance</a></li>
+                                <li><a href="javascript:void(0)" class="click-link"><i class="icon-ring6"></i> Notification</a></li>
+                                <li><a href="javascript:void(0)" class="click-link"><i class="icon-message"></i> Message</a></li>
+                                <li><a href="settings.html" class="click-link"><i class="icon-three115"></i> Settings</a></li>
+                                <li><a href="javascript:void(0)" class="click-link"><i class="icon-power27"></i> Logout</a></li>
+                            </ul>
+                        </nav>
+                        <a href="#" class="nav-toggle"><p>Menu</p> <span class="fa fa-bars"></span></a>
+                        <div class="dsh-menu">
+                            <!--<ul class="dsh-menu-list list-unstyled list-inline">
+                                <li><a ui-sref="admin.dashboard" ng-class="{'Active':currentState==1}"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="admin.usermanagement"><i class="icon-business12"></i>User Management</a></li>
+                                <li><a ui-sref="admin.pharmacymanagement"><i class="icon-business12"></i>Pharmacy Management</a></li>
+                                <li><a ui-sref="admin.jobmanagament"><i class="icon-portfolio24"></i>Job Managament</a></li>
+                                <li><a ui-sref="admin.financemanagement"><i class="fa fa-gbp"></i>Finance Management</a></li>
+                                <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+
+    <div ui-view="menuContent"></div>
+
+</div>
+
+
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="f-col1">
+                        <h5>Company</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">What our customers say? </a></li>
+                            <li><a href="#">Contact Us </a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col2">
+                        <h5>Locums</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col3">
+                        <h5>Pharmacies</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col4">
+                        <h5>Social Media</h5>
+                        <ul class="list-unstyled list-inline footer-social-list">
+                            <li><a href="https://www.facebook.com/SmartLocum" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.twitter.com/SmartLocum" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/smartlocum" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="copyrights">
+        <p>© Smart Locum Inc.</p>
+    </div>
+</footer>

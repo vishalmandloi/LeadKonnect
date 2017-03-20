@@ -1,0 +1,12 @@
+<div  ng-show="placementAlerts.alert.message" class="alert-wrapper">
+
+	<iui-error-message 
+		error-message="placementAlerts.alert" id="alertId" ng-show="placementAlerts.alert.type == 'danger'">
+	</iui-error-message>
+
+	<iui-success-message 
+		success-message="placementAlerts.alert" id="alertId" ng-show="placementAlerts.alert.type == 'success'">
+	</iui-success-message>
+
+
+</div>

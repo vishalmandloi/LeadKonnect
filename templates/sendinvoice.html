@@ -1,0 +1,39 @@
+<div class="modal fade" id="invoice-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">\
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Send Invoice</h4>
+            </div>
+            <div class="modal-body">
+                <div ng-show="vm.travelExpense!=''" class="add-branch-form-container">
+                    <p>Travel expense {{vm.travelExpense}}</p>
+                    <p>For public transport please upload document for proof</p>
+                    <form name="vm.myDataForm">
+
+                        <div class="form-group">
+                            <label>Total Travel expense (£):</label>
+                            <input type="text" class="form-control" placeholder="Travel expense" ng-model="vm.invoiceModel.travelDistance" required
+                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.invoiceModel.travelDistance }">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Upload Docs</label>
+                            <input type="file" id="uploadDoc" class="form-control">
+
+                        </div>
+
+                    </form>
+                </div>
+
+                <div ng-show="vm.travelExpense==''">
+                    Are you sure you want to Send Invoice ?
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span style="color:red" id="spnError"></span>
+                <button type="submit" class="popup-submit" ng-click="SendInvoice()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

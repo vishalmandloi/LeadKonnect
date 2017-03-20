@@ -1,0 +1,70 @@
+﻿<div class="settings">
+    <div class="container">
+        <h2 class="pharmacy-setting-title">Settings</h2>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="setting-email">
+                    <div class="se-title"><h4><i class="fa fa-heart"></i> Favourite Locums</h4></div>
+                    <div class="table-responsive text-center favt-locum-table">
+
+                        <table class="table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Pharmacist Name</th>
+                                    <th>Jobs worked for you</th>
+                                    <th>Star Rating</th>
+                                    <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="locum in vm.favLocum">
+                                <tr>
+                                    <td><a href="#/pharmacy/profile/{{locum.locumId}}" target="_blank">{{locum.locumName}}</a></td>
+                                    <td>{{locum.shiftsWorked}}</td>
+                                    <td>
+                                           <ul class="star-list list-unstyled list-inline">
+                                               <li ng-repeat="n in vm.getRange(locum.avgRating,0)"><img src="images/star-f.png"></li>
+                                                <li ng-repeat="n in vm.getRange(locum.avgRating,5)"><img src="images/star-u.png"></li>
+
+                                            </ul>
+                                    </td>
+                                    <td ng-click="vm.removeFavorite(locum)"><i class="fa fa-trash"></i></td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>lorem Ipsum</td>
+                                    <td>10:00AM - 06:00PM</td>
+                                    <td><img src="images/stars.png" class="img-responsive favt-locum-stars"></td>
+                                </tr>
+                                <tr>
+                                    <td>lorem Ipsum</td>
+                                    <td>10:00AM - 06:00PM</td>
+                                    <td><img src="images/stars.png" class="img-responsive favt-locum-stars"></td>
+                                </tr>
+                                <tr>
+                                    <td>lorem Ipsum</td>
+                                    <td>10:00AM - 06:00PM</td>
+                                    <td><img src="images/stars.png" class="img-responsive favt-locum-stars"></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn-locum favt-locum-btn pcj-confirm-btn">Save Changes</button>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="setting-password">
+                    <div class="sp-title"><h4><i class="fa fa-lock"></i> Change Password</h4></div>
+                    <form name="vm.myDataForm" class="sp-inner">
+                        <input type="password" ng-model="vm.changePwdModel.oldPassword" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.changePwdModel.oldPassword }"
+                               placeholder="Old Password" required>
+                        <input type="password" ng-model="vm.changePwdModel.newPassword" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.changePwdModel.newPassword}"
+                               placeholder="New Password" required>
+                        <input type="password" ng-model="vm.confirmPassword" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.confirmPassword }"
+                               placeholder="Re-type New Password" required>
+                        <button type="button" class="btn-locum pcj-confirm-btn" ng-click="vm.UpdatePharmacyPassword()">Update Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

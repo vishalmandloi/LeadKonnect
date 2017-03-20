@@ -1,0 +1,377 @@
+﻿<!--
+<section class="profile-container">
+    <div class="">
+        <div class="pc-dp">
+            <img src="images/pharmacy-img.png" class="pc-dp-profile-img img-responsive" />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-sm-offset-2">
+        <div class="pc-name">
+            <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="pc-progress pharmacy-pc-progress">
+            <h5>Profile 85% compelete</h5>
+            <div class="progress" style="height:12px;">
+                <div class="progress-bar" role="progressbar"
+                     aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%;background-color:#003761;height:12px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<div class="clearfix margin-top-15"></div>
+<div class="locum-profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="dmp-container">
+                    <ul class="nav nav-tabs">
+                        <li ng-class="{'active':vm.active==1}" ng-click="vm.ActiveTab(1)"><a>Head Office Account Info</a></li>
+                        <li ng-class="{'active':vm.active==2}" ng-click="vm.ActiveTab(2)"><a>Sub-Account Info</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--Head account info-->
+                        <div ng-show="vm.active==1">
+                            <form name="vm.myDataForm">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Company Name</label>
+                                    <div class="col-sm-9 aj-input">
+                                        <input type="text" class="form-control" ng-model="vm.headOfficeModel.companyName " name="pharmacyname1" placeholder="Company Name" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.companyName }">
+                                        <div class="validation-error"
+                                             ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.companyName">
+                                            <p class="validate-message">company Name is must required.</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Contact Person First Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" ng-model="vm.headOfficeModel.firstName " name="pharmacyname2" placeholder="First Name" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.firstName }">
+                                        <div class="validation-error"
+                                             ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.firstName ">
+                                            <p class="validate-message">First name is must required.</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Contact Person Last Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" ng-model="vm.headOfficeModel.lastName " name="pharmacyname2" placeholder="Last Name" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.lastName }">
+                                        <div class="validation-error"
+                                             ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.lastName ">
+                                            <p class="validate-message">Last name is must required.</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Telephone No.</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" ng-model="vm.headOfficeModel.mobileNumber " maxlength="11" ng-minlength="11"
+                                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="mobileno" placeholder="Tel number" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.mobileNumber }">
+                                        <div class="validation-error"
+                                             ng-show="vm.myDataForm.mobileno.$dirty && vm.myDataForm.mobileno.$error.required">
+                                            <p class="validate-message"> Tel number is must required.</p>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Emal ID</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" ng-model="vm.headOfficeModel.emailId " name="email" placeholder="Email" ng-pattern="vm.regexEmail" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.emailId }">
+                                        <div class="validation-error"
+                                             ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.emailId">
+                                            <p class="validate-message">Email is must required.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Company address</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" ng-model="vm.headOfficeModel.companyAddress " name="companyAddress" placeholder="Company address" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.companyAddress }">
+                                        <div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.companyAddress">
+                                            <p class="validate-message">Company address is must required.</p>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Address</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" ng-model="vm.headOfficeModel.address2 " name="address2" placeholder="address2">
+                                        <!--<div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.address2">
+                                            <p class="validate-message">Company address is must required.</p>
+                                        </div>-->
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">City</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" ng-model="vm.headOfficeModel.city " name="city" placeholder="city" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.city }">
+                                        <div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.city">
+                                            <p class="validate-message">City is must required.</p>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Postal Code</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" ng-model="vm.headOfficeModel.postalCode " name="postalCode" placeholder="postal code" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.postalCode }">
+                                        <div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.postalCode">
+                                            <p class="validate-message"> Can accept the following formats: GIR 0AA,A9 9ZZ,A99 9ZZ,AB9 9ZZ,AB99 9ZZ,A9C 9ZZ,AD9E 9ZZ.</p>
+                                        </div>
+                                    </div>
+                                    <button style="float:right" type="button" id="profile-submit-btn" class="ho-submit-btn" ng-click="vm.UpdateHeadOffice()">Submit</button>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </form>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Password</label>
+                                <div class="col-sm-9">
+                                    <div class="change-password">
+                                        <h3>Change Password</h3>
+                                        <form name="vm.passwordDataForm">
+                                            <input type="password" ng-model="vm.changePwdModel.oldPassword" ng-class="{ 'has-error' :vm.passwordDataForm.submitted && !vm.changePwdModel.oldPassword }"
+                                                   placeholder="Old Password" required>
+                                            <input type="password" ng-model="vm.changePwdModel.newPassword" ng-class="{ 'has-error' :vm.passwordDataForm.submitted && !vm.changePwdModel.newPassword}"
+                                                   placeholder="New Password" required>
+                                            <input type="password" ng-model="vm.confirmPassword" ng-class="{ 'has-error' :vm.passwordDataForm.submitted && !vm.confirmPassword }"
+                                                   placeholder="Re-type New Password" required>
+                                            <button type="button" class="update-pwd-btn" ng-click="vm.UpdatePharmacyPassword()">Update Password</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="form-group" style="display:none">
+                                <label class="col-sm-3 control-label">Shift Charges</label>
+                                <div class="col-sm-9">
+                                    <div class="change-password">
+                                        <h3>Update Shift Charges</h3>
+                                        <form name="vm.shiftDataForm">
+                                            <b>Emergency Shift:</b>
+                                            <input type="text" ng-model="vm.shiftChargeModel.emergencyShift" ng-class="{ 'has-error' :vm.shiftDataForm.submitted && !vm.shiftChargeModel.emergencyShift }"
+                                                   placeholder="Emergency Shift" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                            <br />
+                                            <b> Normal Shift:</b>
+                                            <input type="text" ng-model="vm.shiftChargeModel.normalShift" ng-class="{ 'has-error' :vm.shiftDataForm.submitted && !vm.shiftChargeModel.normalShift}"
+                                                   placeholder="Normal Shift" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                                            <br />
+                                            <button type="button" class="update-pwd-btn" ng-click="vm.UpdateShiftCharges()">Update</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+
+                        <!--Sub Account Info-->
+                        <div ng-show="vm.active==2">
+                            <button type="button" id="profile-submit-btn" class="ho-submit-btn pull-right" ng-click="vm.openSubofficeModal(1,null)">Add Sub Office</button>
+                            <div class="table-responsive default-skin demo content mCustomScrollbar ph-single-info-tbl">
+                                <table class="table table-bordered table-hover jobs-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Area/Region</th>
+                                            <th>Name</th>
+                                            <th>e-mail</th>
+                                            <th>Password</th>
+                                            <th>Mobile number</th>
+                                            <th>Tel number</th>
+                                            <th>Address2</th>
+                                            <th>City</th>
+                                            <th>Postal Code</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(akey,l) in  vm.subOfficeList">
+                                            <td>{{l.areaName}}</td>
+                                            <td>{{l.name}}</td>
+                                            <td>{{l.email}}</td>
+                                            <td>{{l.password}}</td>
+                                            <td>{{l.mobileNumber}}</td>
+                                            <td>{{l.telNumber}}</td>
+                                            <td>{{l.address2}}</td>
+                                            <td>{{l.city}}</td>
+                                            <td>{{l.postalCode}}</td>
+                                            <td>
+                                                <button class="btn btn-primary btn-admin" ng-click="vm.openSubofficeModal(2, l)"><i class="fa fa-edit"></i></button><br /><br />
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="subOfficeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Sub Office</h4>
+            </div>
+            <div class="modal-body">
+                <form name="vm.subOfficeDataForm">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Area/Region Name</label>
+                        <div class="col-sm-9 aj-input">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.areaName" placeholder="Area/Region" required
+                                   ng-class="{ 'has-error' :vm.subOfficeDataForm.submitted && !vm.subOfficeModel.areaName}">
+                            <div class="validation-error"
+                                 ng-show="vm.subOfficeDataForm.submitted && !vm.subOfficeModel.areaName">
+                                <p class="validate-message">Area/Region Name is must required.</p>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.name " placeholder="Name" required
+                                   ng-class="{ 'has-error' :vm.subOfficeDataForm.submitted && !vm.subOfficeModel.name}">
+                            <div class="validation-error"
+                                 ng-show="vm.subOfficeDataForm.submitted && !vm.subOfficeModel.name">
+                                <p class="validate-message">Name is must required.</p>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">E-mail</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.email " placeholder="e-mail" required
+                                   ng-class="{ 'has-error' :vm.subOfficeDataForm.submitted && !vm.subOfficeModel.email}">
+                            <div class="validation-error"
+                                 ng-show="vm.subOfficeDataForm.submitted && !vm.subOfficeModel.email">
+                                <p class="validate-message">e-mail is must required.</p>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.password " placeholder="password" required
+                                   ng-class="{ 'has-error' :vm.subOfficeDataForm.submitted && !vm.subOfficeModel.password}">
+                            <div class="validation-error"
+                                 ng-show="vm.subOfficeDataForm.submitted && !vm.subOfficeModel.password">
+                                <p class="validate-message">Password is must required.</p>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Mobile Number</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.mobileNumber " placeholder="Mobile Number" maxlength="11" ng-minlength="11"
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" required
+                                   ng-class="{ 'has-error' :vm.subOfficeDataForm.submitted && !vm.subOfficeModel.mobileNumber}">
+                            <div class="validation-error"
+                                 ng-show="vm.subOfficeDataForm.submitted && !vm.subOfficeModel.mobileNumber">
+                                <p class="validate-message">Mobile Number is must required.</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Telephone No.</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.telNumber " placeholder="Tel Number" maxlength="11" ng-minlength="11"
+                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" required
+                                   ng-class="{ 'has-error' :vm.subOfficeDataForm.submitted && !vm.subOfficeModel.telNumber}">
+                            <div class="validation-error"
+                                 ng-show="vm.subOfficeDataForm.submitted && !vm.subOfficeModel.telNumber">
+                                <p class="validate-message">Tel Number is must required.</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.address2 " name="address2" placeholder="address">
+                            <!--<div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.subOfficeModel.address2">
+                <p class="validate-message">Company address is must required.</p>
+            </div>-->
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">City</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.city " name="city" placeholder="city" required
+                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.subOfficeModel.city }">
+                            <div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.subOfficeModel.city">
+                                <p class="validate-message">City is must required.</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Postal Code</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="vm.subOfficeModel.postalCode " name="postalCode" placeholder="postal code" required
+                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.subOfficeModel.postalCode }">
+                            <div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.subOfficeModel.postalCode">
+                                <p class="validate-message"> Can accept the following formats: GIR 0AA,A9 9ZZ,A99 9ZZ,AB9 9ZZ,AB99 9ZZ,A9C 9ZZ,AD9E 9ZZ.</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <button type="button" id="profile-submit-btn" class="ho-submit-btn" ng-click="vm.CreateUpdateSubOffice()">Submit</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

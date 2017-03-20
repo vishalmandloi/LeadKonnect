@@ -1,0 +1,54 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="dmp-container">
+                <h2>Pharmacy Requests</h2>
+                <div class="tab-content">
+                    <div class="alert alert-success" role="alert" ng-show="vm.SuccessMsg">{{vm.SuccessMsg}}</div>
+                    <div class="alert alert-danger" role="alert" ng-show="vm.ErrorMsg">{{vm.ErrorMsg}}</div>
+                    <div id="available-job" class="tab-pane fade in active">
+                        <input type="text" class="searchBox" ng-model="vm.searchText" placeholder="search......" />
+                        <button class="admin-search-btn" ng-click="vm.GetPharmacyRequests()"><i class="fa fa-search"></i></button>
+                        <button class="admin-reset-btn" ng-click="vm.searchText='';vm.GetPharmacyRequests()">Reset</button>
+                        <br />
+                        <div class="alert alert-info" role="alert" ng-show="vm.pharmacyList.length==0">No record found</div>
+                        <div ng-show="vm.pharmacyList.length>0" class=" table-responsive default-skin demo clearfix" ng-init="vm.GetPharmacyRequests()">
+                            <div ng-scrollbars ng-scrollbars-config="config" ng-scrollbars-update=updateScrollbar class="table-responsive default-skin demo content">
+                                <table class="table table-bordered table-hover jobs-table">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Pharmacy Name</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Mobile Number</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(key,d) in vm.pharmacyList">
+                                            <td>{{d.ROW_NUM}}</td>
+                                            <td>{{d.pharmacyName}}</td>
+                                            <td>{{d.name}}</td>
+                                            <td>{{d.email}}</td>
+                                            <td>{{d.mobileNumber}}</td>
+                                            <td>
+                                                <button class="payment-overdue-btn" ng-show="d.requestStatus=='1'" ng-click="vm.UpdateRequestStatus(d)"><span>Waiting for Contact</span></button>
+                                                <button class="paid-btn pharmacy-paid-btn" ng-show="d.requestStatus=='2'"><span>Request Completed</span></button>
+                                                <!--<button class="send-invoice-btn" ng-click="vm.confirmbox('Delete',d)"><span>Delete</span></button>-->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

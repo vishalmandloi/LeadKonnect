@@ -1,0 +1,140 @@
+﻿<form name="vm.myDataForm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="dmp-container">
+                    <div class="tab-content">
+                        <div class="du-doc-upload">
+                            <h2>Welcome to SmartLocum</h2>
+                            <p class="col-sm-12">Before you can apply for jobs, you must upload the following documents to prove your locum status. You only have to do this once, and doing so opens a world of new opportunities. Once uploaded we aim to verify these within 12 hours.</p>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-md-3"><label>ID Driving License/Passport</label></div>
+                                <input type="file" id="fileIDDrivingLicense" class="col-sm-5">
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-md-3"><label>Indemnity Insurance</label></div>
+                                <input type="file" id="fileIndemnityInsurance" class="col-sm-5">
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-md-3"><label>DBS Check</label></div>
+                                <input type="file" id="fileDBSCheck" class="col-sm-5">
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group work-permit">
+                                <div class="col-sm-4 col-md-3">
+                                    <label>Work Permit Visa applicable?</label>
+                                    <a class='check' href='javascript:void(0)' ng-click='checkVisa()'><i class='fa fa-check-circle'></i></a>
+                                    <a class='uncheck' href='javascript:void(0)' ng-click='uncheckVisa()'><i class='fa fa-times-circle'></i></a>
+                                </div>
+                                <input type="file" id="fileWorkPermit" class="col-sm-5" ng-show="visaChecked == true">
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <h5 id="safe-doc-label"><i class="fa fa-lock"></i> Your documents are safe. Only Pharmacies you apply to work at will be able to see your documnets.</h5>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <section class="documents-declaration">
+                            <div class="dd-title">
+                                <h2>Declarations</h2>
+                                <p>*All declarations must be completed inorder to be approved.</p>
+                            </div>
+                            <div class="form-group chk-heading">
+                                <div class="col-sm-8 col-md-6 col-xs-8"></div>
+                                <p class="col-sm-1 col-xs-2 text-center">Yes</p>
+                                <p class="col-sm-1 col-xs-2 text-center">No</p>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Do you have a legal right to work in UK?*</label></div>
+                                <input type="radio" name="rad1" value="1" ng-model="vm.DocDecModel.isLegalRightToWork" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad1" value="2" ng-model="vm.DocDecModel.isLegalRightToWork" class="col-sm-1 col-xs-2" required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Have you been refused any Fitness to Purchase practise applications?*</label></div>
+                                <input type="radio" name="rad2" value="1" ng-model="vm.DocDecModel.isRefusedFitnessPurchase" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad2" value="2" ng-model="vm.DocDecModel.isRefusedFitnessPurchase" class="col-sm-1 col-xs-2" required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you VAT Registered?</label></div>
+                                <input type="radio" name="rad3" value="1" ng-model="vm.DocDecModel.isVATRegistered" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad3" value="2" ng-model="vm.DocDecModel.isVATRegistered" class="col-sm-1 col-xs-2" required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you accredited to provide Medicine Usage Reviews(MURS)?</label></div>
+                                <input type="radio" name="rad4" value="1" ng-model="vm.DocDecModel.isMURS" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad4" value="2" ng-model="vm.DocDecModel.isMURS" class="col-sm-1 col-xs-2" required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you accredited to provide New Medicine Service(NMS)?</label></div>
+                                <input type="radio" name="rad5" value="1" ng-model="vm.DocDecModel.isNMS" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad5" value="2" ng-model="vm.DocDecModel.isNMS" class="col-sm-1 col-xs-2" required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you accredited to provide Flu Vaccines?</label></div>
+                                <input type="radio" name="rad6" value="1" ng-model="vm.DocDecModel.isProvideFLUVaccine" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad6" value="2" ng-model="vm.DocDecModel.isProvideFLUVaccine" class="col-sm-1 col-xs-2" required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Are you Repeat Dispensing accredited?</label></div>
+                                <input type="radio" name="rad7" value="1" ng-model="vm.DocDecModel.isRepeatDispensing" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad7" value="2" ng-model="vm.DocDecModel.isRepeatDispensing" class="col-sm-1 col-xs-2" required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Have you had training on safe guarding children and vulnerable adults?</label></div>
+                                <input type="radio" name="rad8" value="1" ng-model="vm.DocDecModel.isSafeGuardingChild_Adults" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad8" value="2" ng-model="vm.DocDecModel.isSafeGuardingChild_Adults" class="col-sm-1 col-xs-2" required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-8 col-md-6 col-xs-8"><label>Do you have a current NHS SmartCard?</label></div>
+                                <input type="radio" name="rad9" value="1" ng-model="vm.DocDecModel.isNHSSmartCard" class="col-sm-1 col-xs-2" required>
+                                <input type="radio" name="rad9" value="2" ng-model="vm.DocDecModel.isNHSSmartCard" class="col-sm-1 col-xs-2" required required>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="form-group res-terms col-sm-12">
+                                <div class='row'>
+                                    <div class='col-md-5'>
+                                        <div class='check-box'>
+                                           <input type="checkbox" ng-model="vm.DocDecModel.checkbox" ng-change="disableButton(vm.DocDecModel.checkbox)"> <label>Yes, I have read and accepted the Terms & Conditions</label>
+                                       </div>
+                                        <div class="clearfix"></div>
+                                        <button class="doc-submit-btn" ng-click="vm.UpdateEssentialDocuments();" ng-disabled="vm.myDataForm.$invalid || vm.DocDecModel.isLegalRightToWork==2 || vm.DocDecModel.isRefusedFitnessPurchase==1 || vm.DocDecModel.checkbox==false">Save</button>
+                                    </div>
+                                    <div class='col-md-7'>
+                                        <div class='error' ng-show="vm.DocDecModel.isLegalRightToWork==2 || vm.DocDecModel.isRefusedFitnessPurchase==1 || vm.myDataForm.$invalid">
+                                            <div ng-show="vm.DocDecModel.isLegalRightToWork==2">Sorry, you don't have legal right to work in UK</div>
+                                            <div ng-show="vm.myDataForm.$invalid">Please select all the options</div>
+                                            <div ng-show="vm.DocDecModel.isRefusedFitnessPurchase==1">Sorry, you have been refused Fitness to Purchase practise applications</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </section>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</form>
+
+<style>
+    #profile-container{
+        display:none;
+    }
+</style>

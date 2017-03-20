@@ -1,0 +1,129 @@
+﻿<div ng-init = "vm.GetPagesForDropdown()">
+<header>
+    <div class="header dsh-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1">
+                    <div class="logo pull-left">
+                        <a href="index.html"><img src="images/logo.png" alt="" title="" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-11">
+                    <div class="header-right">
+                        <nav class="custom-menu" ng-class="{ customMenuMb : clickStatus == true }" role="navigation">
+                            <div class="menu-close-btn"><a href="javascript:void(0)" ng-click='closeMenu()'><span class="fa fa-close"> <p>CLOSE</p></span></a></div>
+                            <div class="clearfix"></div>
+                            <ul class="mb-menu-list list-unstyled">
+                                 <li><a ui-sref="admin.dashboard" ng-click='setTab(1)' ng-class="{ active: isSet(1) }"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="admin.usermanagement" ng-click='setTab(2)' ng-class="{ active: isSet(2) }"><i class="icon-business12"></i>User</a></li>
+                                <li><a ui-sref="admin.headofficemanagement" ng-click='setTab(3)' ng-class="{ active: isSet(3) }"><i class="icon-business12"></i>Head Office</a></li>
+                                <li><a ui-sref="admin.pharmacymanagement" ng-click='setTab(4)' ng-class="{ active: isSet(4) }"><i class="icon-business12"></i>Pharmacy</a></li>
+                                <li><a ui-sref="admin.pharmacyrequest" ng-click='setTab(5)' ng-class="{ active: isSet(5) }"><i class="icon-business12"></i>Pharmacy Request</a></li>
+                                <li><a ui-sref="admin.jobmanagament" ng-click='setTab(6)' ng-class="{ active: isSet(6) }"><i class="icon-portfolio24"></i>Jobs</a></li>
+                                <li><a ui-sref="admin.financemanagement" ng-click='setTab(7)' ng-class="{ active: isSet(7) }"><i class="fa fa-gbp"></i>Finance</a></li>
+                                <li><a ui-sref="admin.cmsmanagement" ng-click='setTab(7)' ng-class="{ active: isSet(7) }"><i class="fa fa-gbp"></i>CMS</a></li>
+                                <li><a ui-sref="admin.settings" ng-click='setTab(8)' class="click-link" ng-class="{ active: isSet(8) }"><i class="icon-three115"></i> Settings</a></li>
+                                <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>
+                        </nav>
+                        <a href="javascript:void(0)" ng-click='openMenu()' class="nav-toggle"><p>Menu</p> <span class="fa fa-bars"></span></a>
+                        <div class="dsh-menu">
+                            <!--<ul class="dsh-menu-list list-unstyled list-inline">
+                                <li><a ui-sref="admin.dashboard" ng-click='setTab(1)' ng-class="{ active: isSet(1) }"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="admin.usermanagement" ng-click='setTab(2)' ng-class="{ active: isSet(2) }"><i class="icon-business12"></i>User</a></li>
+                                <li><a ui-sref="admin.headofficemanagement" ng-click='setTab(3)' ng-class="{ active: isSet(3) }"><i class="icon-business12"></i>Head Office</a></li>
+                                <li><a ui-sref="admin.pharmacymanagement" ng-click='setTab(4)' ng-class="{ active: isSet(4) }"><i class="icon-business12"></i>Pharmacy</a></li>
+                                <li><a ui-sref="admin.pharmacyrequest" ng-click='setTab(5)' ng-class="{ active: isSet(5) }"><i class="icon-business12"></i>Pharmacy Request</a></li>
+                                <li><a ui-sref="admin.jobmanagament" ng-click='setTab(6)' ng-class="{ active: isSet(6) }"><i class="icon-portfolio24"></i>Jobs</a></li>
+                                <li><a ui-sref="admin.financemanagement" ng-click='setTab(7)' ng-class="{ active: isSet(7) }"><i class="fa fa-gbp"></i>Finance</a></li>
+                                <li><a ui-sref="admin.cmsmanagement" ng-click='setTab(7)' ng-class="{ active: isSet(7) }"><i class="fa fa-gbp"></i>CMS</a></li>
+                                <li><a ui-sref="admin.settings" ng-click='setTab(9)' ng-class="{ active: isSet(9) }"><i class="icon-three115"></i>Settings</a></li>
+                                 <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>-->
+
+                            <ul class="dsh-menu-list list-unstyled list-inline">
+                                <li><a ui-sref="admin.dashboard" ui-sref-active="active"><i class="icon-clipboard60"></i>Dashboard</a></li>
+                                <li><a ui-sref="admin.usermanagement" ui-sref-active="active"><i class="icon-business12"></i>User</a></li>
+                                <li><a ui-sref="admin.headofficemanagement" ui-sref-active="active"><i class="icon-business12"></i>Head Office</a></li>
+                                <li><a ui-sref="admin.pharmacymanagement" ui-sref-active="active"><i class="icon-business12"></i>Pharmacy</a></li>
+                                <li><a ui-sref="admin.pharmacyrequest" ui-sref-active="active"><i class="icon-business12"></i>Pharmacy Request</a></li>
+                                <li><a ui-sref="admin.jobmanagament" ui-sref-active="active"><i class="icon-portfolio24"></i>Jobs</a></li>
+                                <li><a ui-sref="admin.financemanagement" ui-sref-active="active"><i class="fa fa-gbp"></i>Finance</a></li>
+                                <li><a ui-sref="admin.cmsmanagement" ui-sref-active="active"><i class="fa fa-gbp"></i>CMS</a></li>
+                                <li><a ui-sref="admin.settings" ui-sref-active="active"><i class="icon-three115"></i>Settings</a></li>
+                                <li><a href="#" ng-click="vm.logout()"><i class="icon-power27"></i>Logout</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="wrapper row-offcanvas row-offcanvas-left">
+
+    <div ui-view="menuContent"></div>
+
+</div>
+
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="f-col1">
+                        <h5>Company</h5>
+
+            <!--             <ul class="list-unstyled" ng-repeat="data in vm.pageList"> -->
+                        <ul class="list-unstyled">
+                            <!-- <li><a  ui-sref="admin.content({pageName: '{{data.value}}', pageId : '{{data.id}}'})">{{data.value}}</a></li> -->
+                            <li><a href="#">What our  say? </a></li>
+                            <li><a href="#">Contact Us </a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col2">
+                        <h5>Locums</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col3">
+                        <h5>Pharmacies</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy, Terms & Condition</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="f-col4">
+                        <h5>Social Media</h5>
+                        <ul class="list-unstyled list-inline footer-social-list">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="copyrights">
+        <p>© Smart Locum Inc.</p>
+    </div>
+</footer>
+</div>

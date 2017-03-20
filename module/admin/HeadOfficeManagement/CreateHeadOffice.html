@@ -1,0 +1,299 @@
+﻿<div class="reg-form">
+    <div class="">
+        <div class="">
+            <div class="rf-inner">
+                <div class="rf-title"><i class="fa fa-medkit"></i> Create Head Office</div>
+                <form class="rf-form2" name="vm.myDataForm">
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.headOfficeModel.companyName" name="pharmacyname1" placeholder="Company Name" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.companyName }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.companyName">
+                            <p class="validate-message">company Name is must required.</p>
+                        </div>
+                    </div>
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.headOfficeModel.firstName" name="pharmacyname2" placeholder="First Name" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.firstName }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.firstName ">
+                            <p class="validate-message">First name is must required.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.headOfficeModel.lastName " name="pharmacyname2" placeholder="Last Name" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.lastName }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.lastName ">
+                            <p class="validate-message">Last name is must required.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.headOfficeModel.mobileNumber"
+                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="mobileno" placeholder="Tel number" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.mobileNumber }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.mobileno.$dirty && vm.myDataForm.mobileno.$error.required">
+                            <p class="validate-message"> Tel number is must required.</p>
+                        </div>
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="email" id="hEmail" ng-model="vm.headOfficeModel.emailId " name="email" placeholder="Email" ng-pattern="vm.regexEmail" required
+                               ng-blur="vm.CheckValidEmail(vm.headOfficeModel.emailId,$event)" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.emailId }">
+                        <div class="validation-error"
+                             ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.emailId">
+                            <p class="validate-message">Email is must required.</p>
+                        </div>
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.headOfficeModel.companyAddress " name="companyAddress" placeholder="Company address" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.companyAddress }">
+                        <div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.companyAddress">
+                            <p class="validate-message">Company address is must required.</p>
+                        </div>
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.headOfficeModel.address2 " name="address2" placeholder="Company address2">
+                        <!--<div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.address2">
+                            <p class="validate-message">Company address2 is must required.</p>
+                        </div>-->
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.headOfficeModel.city " name="city" placeholder="city" required
+                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.city }">
+                        <div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.city">
+                            <p class="validate-message">City is must required.</p>
+                        </div>
+                    </div>
+
+                    <div class="rf-input">
+                        <input type="text" ng-model="vm.headOfficeModel.postalCode " name="postalCode" placeholder="postalCode" required
+                              ng-pattern="vm.ukPostCodeRegex" ng-class="{ 'has-error' :vm.myDataForm.submitted && !vm.headOfficeModel.postalCode }">
+                        <div class="validation-error" ng-show="vm.myDataForm.submitted && !vm.headOfficeModel.postalCode">
+                            <p class="validate-message"> Can accept the following formats: GIR 0AA,A9 9ZZ,A99 9ZZ,AB9 9ZZ,AB99 9ZZ,A9C 9ZZ,AD9E 9ZZ.</p>
+                        </div>
+                    </div>
+
+                    <div class="rf-title">
+                        <i class="fa fa-medkit"></i> Add Sub Office
+                        <button class="pull-right btn-add btn" ng-click="vm.AddSubOffice()">Add</button>
+                    </div>
+
+                    <div class="admin_edit_main">
+                        <div class="admin_titles admin_comm">
+                            <ul class="admin_data_title">
+                                <li>Area/Region:</li>
+                                <li>Name:</li>
+                                <li>e-Mail:</li>
+                                <li>Mobile Number:</li>
+                                <li>Tel Number:</li>
+                                <li>Address2:</li>
+                                <li>City:</li>
+                                <li>Postal Code:</li>
+                                <li>Delete:</li>
+                            </ul>
+                        </div>
+                        <div class="admin_right admin_comm">
+                            <ul ng-repeat="(key,d) in vm.headOfficeModel.subOfficeList" class="admin_data_list">
+                                <li>
+                                    <div class="rf-input">
+                                        <input type="text" ng-model="d.areaName" placeholder="Area/Region" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.areaName}">
+                                        <div class="validation-error comm_error"
+                                             ng-show="vm.myDataForm.submitted && !d.areaName">
+                                            <p class="validate-message">Area/Region Name is must required.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rf-input">
+                                        <input type="text" ng-model="d.name " placeholder="Name" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.name}">
+                                        <div class="validation-error comm_error"
+                                             ng-show="vm.myDataForm.submitted && !d.name">
+                                            <p class="validate-message">Name is must required.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rf-input">
+                                        <input type="text" id="id_{{key}}" ng-model="d.email " placeholder="e-mail" required
+                                               ng-blur="vm.CheckValidEmail(d.email,$event)" ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.email}">
+                                        <div class="validation-error comm_error"
+                                             ng-show="vm.myDataForm.submitted && !d.email">
+                                            <p class="validate-message">e-mail is must required.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rf-input">
+                                        <input type="text" ng-model="d.mobileNumber " placeholder="Mobile Number"
+                                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.mobileNumber}">
+                                        <div class="validation-error comm_error"
+                                             ng-show="vm.myDataForm.submitted && !d.mobileNumber">
+                                            <p class="validate-message">Mobile Number is must required.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rf-input">
+                                        <input type="text" ng-model="d.telNumber " placeholder="Tel Number"
+                                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.telNumber}">
+                                        <div class="validation-error comm_error"
+                                             ng-show="vm.myDataForm.submitted && !d.telNumber">
+                                            <p class="validate-message">Tel Number is must required.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rf-input">
+                                        <input type="text" ng-model="d.address2 " name="address2" placeholder="address2">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rf-input">
+                                        <input type="text" ng-model="d.city " name="city" placeholder="city" required
+                                               ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.city }">
+                                        <div class="validation-error comm_error" ng-show="vm.myDataForm.submitted && !d.city">
+                                            <p class="validate-message">City is must required.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="rf-input">
+                                        <input type="text" ng-model="d.postalCode " name="postalCode" placeholder="postalCode" required
+                                            ng-pattern="vm.ukPostCodeRegex"   ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.postalCode }">
+                                        <div class="validation-error comm_error" ng-show="vm.myDataForm.submitted && !d.postalCode">
+                                            <p class="validate-message"> Can accept the following formats: GIR 0AA,A9 9ZZ,A99 9ZZ,AB9 9ZZ,AB99 9ZZ,A9C 9ZZ,AD9E 9ZZ.</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li> <button ng-click="vm.confirmbox('Delete',d,key)">Delete</button></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- <div class="table-responsive ph-single-info-tbl">
+                        <table class="table table-bordered jobs-table">
+                            <thead>
+                                <tr>
+                                    <th>Area/Region</th>
+                                    <th>Name</th>
+                                    <th>e-Mail</th>
+                                    <th>Mobile Number</th>
+                                    <th>Tel Number</th>
+                                    <th>Address2</th>
+                                    <th>City</th>
+                                    <th>Postal Code</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="(key,d) in vm.headOfficeModel.subOfficeList">
+                                    <td>
+                                        <div class="rf-input">
+                                            <input type="text" ng-model="d.areaName" placeholder="Area/Region" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.areaName}">
+                                            <div class="validation-error"
+                                                 ng-show="vm.myDataForm.submitted && !d.areaName">
+                                                <p class="validate-message">Area/Region Name is must required.</p>
+                                            </div>
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                        <div class="rf-input">
+                                            <input type="text" ng-model="d.name " placeholder="Name" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.name}">
+                                            <div class="validation-error"
+                                                 ng-show="vm.myDataForm.submitted && !d.name">
+                                                <p class="validate-message">Name is must required.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="rf-input">
+                                            <input type="text" id="id_{{key}}" ng-model="d.email " placeholder="e-mail" required
+                                                   ng-blur="vm.CheckValidEmail(d.email,$event)" ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.email}">
+                                            <div class="validation-error"
+                                                 ng-show="vm.myDataForm.submitted && !d.email">
+                                                <p class="validate-message">e-mail is must required.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="rf-input">
+                                            <input type="text" ng-model="d.mobileNumber " placeholder="Mobile Number"
+                                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.mobileNumber}">
+                                            <div class="validation-error"
+                                                 ng-show="vm.myDataForm.submitted && !d.mobileNumber">
+                                                <p class="validate-message">Mobile Number is must required.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="rf-input">
+                                            <input type="text" ng-model="d.telNumber " placeholder="Tel Number"
+                                                   onkeypress="return event.charCode >= 48 && event.charCode <= 57" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.telNumber}">
+                                            <div class="validation-error"
+                                                 ng-show="vm.myDataForm.submitted && !d.telNumber">
+                                                <p class="validate-message">Tel Number is must required.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="rf-input">
+                                            <input type="text" ng-model="d.address2 " name="address2" placeholder="address2">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="rf-input">
+                                            <input type="text" ng-model="d.city " name="city" placeholder="city" required
+                                                   ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.city }">
+                                            <div class="validation-error" ng-show="vm.myDataForm.submitted && !d.city">
+                                                <p class="validate-message">City is must required.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+
+
+                                    <td>
+                                        <div class="rf-input">
+                                            <input type="text" ng-model="d.postalCode " name="postalCode" placeholder="postalCode" required
+                                                ng-pattern="vm.ukPostCodeRegex"   ng-class="{ 'has-error' :vm.myDataForm.submitted && !d.postalCode }">
+                                            <div class="validation-error" ng-show="vm.myDataForm.submitted && !d.postalCode">
+                                                <p class="validate-message"> Can accept the following formats: GIR 0AA,A9 9ZZ,A99 9ZZ,AB9 9ZZ,AB99 9ZZ,A9C 9ZZ,AD9E 9ZZ.</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+
+                                        <button ng-click="vm.confirmbox('Delete',d,key)">Delete</button><br /><br />
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+
+
+
+                    <button type="button" class="psr-rf-sub" ng-click=" vm.CreateUpdateHeadOffice()">SAVE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
