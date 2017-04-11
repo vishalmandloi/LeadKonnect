@@ -1,0 +1,25 @@
+﻿<div  ng-init="vm.init()">
+    <div class="partner" ng-repeat="ptr in vm.partners">
+        <div class="leads-details">
+          <div class="pull-left">
+              <img src="images/person.jpg" class="img-circle">
+          </div>
+          <div class="pull-left name-mailid">
+            <h1>{{ptr.FirstName}} {{ptr.LastName}}</h1>
+            <h5 ng-bind="ptr.EmailId"></h5>
+          </div>
+          <div class="accept-reject" ng-show="ptr.IsAccepted=='' && ptr.RequestFrom!=vm.currentUser.UserId">
+            <button type="button" class="btn btn-default" ng-click="vm.ResponseRequest(ptr,true)">Accept</button>
+            <button type="button" class="btn btn-danger" ng-click="vm.ResponseRequest(ptr,false)">Reject</button>
+          </div>
+          <div class="accept-reject" ng-show="ptr.IsAccepted!=''">
+            <button type="button" class="btn btn-danger" ng-click="">Remove</button>
+          </div>     
+          <div class="accept-reject" ng-show="ptr.RequestFrom==vm.currentUser.UserId && ptr.IsAccepted!='True'">
+            <button type="button" class="btn btn-default" ng-click="" ng-show="ptr.IsAccepted==''">Pending</button>
+            <button type="button" class="btn btn-default" ng-click="" ng-show="ptr.IsAccepted=='False'">Pending</button>
+          </div>                
+        </div>
+        <div class="divider"></div> 
+    </div>
+</div>

@@ -10,8 +10,8 @@ var Config = (function () {
         emailSupport: 'leankonnect@support.com',
 
         //-------------Staging-----------------------------------
-        backendUrl: 'http://6c96f55d.ngrok.io/api/WebService/',
-        imagePath: 'http://6c96f55d.ngrok.io/WebImages/',
+        backendUrl: 'http://84ea335e.ngrok.io/api/WebService/',
+        imagePath: 'http://84ea335e.ngrok.io/WebImages/',
 
         //---------------Live----------------------------------
         

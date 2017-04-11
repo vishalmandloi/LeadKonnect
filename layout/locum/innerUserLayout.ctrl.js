@@ -11,12 +11,22 @@
         vm.createlead = createlead;
         vm.searchType = "0";
         vm.createFor = "0";
+        vm.notifications = [];
         vm.init = function(){
+            GetNotifications();
             if(postService.item.searchText || postService.item.searchFor){
                 vm.text = postService.item.searchText;
                 vm.searchType = postService.item.searchFor;
             }
         };
+        $rootScope.$on('$stateChangeStart', function (e, toState, currentState) {
+           if(toState.name == 'user.createlead'){
+                $('.search-select').css('display','none');
+           }
+           else{
+            $('.search-select').css('display','inline-block');
+           }
+        });        
         vm.searchData = function(text, type){
             LoaderStart();
             var objReq={
@@ -64,6 +74,24 @@
                  $state.go('user.dashboard');
             }
         };
+
+       function GetNotifications(){
+            var objReq={
+              userId:vm.currentUser.UserId
+            }
+            var body ={
+                  query:objReq
+               }
+
+            aPIInterFace.doServiceCall('Get', 'GetNotificationds', body).then(function (response) {
+                if (response.Success) {
+                    debugger;
+                    vm.notifications = response.Result;
+                }
+                else {
+                }
+            });
+        }           
 
     };
 

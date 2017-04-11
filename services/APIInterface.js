@@ -62,9 +62,11 @@
                 httpRequest.method = methodName;
                 httpRequest.crossDomain = true;
                 httpRequest.headers = {
-                    'Access-Control-Allow-Origin': '*.*.*'
+                    // "Access-Control-Allow-Origin" : "*",
+                    // "Access-Control-Allow-Methods" : "GET,POST,PUT,DELETE,OPTIONS",
+                    // "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
                 };
-
+                debugger
                 if (methodName.toUpperCase() === 'PUT' || methodName.toUpperCase() === 'POST') {
                     httpRequest.data = JSON.stringify(postData);
                 }

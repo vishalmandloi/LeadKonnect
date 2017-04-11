@@ -3,7 +3,7 @@
     angular.module('app')
       .controller('leadCtrl', leadCtrl);
 
-    function leadCtrl($scope, $http, UserSrv, $modal, aPIInterFace, $q, commonSvc, dialogs, alertService,$stateParams) {
+    function leadCtrl($scope, $http, UserSrv, $modal, aPIInterFace, $q, commonSvc, dialogs, alertService,$stateParams,$state) {
         var currentUser = JSON.parse(localStorage.getItem('app-user'));
         var vm = {};
         $scope.vm = vm;
@@ -95,16 +95,17 @@
             });
         }  
 
-                // Interpreters form submit start
         function CreatePost(){
-            if (vm.myDataFForm.$valid){
+            // if (vm.myDataFForm.$valid){
                 LoaderStart();
                 aPIInterFace.doServiceCall('Post', 'CreatePost', vm.postModel).then(function (response) {
                     if (response.Success) {
                         vm.Reset();
                         //alertService.add('success', response.Message);
+                        LoaderStop();
                         alert(response.Message);
-                         LoaderStop();
+                        $state.go('user.dashboard');
+                         
                     } else {
                         //alertService.add('danger', response.Message);
                         alert(response.Message);
@@ -112,9 +113,9 @@
                     }
                 });  
            
-            }else {
-                LoaderStop();
-            }
+            // }else {
+            //     LoaderStop();
+            // }
 
         }
         //Interpreters form submit end                      

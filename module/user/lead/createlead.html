@@ -1,11 +1,12 @@
-﻿    <div class="leads">
+﻿    <div class="m-top100">
+    <div class="leads">
     <form class="form-horizontal" name="vm.myDataFForm">
         <fieldset>
 
             <!-- Form Name -->
             <legend ng-show="vm.postModel.PostFor=='1'">Create a Lead</legend>
-            <legend ng-show="vm.postModel.PostFor=='2'">Create a Opportunity</legend>
-            <legend ng-show="vm.postModel.PostFor=='3'">Create a Forum</legend>
+            <legend ng-show="vm.postModel.PostFor=='2'">Create a Offer</legend>
+            <legend ng-show="vm.postModel.PostFor=='3'">Create a Discussion</legend>
             <!-- Text input-->
             <div class="form-group">
                 <label class="control-label col-md-2" for="name">Title</label>
@@ -53,7 +54,7 @@
 
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
                 <label class="control-label col-md-2" for="contact">Location</label>
                 <div class="col-md-10">
                   <input vs-google-autocomplete
@@ -87,7 +88,7 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
                 <label class="control-label col-md-2" for="street">Split/Share %</label>
                 <div class="col-md-10">
                     <input id="street" name="street" type="text" placeholder="Controlled way of entering percentage" class="form-control input-md" required ng-model="vm.postModel.SharePercentage">
@@ -96,7 +97,7 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
                 <label class="control-label col-md-2" for="area">Est. Deal Amount</label>
                 <div class="col-md-10">
                     <input id="area" name="area" type="text" placeholder="Enter your area" class="form-control input-md" required ng-model="vm.postModel.LeadAmount">
@@ -105,7 +106,7 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
                 <label class="control-label col-md-2" for="city">Need</label>
                 <div class="col-md-10">
                     <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.LeanNeed">
@@ -126,7 +127,7 @@
                 </div>
             </div>
             <!-- Text input-->
-            <div class="form-group">
+            <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
                 <label class="control-label col-md-2" for="dist">Show my</label>
                 <div class="col-md-10">
                     <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.ShowDetails">
@@ -145,4 +146,5 @@
 
         </fieldset>
     </form>
+</div>
 </div>

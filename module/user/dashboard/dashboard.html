@@ -25,11 +25,11 @@
         <div class="suggestions">
             <ul>
                 <li class="post" ng-repeat="post in vm.posts">
-                    <a href="">
+                    <a ui-sref="user.leaddetail({ tab:post.LeadId })">
                         <h1 ng-bind="post.Title"></h1>
                         <P ng-show="post.PostFor=='1'">Leads</P>
-                        <P ng-show="post.PostFor=='2'">Opportunity</P>
-                        <P ng-show="post.PostFor=='3'">Forum</P>
+                        <P ng-show="post.PostFor=='2'">Offer</P>
+                        <P ng-show="post.PostFor=='3'">Discussion</P>
                         <hr>
                         <div class="description">
                             <ul class="description-details">

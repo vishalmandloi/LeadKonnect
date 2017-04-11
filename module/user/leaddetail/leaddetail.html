@@ -1,0 +1,41 @@
+﻿<div class="col-sm-12" ng-init="vm.init()">
+    <div class="item-details">
+        <div class="left pull-left">
+            <a href="#">
+                <img src="images/person.jpg" class="img-circle">
+            </a>
+        </div>
+        <div class="center pull-left">
+            <div class="person-details">
+                <h1>{{vm.postDetail.FirstName}} {{vm.postDetail.LastName}}</h1>
+                <h5 ng-bind="vm.postDetail.EmailId"></h5>
+                <!-- <h5 ng-bind="vm.postDetail.EmailId"></h5> -->
+            </div>
+            <div class="detail-list">
+                <ul class="list-inline">
+                    <li><span>Category: </span><span ng-bind="vm.postDetail.CategoryName"></span></li>
+                    <!-- <li><span>Sub Category: </span><span>Select Sub catagory</span></li> -->
+                    <li ng-if="vm.postDetail.PostFor!='3'"><span>Location: </span><span ng-bind="vm.postDetail.Location"></span></li>
+                    <li ng-if="vm.postDetail.PostFor!='3'"><span>Split/Share %: </span><span ng-bind="vm.postDetail.SharePercentage"></span></li>
+                     <li ng-if="vm.postDetail.PostFor!='3'"> <span>Amount $: </span><span ng-bind="vm.postDetail.LeadAmount"></span></li>
+                    <li ng-if="vm.postDetail.LeadNeed"><span>Need: </span><span ng-bind="vm.postDetail.LeadNeed"></span></li>
+                    <li ng-if="vm.postDetail.TypeName"><span>Type: </span><span ng-bind="vm.postDetail.TypeName"></span></li>
+                </ul>
+            </div>
+            <div class="detail-description" ng-bind="vm.postDetail.Description">
+            </div>
+            <div class="form-sec" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId  && vm.postDetail.IfOffered=='False'"">
+                <form>
+                    <div class="form-group">
+                       <textarea class="form-control" rows="5" ng-model="vm.OfferDescription"></textarea>
+                    </div>
+                    <button ng-if="vm.postDetail.PostFor!='3'" type="submit" class="btn btn-info pull-right" ng-click="vm.MakeOffer()">Make a Bid</button>
+                     <button ng-if="vm.postDetail.PostFor=='3'" type="submit" class="btn btn-info pull-right" ng-click="vm.MakeOffer()">Reply</button>
+                </form>
+            </div>
+        </div>
+        <div class="right pull-right" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId && vm.postDetail.IsPartner=='False'">
+            <a ng-click="vm.AddPartner()" class="btn btn-primary pull-right">ADD As Partner</a>
+        </div>
+    </div>
+</div>

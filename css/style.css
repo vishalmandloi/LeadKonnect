@@ -15,6 +15,9 @@ body {
 	padding: 10px 0;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
+.LeadKonnect .m-top100 {
+	margin-top: 100px;
+}
 .LeadKonnect .navbar .navbar-header a {
 	color: #fff;
 }
@@ -327,6 +330,8 @@ body {
 /*Dashboard Page CSS*/
 .search-select {
 	margin: 100px 0 20px !important;
+	display: inline-block;
+	width: 100%;
 }
 /*.filter-select select {
 	margin-bottom: 10px;
@@ -379,6 +384,12 @@ body {
 }
 .search-option .all-options {
 	border: 1px solid #d2d6de;
+}
+.search-option .glyphicon-remove {
+	position: absolute;
+    right: 17%;
+    top: 30%;
+    color: #7b7a77;
 }
 .nopadding-left {
 	padding-left: 0;
@@ -458,12 +469,61 @@ body {
 	.filter-suggestions .suggestions ul .post:last-child {
 		margin-bottom: 0;
 	}
+	.leads-details {
+		padding: 20px;
+		padding-bottom: 0;
+	}
+	.leads-details .pull-left img {
+		width: 70px;
+		height: 70px;
+	}
+	.name-mailid {
+		height: 70px;
+		display: table-cell;
+		vertical-align: middle;
+		padding: 0 10px;
+	}
+	.leads-details .pull-left h1 {
+		font-size: 24px;
+		margin: 0;
+		margin-top: 12px;
+		text-align: left;
+	}
+	.leads-details .pull-left h5 {
+		padding-top: 5px;
+		font-size: 14px;
+		margin: 0;
+		text-align: left;
+	}
+	.leads-details p {
+		clear: both;
+		padding-top: 10px; 
+	}
+	.no-offers {
+		font-size: 20px;
+		padding: 10px;
+		text-align: center;
+		font-weight: bold;
+	}
+	hr {
+		clear: both;
+	}
+	.drop-sec {
+		position: inherit;
+		float: none;
+		text-align: left;
+		padding: 10px;
+	}
+	.drop-sec button {
+		margin: 5px;
+	}
 	.filter-suggestions .suggestions ul li a {
 		font-size: 14px;
 		text-decoration: none;
 	    color: #333333;
 	    padding: 20px 20px;
 	    display: block;
+	    cursor: pointer;
 	} 
 	.filter-suggestions .suggestions ul li a h1 {
 		color: #000;
@@ -472,13 +532,24 @@ body {
 		color: #777;
 		margin-top: 0;
 	}
+	.filter-suggestions .suggestions ul li a h1 span {
+		font-size: 16px;
+		margin-left: 10px;
+	}
+	.filter-suggestions .suggestions ul li a h1 .caret {
+		font-size: 20px;
+	}
 	.filter-suggestions .suggestions ul li a p {
 		color: #000;
 		font-weight: normal;
 		font-size: 16px;
 		font-style: italic;
 		color: #777;
-		padding-bottom: 0;
+		padding: 10px 0;
+    	margin: 0;
+	}
+	.filter-suggestions .suggestions ul li a p span {
+		color: #428bca;
 	}
 	.filter-suggestions .suggestions ul li a hr {
 		margin-top: 5px;
@@ -601,3 +672,87 @@ a.panel-heading {
 .panel-group .panel-heading.collapsed .icon-indicator:before {
     content: "\e080";
 }
+/*Dashboard-3 CSS*/
+.item-details {
+	width: 100%;
+	border: 2px solid #f9f9f9;
+	display: inline-block;
+	padding: 20px;
+	background-color: #f9f9f9;
+    list-style: none;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.item-details .left {
+	width: 160px;
+}
+.item-details .left a img {
+	z-index: 5;
+    height: 150px;
+    width: 150px;
+    border: 3px solid;
+    border-color: transparent;
+    border-color: rgba(255,255,255,0.2);
+}
+
+.item-details .center {
+	width: calc(100% - 260px);
+}
+.item-details .center .detail-list {
+	margin: 10px 0;
+}
+.item-details .center .detail-list ul li {
+	border-right: 2px solid #d0d0d0;
+	font-size: 16px;
+	padding: 0 10px;
+}
+.item-details .center .detail-list ul li:last-child {
+	border-right: none;
+}
+.item-details .center .detail-description {
+	font-size: 14px; 	
+}
+.item-details .center .form-sec {
+	margin-top: 15px; 
+}
+.item-details .right {
+	width: 100px;
+}
+
+
+.partner {
+	display: inline-block;
+    width: 100%;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+}
+.partner .leads-details {
+	display: inline-block;
+	padding: 20px;
+	width: 100%;
+}
+
+.partner .accept-reject {
+	clear: both;
+	padding: 20px 10px;
+}
+.partner .accept-reject button {
+	margin: 0 5px;
+}
+
+#ratings .rating-sec {
+	text-align: center;
+	margin-bottom: 15px;
+}
+#ratings .rating-sec .glyphicon-star-empty {
+	font-size: 40px;
+	text-align: center;
+}
+.filter-suggestions .suggestions ul li .Feedback {
+	display: inline-block;
+	padding: 0 5px;
+	color: #fff;
+	float: right;
+}
+

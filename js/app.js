@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  angular.module('app', ['ui.router', 'ngAutocomplete', 'ui.bootstrap', 'ngTable','ui.calendar','dialogs.main','pascalprecht.translate','ngScrollbars', 'ui.tinymce', 'ngSanitize','vsGoogleAutocomplete'])
+  angular.module('app', ['ui.router', 'ngAutocomplete', 'ui.bootstrap', 'ngTable','ui.calendar','dialogs.main','pascalprecht.translate','ngScrollbars', 'ui.tinymce', 'ngSanitize','vsGoogleAutocomplete','ngRateIt'])
     .config(configure)
     .run(runBlock);
     

@@ -14,42 +14,26 @@
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
+                                <span class="label label-warning" ng-bind="vm.notifications.length"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
+                                <li class="header">You have {{vm.notifications.length}} notifications</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                        <li  ng-repeat="noti in vm.notifications">
+                                            <a ui-sref="user.partner" ng-if="noti.NotificationType==2">
+                                                <i class="fa fa-users text-aqua"></i>
+                                                 {{noti.NotificationDescription}}
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-users text-red"></i> 5 new members joined
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fa fa-user text-red"></i> You changed your username
-                                            </a>
+                                            <a ui-sref="user.mylead" ng-if="noti.NotificationType==1">
+                                                <i class="fa fa-shopping-cart text-green"></i>
+                                                 {{noti.NotificationDescription}}
+                                            </a>                                            
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="footer"><a href="#">View all</a>
+                                <li class="footer"><a href="">View all</a>
                                 </li>
                             </ul>
                         </li>
@@ -141,11 +125,12 @@
                     <div class="col-xs-8 col-xs-offset-2">
                         <div class="search-option">
                             <input type="text" class="form-control" name="x" ng-model="vm.text" placeholder="Search term..." ng-enter="vm.searchData(vm.text, vm.searchType)">
+                            <span class="glyphicon glyphicon-remove" style="cursor: pointer;" ng-show="vm.text.length>0" ng-click="vm.text='';vm.searchData(vm.text, vm.searchType)"></span>
                             <select class="all-options" ng-model="vm.searchType">
                                 <option value="0">All</option>
                                 <option value="1">Leads</option>
-                                <option value="2">Opportunity</option>
-                                <option value="3">Forum</option>
+                                <option value="2">Offers</option>
+                                <option value="3">Discussions</option>
                             </select>
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button" ng-click="vm.searchData(vm.text, vm.searchType)"><span class="glyphicon glyphicon-search"></span>
@@ -190,8 +175,8 @@
                                     <div class="panel-body">
                                         <ul>
                                             <li ng-click="vm.createlead(1)">Lead</li>
-                                            <li ng-click="vm.createlead(2)">Opportunity</li>
-                                            <li ng-click="vm.createlead(3)">Forum</li>
+                                            <li ng-click="vm.createlead(2)">Offer</li>
+                                            <li ng-click="vm.createlead(3)">Discussion</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -200,9 +185,12 @@
                                 <div aria-labelledby="heading2" role="tabpanel" class="panel-collapse collapse" id="collapse2" aria-expanded="false">
                                     <div class="panel-body">
                                         <ul>
-                                            <li>Lead</li>
-                                            <li>Opportunity</li>
-                                            <li>Discussion</li>
+                                            <li ui-sref="user.mylead({tab: '1'})">Leads Created</li>
+                                            <li ui-sref="user.appliedlead({tab: '1'})">Leads Applied</li>
+                                            <li ui-sref="user.mylead({tab: '2'})"> Offers Created</li>
+                                             <li ui-sref="user.appliedlead({tab: '2'})">Offers Applied</li>
+                                            <li ui-sref="user.mylead({tab: '3'})">Discussions Created</li>
+                                            <li ui-sref="user.appliedlead({tab: '3'})">Discussions Participated </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -222,9 +210,8 @@
                                 <div aria-labelledby="heading4" role="tabpanel" class="panel-collapse collapse" id="collapse4" aria-expanded="false">
                                     <div class="panel-body">
                                         <ul>
-                                            <li>Add a Partners</li>
-                                            <li>Remove a Partners</li>
-                                            <li>Bussiness w Partners</li>
+                                            <li ui-sref="user.partner">Manage Partners</li>
+                                            <li ui-sref="user.partner">Business with Partners</li>
                                         </ul>
                                     </div>
                                 </div>

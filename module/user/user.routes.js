@@ -97,19 +97,32 @@
                 restrictAccess: ['notLogged']
             }
         })
-        .state('user.jobs', {
-            url: '/jobs/:tab',
+        .state('user.leaddetail', {
+            url: '/leaddetail/:tab',
             cache: false,
             views: {
                 'menuInnerContent': {
-                    templateUrl: 'module/user/jobs/jobs.html',
-                    controller: 'jobsCtrl'
+                    templateUrl: 'module/user/leaddetail/leaddetail.html',
+                    controller: 'leaddetailCtrl'
                 }
             },
             data: {
                 restrictAccess: ['notLogged']
             }
         })
+        .state('user.appliedlead', {
+            url: '/appliedlead/:tab',
+            cache: false,
+            views: {
+                'menuInnerContent': {
+                    templateUrl: 'module/user/appliedleads/appliedlead.html',
+                    controller: 'appliedleadCtrl'
+                }
+            },
+            data: {
+                restrictAccess: ['notLogged']
+            }
+        })        
         .state('user.message', {
             url: '/message',
             cache: false,
@@ -123,13 +136,13 @@
                 restrictAccess: ['notLogged']
             }
         })
-        .state('user.profile', {
-            url: '/profile',
+        .state('user.partner', {
+            url: '/partner',
             cache: false,
             views: {
                 'menuInnerContent': {
-                    templateUrl: 'module/user/profile/profile.html',
-                    controller: 'profileCtrl'
+                    templateUrl: 'module/user/partner/partner.html',
+                    controller: 'partnerCtrl'
                 }
             },
             data: {
@@ -175,19 +188,19 @@
                     restrictAccess: ['notLogged']
                 }
             })
-        .state('user.settings', {
-            url: '/settings',
+        .state('user.mylead', {
+            url: '/mylead/:tab',
             cache: false,
             views: {
                 'menuInnerContent': {
-                    templateUrl: 'module/user/settings/settings.html',
-                    controller: 'locumSettingsCtrl'
+                    templateUrl: 'module/user/mylead/mylead.html',
+                    controller: 'myleadCtrl'
                 }
             },
             data: {
                 restrictAccess: ['notLogged']
             }
-        });
+        })
 
 
     }
