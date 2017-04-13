@@ -47,6 +47,8 @@
         GetNotificationds: 'getnotifications?userId=:userId',
         GiveFeedback: 'givefeedback',
         GetAppliedLeads: 'getappliedleads?userId=:userId&searchFor=:searchFor',        
+        GetUserDetails: 'getuserdetail?userId=:userId&FromId=:FromId', 
+        UpdateNotificationCount: 'updatenotificationcount',
         
         CheckEmail: 'CheckEmail',
         GetLocumProfile: 'GetLocumProfile',

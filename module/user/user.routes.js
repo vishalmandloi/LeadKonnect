@@ -201,7 +201,19 @@
                 restrictAccess: ['notLogged']
             }
         })
-
+        .state('user.profile', {
+            url: '/profile/:tab',
+            cache: false,
+            views: {
+                'menuInnerContent': {
+                    templateUrl: 'module/user/profile/profile.html',
+                    controller: 'profileCtrl'
+                }
+            },
+            data: {
+                restrictAccess: ['notLogged']
+            }
+        })
 
     }
 

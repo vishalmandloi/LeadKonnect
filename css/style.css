@@ -434,12 +434,15 @@ body {
 }
 .search-option input {
 	padding: 21px 10px;
+	border-radius: 3px 0px 0 3px;
+	outline: 0;
 }
 .search-option .glyphicon-search {
 	font-size: 25px;
 }
 .search-option .all-options {
 	border: 1px solid #d2d6de;
+	outline: 0;
 }
 .search-option .glyphicon-remove {
 	position: absolute;
@@ -702,7 +705,7 @@ li li {
     width: 0;
     height: 0;
     border-top: 20px solid transparent;
-	border-right: 15px solid #5f5f60;
+	border-right: 15px solid #595959;
 	border-bottom: 20px solid transparent;
     clear: both;
 }
@@ -918,7 +921,78 @@ li li {
 
 
 
+.profile {
+	width: 100%;
+	border: 2px solid #000;
+	display: inline-block;
+	padding: 20px;
+}
+.profile .left {
+	width: 120px;
+}
+.profile .left a img {
+	z-index: 5;
+    height: 100px;
+    width: 100px;
+    border: 3px solid;
+    border-color: transparent;
+    border-color: rgba(255,255,255,0.2);
+}
 
+.profile .center {
+	width: calc(100% - 120px);
+}
+.profile .center .detail-list {
+	margin: 10px 0;
+}
+.profile .center .detail-list ul li {
+	border-right: 2px solid #d0d0d0;
+	font-size: 16px;
+	padding: 0 10px;
+}
+.profile .center .detail-list ul li:last-child {
+	border-right: none;
+}
+.profile .center .detail-description {
+	font-size: 14px; 	
+}
+.profile .center .form-sec {
+	margin-top: 15px; 
+}
 
+.profile .review {
+	clear: both;
+}
+.profile .review .person-reviews {
+	height: 300px;
+	overflow: auto;
+}
+.profile .review .person-reviews::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+.profile .review .person-reviews::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+.profile .review .person-reviews::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+.profile .review .col-sm-6:last-child {
+	border-left: 1px solid #e3e3e3;
+}
+.profile .review label {
+	font-size: 22px;
+}
 
-
+.profile .review .many-reviews .name {
+	font-size: 18px;
+	margin-right: 10px;
+}
+.profile .review .many-reviews:last-child hr {
+	display: none;
+}
+.ngrateit-reset {
+	display: none;
+}

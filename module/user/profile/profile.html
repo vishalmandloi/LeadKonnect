@@ -1,0 +1,44 @@
+﻿  <div class="col-sm-12" ng-init="vm.init()">
+    <div class="profile">
+        <div class="left pull-left">
+            <a href="#">
+                <img src="images/person.jpg" class="img-circle">
+            </a>
+        </div>
+        <div class="center pull-left">
+            <div class="person-details">
+                <h1>{{vm.userDetails.FirstName}} {{vm.userDetails.LastName}}</h1>
+                <div class="rating-sec">
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                  <span>4/5</span>
+                  <span><strong>({{vm.userDetails.lstFeedback.length}} Views)</strong></span>
+                </div>
+            </div>
+           
+        </div>
+        <div class="review">
+            <div class="col-sm-6">
+                <h4>About {{vm.userDetails.FirstName}} {{vm.userDetails.LastName}}</h4>
+                <h5>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</h5>
+                <h4>Location</h4>
+                <h5>Santa clara, koramangala, Bangalore</h5>
+            </div>
+            <div class="col-sm-6">
+                <label>Reviews</label>
+                <br>
+                <div class="person-reviews">
+                    <div class="many-reviews" ng-repeat="feedback in vm.userDetails.lstFeedback">
+                        <span class="name">{{::feedback.GiverName}}</span>
+                        <ng-rate-it ng-model="feedback.Rating" read-only="true">></ng-rate-it>
+                        <h5>{{::feedback.Feedback}} </h5>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

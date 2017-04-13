@@ -12,6 +12,7 @@
         vm.searchType = "0";
         vm.createFor = "0";
         vm.notifications = [];
+        vm.updatenotificationcount = updatenotificationcount;
         vm.init = function(){
             GetNotifications();
             if(postService.item.searchText || postService.item.searchFor){
@@ -92,6 +93,21 @@
                 }
             });
         }           
+
+        function updatenotificationcount(){
+            var objReq={
+              userId:vm.currentUser.UserId
+            }
+
+            aPIInterFace.doServiceCall('Post', 'UpdateNotificationCount', objReq).then(function (response) {
+                if (response.Success) {
+                }
+                else {
+                }
+            });            
+
+        }
+
 
     };
 

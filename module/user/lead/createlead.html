@@ -5,8 +5,8 @@
 
             <!-- Form Name -->
             <legend ng-show="vm.postModel.PostFor=='1'">Create a Lead</legend>
-            <legend ng-show="vm.postModel.PostFor=='2'">Create a Offer</legend>
-            <legend ng-show="vm.postModel.PostFor=='3'">Create a Discussion</legend>
+            <legend ng-show="vm.postModel.PostFor=='2'">Create an Offer</legend>
+            <legend ng-show="vm.postModel.PostFor=='3'">Start a Discussion</legend>
             <!-- Text input-->
             <div class="form-group">
                 <label class="control-label col-md-2" for="name">Title</label>
@@ -34,7 +34,7 @@
                         <label class="control-label col-md-4" for="password">Sub Category</label>
                         <div class="col-md-8">
                             <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.SubcategoryId">
-                                <option value="0"> SUb Category Selection</option>
+                                <option value="0"> Sub Category Selection</option>
                                 <option ng-repeat="sub in vm.subcategories" value="{{sub.SubCategoryId}}" >{{sub.SubCategoryName}}</option>
                             </select>
                         </div>
@@ -75,7 +75,7 @@
                        name="address"
                        id="address"
                        class="form-control"
-                       placeholder="Area, state, Country">
+                       placeholder="Enter Location">
                 </div>
             </div>
 
@@ -92,7 +92,7 @@
             <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
                 <label class="control-label col-md-2" for="street">Split/Share %</label>
                 <div class="col-md-10">
-                    <input id="street" name="street" type="text" placeholder="Controlled way of entering percentage" class="form-control input-md" required ng-model="vm.postModel.SharePercentage">
+                    <input id="street" name="street" type="text" placeholder="Enter Split/Share %" class="form-control input-md" required ng-model="vm.postModel.SharePercentage">
 
                 </div>
             </div>
@@ -101,7 +101,7 @@
             <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
                 <label class="control-label col-md-2" for="area">Est. Deal Amount</label>
                 <div class="col-md-10">
-                    <input id="area" name="area" type="text" placeholder="Enter your area" class="form-control input-md" required ng-model="vm.postModel.LeadAmount">
+                    <input id="area" name="area" type="text" placeholder="Enter Est. Deal Amount" class="form-control input-md" required ng-model="vm.postModel.LeadAmount">
 
                 </div>
             </div>
@@ -132,7 +132,7 @@
                 <label class="control-label col-md-2" for="dist">Show my</label>
                 <div class="col-md-10">
                     <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.ShowDetails">
-                        <option value="0">Select ShowDetail</option>
+                        <option value="0">Select Contact Visibility</option>
                         <option ng-repeat="show in vm.showdetails" value="{{show.DetailId}}" >{{show.ShowDetailName}}</option>
                     </select>
                 </div>

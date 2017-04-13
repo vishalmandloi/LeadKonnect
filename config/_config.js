@@ -14,10 +14,10 @@ var Config = (function () {
         imagePath: 'http://84ea335e.ngrok.io/WebImages/',
 
         //---------------Live----------------------------------
-        
+
         // backendUrl: 'http://localhost:8030/api/WebService/',
         // imagePath: 'http://localhost:8030/WebImages/',
-
+        
         parse: {
             applicationId: '4410af2g',
             restApiKey: ''

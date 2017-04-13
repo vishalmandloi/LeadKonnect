@@ -39,8 +39,31 @@
             aPIInterFace.doServiceCall('Get', 'GetMyPosts', body).then(function (response) {
                 if (response.Success) {
                     LoaderStop();
-                    vm.posts = response.Result;
                     debugger
+                      _.map(response.Result,function(lead) {
+
+                        var evens = _.remove(lead.lstOffers, function(n) {
+                          return n.RevisedTo !=null
+                        });
+
+                        lead.lstOffers =_.chain(lead.lstOffers)
+                        .groupBy("UserId")
+                        .pairs()
+                        .map(function(currentItem) {
+                            return _.object(_.zip(["userId", "users"], currentItem));
+                        })
+                        .map(function(res) {
+                          
+                             var match = _.find(evens, function(rev){  return res.userId == rev.RevisedTo}) || [];
+                            res.users =res.users.concat(match);
+                            return res.users
+                        })
+                        .value();
+
+                    })
+
+                    vm.posts = response.Result;
+                    //debugger
                 }
                 else {
                     LoaderStop();
