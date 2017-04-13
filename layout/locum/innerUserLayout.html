@@ -10,10 +10,10 @@
                     <a class="navbar-brand" ui-sref="user.dashboard">LeadKonnect</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right nav-profile">
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
+                                <i class="fa fa-bell"></i>
                                 <span class="label label-warning" ng-bind="vm.notifications.length"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -40,7 +40,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="images/person.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">{{vm.currentUser.FirstName}} {{vm.currentUser.LastName}}</span>
+                                <span class="hidden-xs name">{{vm.currentUser.FirstName}} {{vm.currentUser.LastName}}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -79,7 +79,8 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right nav-list">
+                    <ul class="nav navbar-nav nav-list">
+                       <li><a class="dropdown-toggle active"" ui-sref="user.dashboard">Home</a></li>
                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lead<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
                           <li><a href="#">Lead 1</a></li>
@@ -169,8 +170,10 @@
                             <option>Remove a Partners</option>
                             <option>Bussiness w Partners</option>
                         </select> -->
-                        <div aria-multiselectable="true" role="tablist" id="accordion" class="panel-group">
-                            <div class="panel panel-default"> <a title="Tab 1" aria-controls="collapse1" aria-expanded="false" target="_self" href="#collapse1" data-parent="#accordion" data-toggle="collapse" id="heading1" role="tab" class="panel-heading collapsed"> <span class="panel-title">Create</span><span class="glyphicon icon-indicator pull-right"></span> </a>
+                        
+
+                        <!--Remove <div aria-multiselectable="true" role="tablist" id="accordion" class="panel-group">
+                            <div class="panel panel-default"> <a title="Create" aria-controls="collapse1" aria-expanded="false" target="_self" href="#collapse1" data-parent="#accordion" data-toggle="collapse" id="heading1" role="tab" class="panel-heading collapsed"> <span class="panel-title">Create</span><span class="glyphicon icon-indicator pull-right"></span> </a>
                                 <div aria-labelledby="heading1" role="tabpanel" class="panel-collapse collapse" id="collapse1" aria-expanded="false">
                                     <div class="panel-body">
                                         <ul>
@@ -181,7 +184,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default"> <a title="Tab 2" aria-controls="collapse2" aria-expanded="false" target="_self" href="#collapse2" data-parent="#accordion" data-toggle="collapse" id="heading2" role="tab" class="panel-heading collapsed"><span class="panel-title">My View</span><span class="glyphicon icon-indicator pull-right"></span> </a>
+                            <div class="panel panel-default"> <a title="My View" aria-controls="collapse2" aria-expanded="false" target="_self" href="#collapse2" data-parent="#accordion" data-toggle="collapse" id="heading2" role="tab" class="panel-heading collapsed"><span class="panel-title">My View</span><span class="glyphicon icon-indicator pull-right"></span> </a>
                                 <div aria-labelledby="heading2" role="tabpanel" class="panel-collapse collapse" id="collapse2" aria-expanded="false">
                                     <div class="panel-body">
                                         <ul>
@@ -195,7 +198,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel panel-default"> <a title="Tab 3" aria-controls="collapse3" aria-expanded="false" target="_self" href="#collapse3" data-parent="#accordion" data-toggle="collapse" id="heading3" role="tab" class="panel-heading collapsed"><span class="panel-title">Messages</span> <span class="glyphicon icon-indicator pull-right"></span></a>
+                            <div class="panel panel-default"> <a title="Messages" aria-controls="collapse3" aria-expanded="false" target="_self" href="#collapse3" data-parent="#accordion" data-toggle="collapse" id="heading3" role="tab" class="panel-heading collapsed"><span class="panel-title">Messages</span> <span class="glyphicon icon-indicator pull-right"></span></a>
                                 <div aria-labelledby="heading3" role="tabpanel" class="panel-collapse collapse" id="collapse3" aria-expanded="false">
                                     <div class="panel-body">
                                         <ul>
@@ -206,7 +209,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="panel panel-default"> <a title="Tab 4" aria-controls="collapse4" aria-expanded="false" target="_self" href="#collapse4" data-parent="#accordion" data-toggle="collapse" id="heading4" role="tab" class="panel-heading collapsed"><span class="panel-title">Partners</span> <span class="glyphicon icon-indicator pull-right"></span></a>
+                             <div class="panel panel-default"> <a title="Partners" aria-controls="collapse4" aria-expanded="false" target="_self" href="#collapse4" data-parent="#accordion" data-toggle="collapse" id="heading4" role="tab" class="panel-heading collapsed"><span class="panel-title">Partners</span> <span class="glyphicon icon-indicator pull-right"></span></a>
                                 <div aria-labelledby="heading4" role="tabpanel" class="panel-collapse collapse" id="collapse4" aria-expanded="false">
                                     <div class="panel-body">
                                         <ul>
@@ -216,8 +219,44 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+
+
+                        <div id="divMenu">
+                            <ul>
+                                <li><a href="#">Create<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+                                    <ul>
+                                            <li ng-click="vm.createlead(1)">Lead</li>
+                                            <li ng-click="vm.createlead(2)">Offer </li>
+                                            <li ng-click="vm.createlead(3)">Discussion </li>
+                                        </ul>
+                                </li>
+                                <li><a href="#">My View<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+                                    <ul>
+                                            <li ui-sref="user.mylead({tab: '1'})">Leads Created </li>
+                                            <li ui-sref="user.appliedlead({tab: '1'})">Leads Applied </li>
+                                            <li ui-sref="user.mylead({tab: '2'})"> Offers Created </li>
+                                             <li ui-sref="user.appliedlead({tab: '2'})">Offers Applied </li>
+                                            <li ui-sref="user.mylead({tab: '3'})">Discussions Created </li>
+                                            <li ui-sref="user.appliedlead({tab: '3'})">Discussions Participated  </li>
+                                        </ul>
+                                </li>
+                                <li><a href="#">Messages<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+                                    <ul>
+                                            <li>New</li>
+                                            <li>Inbox</li>
+                                            <li>Sent</li>
+                                        </ul>
+                                </li>
+                                <li><a href="#">Partners<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+                                     <ul>
+                                            <li ui-sref="user.partner">Manage Partners</li>
+                                            <li ui-sref="user.partner">Business with Partners</li>
+                                        </ul>
+                                </li>
+                            </ul>
                         </div>
-                        <ul class="shortcuts">
+                        <!-- <ul class="shortcuts">
                             <li>Shortcuts
                                 <ul>
                                     <li><a href="#"> New Apartment Sale</a></li>
@@ -226,7 +265,7 @@
                                     <li><a href="#">Office Lease</a></li>
                                 </ul>
                             </li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="col-sm-10 form-section">
                         <div class="col-sm-10">

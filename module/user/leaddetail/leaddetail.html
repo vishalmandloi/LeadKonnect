@@ -29,13 +29,13 @@
                     <div class="form-group">
                        <textarea class="form-control" rows="5" ng-model="vm.OfferDescription"></textarea>
                     </div>
-                    <button ng-if="vm.postDetail.PostFor!='3'" type="submit" class="btn btn-info pull-right" ng-click="vm.MakeOffer()">Make a Bid</button>
+                    <button ng-if="vm.postDetail.PostFor!='3'" type="submit" class="btn btn-info pull-right" ng-click="vm.MakeOffer()"><img src="images/make-a-bid.png"> Make a Bid</button>
                      <button ng-if="vm.postDetail.PostFor=='3'" type="submit" class="btn btn-info pull-right" ng-click="vm.MakeOffer()">Reply</button>
                 </form>
             </div>
         </div>
         <div class="right pull-right" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId && vm.postDetail.IsPartner=='False'">
-            <a ng-click="vm.AddPartner()" class="btn btn-primary pull-right">ADD As Partner</a>
+            <a ng-click="vm.AddPartner()" class="btn btn-info btn-light pull-right">Add as Partner</a>
         </div>
     </div>
 </div>
