@@ -62,7 +62,8 @@
                                   <h1>{{offer.FirstName}} {{offer.LastName}}</h1>
                                   <h5 ng-bind="offer.EmailId"></h5>
                                 </div> -->
-                                <h6>{{offer.FirstName}} {{offer.LastName}}</h6>
+                                <h4 class="pull-left">{{offer.FirstName}} {{offer.LastName}}</h4>
+                                <span class="pull-right">{{offer.OfferDate}}</span>
                                 <p ng-bind="offer.OfferDescription"></p>
                                 <P ng-if="vm.PostFor!='3'" class="text-primary" ng-switch on="offer.OfferStatus" ng-show="offer.OfferStatus!='1'">Bid   
                                     <span ng-switch-when="4">
