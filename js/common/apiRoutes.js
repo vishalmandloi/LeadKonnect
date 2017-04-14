@@ -49,6 +49,8 @@
         GetAppliedLeads: 'getappliedleads?userId=:userId&searchFor=:searchFor',        
         GetUserDetails: 'getuserdetail?userId=:userId&FromId=:FromId', 
         UpdateNotificationCount: 'updatenotificationcount',
+        GetMessages: 'getmessages?userId=:userId&toId=:toId', 
+        SendMessage:'sendmessage',
         
         CheckEmail: 'CheckEmail',
         GetLocumProfile: 'GetLocumProfile',

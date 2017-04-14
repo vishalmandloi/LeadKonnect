@@ -1,107 +1,19 @@
-<div class="messenger">
+<div class="messenger" data-ng-init=" vm.init()">
     <div class="messenger-left">
         <div class="title">
             Messenger
         </div>
         <div class="Conversation-list">
-            <div class="search">
+          <!--   <div class="search">
                 <input type="text" name="" placeholder="Search Messenger">
-            </div>
+            </div> -->
             <ul>
-                <li>
+                <li ng-repeat="ptr in vm.partners" data-ng-click="vm.GetMessages(ptr)">
                     <div class="prof-img pull-left">
                         <img src="images/person.jpg">
                     </div>
                     <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                    </div>
-                </li>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
+                        <label>{{ptr.FirstName}} {{ptr.LastName}}</label>
                     </div>
                 </li>
             </ul>
@@ -109,223 +21,18 @@
         
     </div>
     <div class="messenger-right">
-        <div class="title">
-            Indrajeet Choudhury
+        <div class="title"  data-ng-bind="vm.ChatUserName">
         </div>
         <div class="Conversation-list">
-            <ul>
-                <li>
-                    <div class="prof-img pull-left">
-                        <img src="images/person.jpg">
-                    </div>
-                    <div class="name-msg pull-left">
-                        <label>Indrajeet Choudhury</label>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
-                    </div>
-                </li>
-            </ul>
             <div class="chat-summary">
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div><div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-1">
-                    <img src="images/person.jpg">
-                    <span>
-                        Hi
-                    </span>
-                </div>
-                <div class="user-2">
-                    <span>
-                        Hi
-                    </span>
+                <div ng-class="{'user-2': msg.UserId == vm.currentUser.UserId , 'user-1': msg.UserId != vm.currentUser.UserId } " ng-repeat="msg in vm.messages" >
+                    <img src="images/person.jpg" data-ng-show="msg.UserId != vm.currentUser.UserId ">
+                    <span data-ng-bind="msg.Message"> </span>
                 </div>
             </div>
         </div>
-        <div class="chat-area">
-            <input type="text" class="pull-left" placeholder="Type a message...">
+        <div class="chat-area" data-ng-show="vm.ChatUserId!=0">
+            <input type="text" class="pull-left" placeholder="Type a message..." data-ng-model="vm.MessageText" ng-enter="vm.SendMessage()">
         </div>
 
     </div>
