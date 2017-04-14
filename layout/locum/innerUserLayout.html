@@ -7,7 +7,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" ui-sref="user.dashboard">LeadKonnect</a>
+                    <a class="navbar-brand" href="#"><img src="images/site-logo.png"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right nav-profile">
@@ -80,7 +80,7 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav nav-list">
-                       <li><a class="dropdown-toggle active"" ui-sref="user.dashboard">Home</a></li>
+                       <li><a class="dropdown-toggle"" ui-sref="user.dashboard">Home</a></li>
                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lead<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
                           <li><a href="#">Lead 1</a></li>
@@ -125,15 +125,15 @@
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2">
                         <div class="search-option">
-                            <input type="text" class="form-control" name="x" ng-model="vm.text" placeholder="Search term..." ng-enter="vm.searchData(vm.text, vm.searchType)">
+                            <input type="text" class="form-control pull-left" name="x" ng-model="vm.text" placeholder="Search term..." ng-enter="vm.searchData(vm.text, vm.searchType)">
                             <span class="glyphicon glyphicon-remove" style="cursor: pointer;" ng-show="vm.text.length>0" ng-click="vm.text='';vm.searchData(vm.text, vm.searchType)"></span>
-                            <select class="all-options" ng-model="vm.searchType">
+                            <select class="all-options pull-right" ng-model="vm.searchType">
                                 <option value="0">All</option>
                                 <option value="1">Leads</option>
                                 <option value="2">Offers</option>
                                 <option value="3">Discussions</option>
                             </select>
-                            <span class="input-group-btn">
+                            <span class="input-group-btn pull-right">
                                 <button class="btn btn-primary" type="button" ng-click="vm.searchData(vm.text, vm.searchType)"><span class="glyphicon glyphicon-search"></span>
                                 </button>
                             </span>
@@ -242,7 +242,7 @@
                                         </ul>
                                 </li>
                                 <li><a href="">Messages<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-                                    <ul>
+                                    <ul class="Messages">
                                             <li>New</li>
                                             <li>Inbox</li>
                                             <li>Sent</li>

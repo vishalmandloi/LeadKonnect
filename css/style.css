@@ -24,14 +24,18 @@ body {
 	padding-top: 20px;
     padding-bottom: 20px;
     display: table;
-    width: 250px;
+    width: 300px;
     background-color: #5f5f60;
+}
+.LeadKonnect .navbar .navbar-header a img {
+	width: 100%;
+	height: 50px;
 }
 .LeadKonnect .navbar .nav-list li a {
 	color: #fff;
-	font-size: 16px;
+	font-size: 18px;
 	background-color: transparent;
-    padding: 20px 25px;
+    padding: 35px 25px;
 }
 .LeadKonnect .navbar .nav-list li a .caret {
 	color: #595959;
@@ -63,10 +67,6 @@ body {
 }
 .LeadKonnect .navbar .nav-list li a:active,.LeadKonnect .navbar .nav-list li a:focus,.LeadKonnect .navbar .nav-list li a:hover {
     background-color: #fdc200;
-    color: #fff;
-}
-.LeadKonnect .navbar .nav-list li .active {
-	background-color: #fdc200;
     color: #fff;
 }
 .LeadKonnect .navbar-default .navbar-toggle:focus, .LeadKonnect .navbar-default .navbar-toggle:hover {
@@ -535,6 +535,10 @@ body {
 		padding-bottom: 0;
 		clear: both;
 	}
+	.reply {
+		clear: both;
+		display: inline-block;
+	}
 	.leads-details .pull-left img {
 		width: 70px;
 		height: 70px;
@@ -563,6 +567,33 @@ body {
 	.leads-details p {
 		clear: both;
 		padding-top: 10px; 
+	}
+	.drop-sec .Accepted-bid {
+		background-color: rgba(146, 208, 80, 0.2);
+		border-color: #92d050;
+		color: #595959;
+	}
+	.drop-sec .Accepted-bid:hover, .drop-sec .Accepted-bid:active, .drop-sec .Accepted-bid.hover {
+	    background-color: #92d050;
+	    color: #fff;
+	}
+	.drop-sec .Revised-bid {
+		background-color: rgba(68, 84, 106, 0.2);
+		border-color: #44546a;
+		color: #595959;
+	}
+	.drop-sec .Revised-bid:hover, .drop-sec .Revised-bid:active, .drop-sec .Revised-bid.hover {
+	    background-color: #44546a;
+	    color: #fff;
+	}
+	.drop-sec .Rejected-bid {
+		background-color: rgba(244, 114, 102, 0.2);
+		border-color: #f47266;
+		color: #595959;
+	}
+	.drop-sec .Rejected-bid:hover, .drop-sec .Rejected-bid:active, .drop-sec .Rejected-bid.hover {
+	    background-color: #f47266;
+	    color: #fff;
 	}
 	.no-offers {
 		font-size: 20px;
@@ -614,6 +645,15 @@ body {
 		padding: 10px 0;
     	margin: 0;
 	}
+	.filter-suggestions .suggestions ul li a .Close-lead {
+		background-color: rgba(165, 165, 165, 0.2);
+		border-color: #a5a5a5;
+		color: #595959;
+	}
+	.filter-suggestions .suggestions ul li a .Close-lead:hover, .filter-suggestions .suggestions ul li a .Close-lead:active, .filter-suggestions .suggestions ul li a .Close-lead.hover {
+	    background-color: #a5a5a5;
+	    color: #fff;
+	}
 	.filter-suggestions .suggestions ul li a p span {
 		color: #428bca;
 	}
@@ -640,15 +680,14 @@ body {
     background-color: #5f5f60;
     float: left;
     position: fixed;
-    width: 250px;
-    top: 61px;
+    width: 300px;
+    top: 94px;
     height: 100%;
     padding: 100px 0 10px;
-    z-index: 10;
+    z-index: 1042;
 }
 .LeadKonnect .form-section {
     float: right;
-    z-index: 9;
 }
 
 /*Side menu CSS start*/
@@ -660,7 +699,7 @@ li li {
     padding: 0;
 }
 #divMenu {
-    width: 270px;
+    width: 320px;
 }
 #divMenu ul {
     line-height: 25px;
@@ -677,13 +716,14 @@ li li {
     list-style: none;
     position: relative;
     background: #595959;
-    left: 285px;
+    left: 335px;
     top: -27px;
    	color: #50b181;
    	padding: 12px 30px;
    	margin-bottom: 0;
    	border-radius: 0;
    	font-size: 16px;
+   	border-bottom: 1px solid #5f5f60;
 }
 #divMenu li li:first-child {
 	border-radius: 20px 20px 0 0;
@@ -731,6 +771,9 @@ li li {
     visibility: hidden;
     top: 10px;
     border-radius: 20px;
+}
+#divMenu ul .Messages li {
+	padding: 12px 70px;
 }
 #divMenu ul li:hover ul {
     visibility: visible;
@@ -886,8 +929,25 @@ li li {
 	background-color: #47a8ab;
 	border-color: #47a8ab;
 }
-
-
+.item-details .center .form-sec form .make-bid {
+	background-color: transparent;
+    border-color: #2fc88c;
+    color: #2fc88c;
+} 
+.item-details .center .form-sec form .make-bid:hover, .item-details .center .form-sec form .make-bid:active, .item-details .center .form-sec form .make-bid.hover {
+    background-color: #2fc88c;
+    color: #fff;
+}
+.item-details .center .form-sec form .make-bid span {
+	width: 35px;
+    height: 32px;
+    background: url(../images/auction.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+}
+.item-details .center .form-sec form .make-bid:hover span {
+    background: url(../images/auction-hover.png) no-repeat;
+}
 .partner {
 	display: inline-block;
     width: 100%;
