@@ -9,7 +9,7 @@
             <div class="person-details">
                 <h1>{{vm.postDetail.FirstName}} {{vm.postDetail.LastName}}</h1>
                 <h5 ng-bind="vm.postDetail.EmailId"></h5>
-                <!-- <h5 ng-bind="vm.postDetail.EmailId"></h5> -->
+                
             </div>
             <div class="detail-list">
                 <ul class="list-inline">
@@ -22,6 +22,7 @@
                     <li ng-if="vm.postDetail.TypeName"><span>Type: </span><span ng-bind="vm.postDetail.TypeName"></span></li>
                 </ul>
             </div>
+            <h3 ng-bind="vm.postDetail.Title"></h3>
             <div class="detail-description" ng-bind="vm.postDetail.Description">
             </div>
             <div class="form-sec" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId  && vm.postDetail.IfOffered=='False'"">

@@ -21,6 +21,7 @@
                                 </div>
                                 <div class="search-panel">
                                    <select id="blood_group" name="blood_group" class="form-control grp-individual" ng-model="vm.signupModel.UserType">
+                                        <option value="0">I want to register as</option>
                                         <option value="1">Individual</option>
                                         <option value="2">Group</option>
                                     </select>
@@ -31,7 +32,7 @@
                                         <input id="user" type="text" class="input" ng-model="vm.signupModel.FirstName">
                                     </div>
                                     <div class="group">
-                                        <label for="user" class="label">Last Names</label>
+                                        <label for="user" class="label">Last Name</label>
                                         <input id="user" type="text" class="input" ng-model="vm.signupModel.LastName">
                                     </div>
                                 </div>
@@ -55,7 +56,7 @@
                                 </div>
                                 <div class="group">
                                     <input id="check" type="checkbox" class="check" checked>
-                                    <label for="check"><span class="icon"></span> Agree toterms and conditions</label>
+                                    <label for="check"><span class="icon"></span> Agree to terms and conditions</label>
                                 </div>
                                 <div class="group">
                                     <input type="submit" class="button" value="Create Account" ng-click="vm.LocumRegistration()">
@@ -64,7 +65,7 @@
                                
                             </div>
                             <div class="footer-signup">
-                                <p id="account-message">Already have a Leadkonnect account?</p>
+                                <p id="account-message">Already have a ShareurLead account?</p>
                                 <h1><a href="#">Sign in</a></h1>
                             </div>
                         </div>

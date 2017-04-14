@@ -18,7 +18,7 @@
             "EmailId": "",
             "Password": "",
             "GroupName": "",
-            "UserType": "1",
+            "UserType": "0",
             "LoginType": "1",
             "SocialId": "",
             "ProfilePic": "",
