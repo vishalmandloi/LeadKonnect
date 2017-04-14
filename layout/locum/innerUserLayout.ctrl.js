@@ -21,7 +21,7 @@
             }
         };
         $rootScope.$on('$stateChangeStart', function (e, toState, currentState) {
-           if(toState.name == 'user.createlead'){
+           if(toState.name == 'user.createlead' || toState.name == 'user.message'){
                 $('.search-select').css('display','none');
            }
            else{

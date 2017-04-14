@@ -1061,3 +1061,209 @@ li li {
 .ngrateit-reset {
 	display: none;
 }
+
+/*Messenger CSS Start*/
+.messenger .messenger-left {
+	width: 450px;
+	float: left;
+	border-right: 1px solid #000;  
+	height: 100vh;
+}
+.messenger .messenger-left .title {
+	font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .10);
+    box-sizing: border-box;
+}
+.messenger .messenger-left .Conversation-list {
+	height: calc(100vh - 215px);
+	overflow: auto;
+}
+.messenger .messenger-left .Conversation-list .search {
+	position: relative;
+	margin: 10px;
+}
+.messenger .messenger-left .Conversation-list .search input {
+	width: 100%;
+	background-color: #f6f7f9;
+    border-radius: 5px;
+    border-style: none;
+    box-sizing: border-box;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 5px 28px;	
+    outline: 0;
+}
+.messenger .messenger-left .Conversation-list .search:before {
+	background-image: url('images/magnifying-glass.png');
+    background-repeat: no-repeat;
+    
+    content: '';
+    display: inline-block;
+    height: 16px;
+    left: 8px;
+    position: absolute;
+    top: 7px;
+    width: 16px;
+}
+.messenger .messenger-left .Conversation-list ul {
+	padding: 0;
+}
+.messenger .messenger-left .Conversation-list ul li {
+	list-style: none;
+	padding: 10px 15px;
+	display: inline-block;
+    width: 100%;
+}
+.messenger .messenger-left .Conversation-list ul li:hover {
+	background-color: rgba(0, 0, 0, .05);
+}
+.messenger .messenger-left .Conversation-list ul li:focus {
+	background-color: rgba(0, 0, 0, .05);
+}
+.messenger .messenger-left .Conversation-list ul li:active {
+	background-color: rgba(0, 0, 0, .05);
+}
+.messenger .messenger-left .Conversation-list ul li .prof-img {
+	width: 50px;
+	margin-right: 10px;
+}
+.messenger .messenger-left .Conversation-list ul li .prof-img img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.messenger .messenger-left .Conversation-list ul li .name-msg {
+	width: calc(100% - 170px);
+}
+
+.messenger .messenger-left .Conversation-list ul li .name-msg label {
+	overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+.messenger .messenger-left .Conversation-list ul li .name-msg p {
+	overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+
+.messenger .messenger-left .Conversation-list ul li .date {
+	width: 100px;
+	text-align: right;
+}
+
+
+.messenger .messenger-right {
+	float: left;
+	padding: 0;
+	position: relative;
+	height: 100vh;
+	border-right: 1px solid #c1c1c1;
+}
+.messenger .messenger-right .title {
+	font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, .10);
+    box-sizing: border-box;
+}
+.messenger .messenger-right .Conversation-list {
+	height: calc(100vh - 95px);
+	overflow: auto;
+}
+.messenger .messenger-right .Conversation-list ul {
+	padding: 0;
+	margin: 0;
+	border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+.messenger .messenger-right .Conversation-list ul li {
+	list-style: none;
+	padding: 10px 15px;
+	display: inline-block;
+    width: 100%;
+}
+.messenger .messenger-right .Conversation-list ul li .prof-img {
+	width: 60px;
+	margin-right: 10px;
+}
+.messenger .messenger-right .Conversation-list ul li .prof-img img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+.messenger .messenger-right .Conversation-list ul li .name-msg {
+	width: calc(100% - 70px);
+}
+
+.messenger .messenger-right .Conversation-list ul li .name-msg label {
+	overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+.messenger .messenger-right .Conversation-list ul li .name-msg p {
+	overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+}
+.messenger .messenger-right .chat-summary {
+	padding: 20px;
+	
+}
+.messenger .messenger-right .Conversation-list .chat-summary .user-1 {
+	display: inline-block;
+	width: 100%;
+	margin: 10px 0;
+}
+.messenger .messenger-right .Conversation-list .chat-summary .user-1 img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+.messenger .messenger-right .Conversation-list .chat-summary .user-1 span {
+	background-color: #f1f0f0;
+    color: rgba(0, 0, 0, 1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    max-width: 50%;
+    display: inline-block;
+}
+.messenger .messenger-right .Conversation-list .chat-summary .user-2 {
+	text-align: right;
+	margin: 10px 0;
+}
+.messenger .messenger-right .Conversation-list .chat-summary .user-2 span {
+	max-width: 50%;
+	display: inline-block;
+	background-color: #0084ff;
+	color: #fff;
+	padding: 6px 12px;
+	border-radius: 20px;
+}
+.messenger .messenger-right .chat-area {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	border-top: 1px solid #c1c1c1;
+}
+.messenger .messenger-right .chat-area input[type="text"] {
+	width: 70%;
+	border: none;
+	resize: none;
+	outline: 0;
+	padding: 16px;
+}
+.messenger .messenger-right .chat-area .msg-icons {
+	width: 30%;
+	text-align: right;
+}
+.messenger .messenger-right .chat-area .msg-icons img {
+	padding: 10px;
+}
+
+/*Messenger CSS End*/
