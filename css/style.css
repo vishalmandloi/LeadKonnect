@@ -21,8 +21,8 @@ body {
 }
 .LeadKonnect .navbar .navbar-header a {
 	color: #fff;
-	padding-top: 20px;
-    padding-bottom: 20px;
+	padding-top: 10px;
+    padding-bottom: 10px;
     display: table;
     width: 300px;
     background-color: #5f5f60;
@@ -35,7 +35,7 @@ body {
 	color: #fff;
 	font-size: 18px;
 	background-color: transparent;
-    padding: 35px 25px;
+    padding: 25px 25px;
 }
 .LeadKonnect .navbar .nav-list li a .caret {
 	color: #595959;
@@ -46,8 +46,8 @@ body {
 }
 .LeadKonnect .navbar .nav-profile li a {
     display: inline-block;
-    padding-top: 10px;
-    padding-bottom: 0px;
+    padding-top: 13px;
+    padding-bottom: 13px;
     color: #fff;
     padding-right: 25px;
 }
@@ -681,7 +681,7 @@ body {
     float: left;
     position: fixed;
     width: 300px;
-    top: 94px;
+    top: 74px;
     height: 100%;
     padding: 100px 0 10px;
     z-index: 1042;
