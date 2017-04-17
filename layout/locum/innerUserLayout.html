@@ -52,35 +52,20 @@
                                         <!-- <small>Member since Nov. 2012</small> -->
                                     </p>
                                 </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="row">
-                                     <!--    <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div> -->
-                                    </div>
-                                    <!-- /.row -->
-                                </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="#" class="btn btn-default profile-but">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a data-ng-click="vm.logout()" class="btn btn-default btn-flat">Sign out</a>
+                                        <a data-ng-click="vm.logout()" class="btn btn-default signout-but">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav nav-list">
-                       <li><a class="dropdown-toggle"" ui-sref="user.dashboard">Home</a></li>
+                       <li><a class="dropdown-toggle"" ui-sref="user.dashboard"><span class="glyphicon glyphicon-home"></span></a></li>
                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lead<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
                           <li><a href="#">Lead 1</a></li>
@@ -146,82 +131,6 @@
             <div class="">
                 <div class="row">
                     <div class="col-sm-2 filter-section">
-                        <!-- <select class="form-control" ng-change="vm.createlead()" ng-model="vm.createFor">
-                            <option value="0">Create</option>
-                            <option value="1">Lead</option>
-                            <option value="2">Opportunity</option>
-                            <option value="3">Forum</option>
-                        </select>
-                        <select class="form-control">
-                            <option>My View</option>
-                            <option>Lead</option>
-                            <option>Opportunity</option>
-                            <option>Forum</option>
-                        </select>
-                        <select class="form-control">
-                            <option>Messages</option>
-                            <option>New</option>
-                            <option>Inbox</option>
-                            <option>Sent</option>
-                        </select>
-                        <select class="form-control">
-                            <option>Partners</option>
-                            <option>Add a Partners</option>
-                            <option>Remove a Partners</option>
-                            <option>Bussiness w Partners</option>
-                        </select> -->
-                        
-
-                        <!--Remove <div aria-multiselectable="true" role="tablist" id="accordion" class="panel-group">
-                            <div class="panel panel-default"> <a title="Create" aria-controls="collapse1" aria-expanded="false" target="_self" href="#collapse1" data-parent="#accordion" data-toggle="collapse" id="heading1" role="tab" class="panel-heading collapsed"> <span class="panel-title">Create</span><span class="glyphicon icon-indicator pull-right"></span> </a>
-                                <div aria-labelledby="heading1" role="tabpanel" class="panel-collapse collapse" id="collapse1" aria-expanded="false">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li ng-click="vm.createlead(1)">Lead</li>
-                                            <li ng-click="vm.createlead(2)">Offer</li>
-                                            <li ng-click="vm.createlead(3)">Discussion</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default"> <a title="My View" aria-controls="collapse2" aria-expanded="false" target="_self" href="#collapse2" data-parent="#accordion" data-toggle="collapse" id="heading2" role="tab" class="panel-heading collapsed"><span class="panel-title">My View</span><span class="glyphicon icon-indicator pull-right"></span> </a>
-                                <div aria-labelledby="heading2" role="tabpanel" class="panel-collapse collapse" id="collapse2" aria-expanded="false">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li ui-sref="user.mylead({tab: '1'})">Leads Created</li>
-                                            <li ui-sref="user.appliedlead({tab: '1'})">Leads Applied</li>
-                                            <li ui-sref="user.mylead({tab: '2'})"> Offers Created</li>
-                                             <li ui-sref="user.appliedlead({tab: '2'})">Offers Applied</li>
-                                            <li ui-sref="user.mylead({tab: '3'})">Discussions Created</li>
-                                            <li ui-sref="user.appliedlead({tab: '3'})">Discussions Participated </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default"> <a title="Messages" aria-controls="collapse3" aria-expanded="false" target="_self" href="#collapse3" data-parent="#accordion" data-toggle="collapse" id="heading3" role="tab" class="panel-heading collapsed"><span class="panel-title">Messages</span> <span class="glyphicon icon-indicator pull-right"></span></a>
-                                <div aria-labelledby="heading3" role="tabpanel" class="panel-collapse collapse" id="collapse3" aria-expanded="false">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li>New</li>
-                                            <li>Inbox</li>
-                                            <li>Sent</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="panel panel-default"> <a title="Partners" aria-controls="collapse4" aria-expanded="false" target="_self" href="#collapse4" data-parent="#accordion" data-toggle="collapse" id="heading4" role="tab" class="panel-heading collapsed"><span class="panel-title">Partners</span> <span class="glyphicon icon-indicator pull-right"></span></a>
-                                <div aria-labelledby="heading4" role="tabpanel" class="panel-collapse collapse" id="collapse4" aria-expanded="false">
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li ui-sref="user.partner">Manage Partners</li>
-                                            <li ui-sref="user.partner">Business with Partners</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
-
                         <div id="divMenu">
                             <ul>
                                 <li><a href="">Create<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
@@ -274,12 +183,12 @@
                             <div ui-view="menuInnerContent"></div>
                         </div>
                         <div class="col-sm-2 advertisement">
-                            <ul>
+                           <!--  <ul>
                                 <li><img src="images/add.png">
                                 </li>
                                 <li><img src="images/add-2.jpg">
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </div>

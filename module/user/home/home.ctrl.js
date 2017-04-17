@@ -13,7 +13,7 @@
         vm.login = login;
         vm.ForgotPassword = ForgotPassword;
         vm.loginType = false;
-        $('.bg-blur').height($(window).height() - 72);
+        /*$('.bg-blur').height($(window).height() - 72);*/
         function login() {
             debugger;
             vm.error = null;

@@ -28,7 +28,7 @@
             <div class="form-sec" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId  && vm.postDetail.IfOffered=='False'"">
                 <form>
                     <div class="form-group">
-                       <textarea class="form-control" rows="5" ng-model="vm.OfferDescription"></textarea>
+                       <textarea class="form-control" rows="5" ng-model="vm.OfferDescription" placeholder="This is where I enter my Bid statement"></textarea>
                     </div>
                     <button ng-if="vm.postDetail.PostFor!='3'" type="submit" class="btn btn-info pull-right make-bid" ng-click="vm.MakeOffer()"><span></span> Make a Bid</button>
                      <button ng-if="vm.postDetail.PostFor=='3'" type="submit" class="btn btn-info pull-right" ng-click="vm.MakeOffer()">Reply</button>
