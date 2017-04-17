@@ -9,6 +9,12 @@ body {
 	font-family: 'Roboto' !important;
 	background-color: #f2f5fc;
 }
+.LeadKonnect .menus ul li a {
+	background-color: transparent !important;
+	color: #fff !important;
+	padding: 25px 15px;
+	font-size: 18px;
+}
 .LeadKonnect .navbar {
 	background-color: #328eb3;
 	border-radius: 0;
@@ -795,89 +801,6 @@ li li {
 
 /*Side menu CSS End*/
 
-/*a.panel-heading {
-    display: block;
-}
-
-.panel-default .panel-heading[aria-expanded="true"],
-.panel-default .panel-heading a:hover,
-.panel-default .panel-heading a:focus,
-.panel-default a.panel-heading:hover,
-.panel-default a.panel-heading:focus {
-    background-color: #50b181;
-    color: #fff !important;
-}
-
-.panel-group .panel,
-.panel-group .panel-heading {
-    border: none !important;
-    background-color: #595959;
-    margin-top: 10px;
-}
-.panel-group .panel a,
-.panel-group .panel-heading a {
-    background-color: #595959;
-    color: #50b181 !important;
-    width: 270px;
-    padding: 18px 50px;
-    border-radius: 15px;
-}
-.panel-group .panel a .panel-title {
-	font-size: 18px;
-}
-
-.panel-group .panel-body {
-    border: none !important;
-    border-width: 0 1px 1px 1px !important;
-    background-color: #595959;
-    padding: 0;
-}
-.panel-group .panel-body ul {
-    padding: 0;
-}
-.panel-group .panel-body ul li {
-    list-style: none;
-    padding: 10px 40px;
-    cursor: pointer;
-    color: #fff;
-}
-.panel-group .panel-body ul li:hover {
-	background-color: #222222;
-}
-.panel-group .panel-body ul .active {
-	background-color: #222222;
-}
-.panel-group .panel-heading a,
-.panel-group a.panel-heading {
-    outline: 0;
-}
-.panel-group .panel-heading a:hover,
-.panel-group .panel-heading a:focus,
-.panel-group a.panel-heading:hover,
-.panel-group a.panel-heading:focus {
-    text-decoration: none;
-}
-.panel-group .panel-heading .icon-indicator {
-    margin-right: 10px;
-    font-size: 10px;
-    background: #50b181;
-    padding: 7px;
-    border-radius: 50%;
-    color: #fff;
-}
-.panel-default .panel-heading a:hover .icon-indicator,
-.panel-default .panel-heading a:focus .icon-indicator,
-.panel-default a.panel-heading:hover .icon-indicator,
-.panel-default a.panel-heading:focus .icon-indicator {
-	background-color: #fff;
-	color: #50b181;
-}
-.panel-group .panel-heading .icon-indicator:before {
-    content: "\2212";
-}
-.panel-group .panel-heading.collapsed .icon-indicator:before {
-    content: "\002b";
-}*/
 /*Dashboard-3 CSS*/
 .item-details {
 	width: 100%;
