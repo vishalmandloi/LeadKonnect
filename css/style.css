@@ -727,6 +727,7 @@ body {
 }
 .LeadKonnect .form-section {
     float: right;
+    margin-bottom: 70px;
 }
 
 /*Side menu CSS start*/
@@ -1247,10 +1248,14 @@ li li {
 }
 /*Messenger CSS End*/
 
+/*Footer CSS start */
 .LeadKonnect .footer {
 	background-color: #262626;
 	padding: 9px 0;
 	text-align: center;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
 }
 .LeadKonnect .footer ul li {
 	list-style: none;
@@ -1264,4 +1269,108 @@ li li {
 	border-radius: 50%;
 	padding: 7px;
 	margin-right: 5px;
+}
+
+/*Footer CSS End */
+/*About US CSS Start*/
+.about-us {
+	background-color: #323232;
+	height: calc(100vh - 90px);
+	text-align: center;
+	padding: 20px 10%;
+	margin: 0 auto;
+}
+.about-us .mission {
+	color: #fff;
+	margin: 0;
+	background-color: #fc9999;
+	padding: 20px;
+}
+.about-us p {
+	color: #323232;
+	background-color: #f2f2f2;
+	padding: 30px 20px;
+	border-radius: 0 0 20px 20px;
+	font-size: 20px;
+}
+.about-us .Timeline {
+	color: #fff;
+	margin: 0;
+	background-color: #fc9999;
+	padding: 20px;
+	border-radius: 20px;
+	margin-bottom: 50px;
+}
+.about-us .about-details {
+	text-align: left
+}
+.about-us .about-details h5 {
+	color: #fc9999;
+	font-size: 20px;
+	font-weight: 500;
+}
+.about-us .about-details h6 {
+	color: #737373;
+	font-size: 18px;
+	font-weight: 500;
+}
+.about-us img {
+	width: 100%;
+	margin-top: -80px;
+}
+.about-us .about-details1 {
+	text-align: left;
+	margin-left: 210px;
+    margin-top: -80px;
+}
+.about-us .about-details1 h5 {
+	color: #fc9999;
+	font-size: 20px;
+	font-weight: 500;
+}
+.about-us .about-details1 h6 {
+	color: #737373;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+/*About CSS END*/
+.howitworks {
+	background-color: #323232;
+	height: calc(100vh - 90px);
+	text-align: center;
+}
+.howitworks .howitworks1 {
+	width: 70%;
+	margin: 0 auto;
+	color: #fff;
+}
+.howitworks .howitworks2 {
+	width: 80%;
+	margin: 0 auto;
+	color: #fff;
+}
+
+/*How it works End*/
+
+.support {
+	padding: 20px 10%;
+	background-color: #323232;
+	height: calc(100vh - 90px);
+	text-align: center;
+}
+.support h1 {
+	background-color: #fc9999;
+	color: #fff;
+	padding: 20px;
+}
+.support .support1 {
+	background-color: #f2f2f2;
+	color: #595959;
+	text-align: left;
+}
+.support .support2 {
+	background-color: #f2f2f2;
+	color: #595959;
+	text-align: left;
 }
