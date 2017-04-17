@@ -215,6 +215,44 @@
             }
         })
 
+        .state('user1.aboutus', {
+            url: '/aboutus',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'module/user/home/aboutus.html',
+                }
+            },
+            data: {
+                restrictAccess: ['notLogged']
+            }
+        })    
+        .state('user1.howitworks', {
+            url: '/howitworks',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'module/user/home/howitworks.html',
+                }
+            },
+            data: {
+                restrictAccess: ['notLogged']
+            }
+        })    
+
+        .state('user1.support', {
+            url: '/support',
+            cache: false,
+            views: {
+                'menuContent': {
+                    templateUrl: 'module/user/home/support.html',
+                }
+            },
+            data: {
+                restrictAccess: ['notLogged']
+            }
+        })                        
+
     }
 
 

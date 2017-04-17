@@ -8,7 +8,7 @@
                 <input type="text" name="" placeholder="Search Messenger">
             </div> -->
             <ul>
-                <li ng-repeat="ptr in vm.partners" data-ng-click="vm.GetMessages(ptr)">
+                <li ng-repeat="ptr in vm.partners" data-ng-click="vm.GetMessages(ptr)" ng-if="ptr.IsAccepted=='True'">
                     <div class="prof-img pull-left">
                         <img src="images/person.jpg">
                     </div>
