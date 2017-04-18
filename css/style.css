@@ -664,11 +664,11 @@ body {
 	    width: 100%;
 	} 
 	.filter-suggestions .suggestions ul li a .list-icon img {
-		width: 90px;
-		height: 90px;
+		width: 60px;
+		height: 60px;
 	}
 	.filter-suggestions .suggestions ul li a .list-item {
-		width: calc(100% - 100px);
+		width: calc(100% - 80px);
 	}
 	.filter-suggestions .suggestions ul li a h1 {
 		color: #000;
