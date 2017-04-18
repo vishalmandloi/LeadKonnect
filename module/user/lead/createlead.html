@@ -16,7 +16,6 @@
                 </div>
             </div>
 
-            <!-- Text input-->
             <div class="form-group">
                 <label class="control-label col-md-2" for="email">Category</label>
                 <div class="col-md-10">
@@ -27,13 +26,13 @@
                 </div>
             </div>
 
-            <!-- Password input-->
+            
             <div class="row">
                 <div class="col-md-6 nopadding-left">
                     <div class="form-group">
-                        <label class="control-label col-md-4" for="password">Sub Category</label>
+                        <label class="control-label col-md-4">Sub Category</label>
                         <div class="col-md-8">
-                            <select id="blood_group" name="blood_group" class="form-control" ng-model="vm.postModel.SubcategoryId">
+                            <select class="form-control sub-cat-selection" ng-model="vm.postModel.SubcategoryId">
                                 <option value="0"> Sub Category Selection</option>
                                 <option ng-repeat="sub in vm.subcategories" value="{{sub.SubCategoryId}}" >{{sub.SubCategoryName}}</option>
                             </select>
@@ -53,7 +52,6 @@
             </div>
 
 
-            <!-- Text input-->
             <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
                 <label class="control-label col-md-2" for="contact">Location</label>
                 <div class="col-md-10">

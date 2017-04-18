@@ -414,9 +414,36 @@ body {
 	display: inline-block;
 	width: 100%;
 }
-/*.filter-select select {
-	margin-bottom: 10px;
-}*/
+.search-select input {
+	padding: 21px 10px;
+	border-radius: 3px 0px 0 3px;
+	outline: 0;
+	text-align: center;
+	border-radius: 20px;
+	width: 80%;
+}
+.search-select .glyphicon-search {
+	font-size: 25px;
+}
+.search-select .all-options {
+	border: 1px solid #d2d6de;
+	outline: 0;
+	padding: 10px;
+}
+.search-select .search-icon {
+	position: absolute;
+    left: 38%;
+    top: 30%;
+    color: #7b7a77;
+    font-size: 20px;
+}
+.search-select .glyphicon-remove {
+	position: absolute;
+    right: 17%;
+    top: 30%;
+    color: #7b7a77;
+}
+
 .advertisement ul li {
 	list-style: none;
 }
@@ -468,32 +495,15 @@ body {
 	color: #fff;
 }
 
-.search-option {
-	display: flex;
-}
-.search-option input {
-	padding: 21px 10px;
-	border-radius: 3px 0px 0 3px;
-	outline: 0;
-}
-.search-option .glyphicon-search {
-	font-size: 25px;
-}
-.search-option .all-options {
-	border: 1px solid #d2d6de;
-	outline: 0;
-}
-.search-option .glyphicon-remove {
-	position: absolute;
-    right: 17%;
-    top: 30%;
-    color: #7b7a77;
-}
+
 .nopadding-left {
 	padding-left: 0;
 }
 .nopadding-right {
 	padding-right: 0;
+}
+.sub-cat-selection {
+	margin-left: 8px;
 }
 .leads .form-horizontal .control-label {
 	text-align: left;
@@ -878,7 +888,6 @@ li li {
 }
 .item-details .center .detail-list ul li span:last-child {
 	color: #5e9ed9;
-	font-size: 18px;
 	font-weight: 500;
 }
 .item-details .center .detail-list ul li:last-child {
@@ -891,35 +900,32 @@ li li {
 	margin-bottom: 0;
 }
 .item-details .center .detail-description {
-	font-size: 22px; 	
+	font-size: 20px; 	
 	background-color: #adb9ca;
 	color: #595959;
 	padding: 20px;
-	border-radius: 0 0 20px  20px;
+	border-radius: 0 0 7px  7px;
 }
 .item-details .center .form-sec {
 	margin-top: 15px; 
 }
 .item-details .center .form-sec textarea {
 	background-color: #f3f5fb;
-	border-radius: 20px;
+	border-radius: 15px;
 	color: #595959;
+	padding: 15px;
 }
 .item-details .center .form-sec textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #595959;
-  font-size: 20px;
 }
 .item-details .center .form-sec textarea::-moz-placeholder { /* Firefox 19+ */
   color: #595959;
-  font-size: 20px;
 }
 .item-details .center .form-sec textarea:-ms-input-placeholder { /* IE 10+ */
   color: #595959;
-  font-size: 20px;
 }
 .item-details .center .form-sec textarea:-moz-placeholder { /* Firefox 18- */
   color: #595959;
-  font-size: 20px;
 }
 .item-details .right {
 	width: 100px;
@@ -981,6 +987,7 @@ li li {
 	padding: 0 5px;
 	color: #fff;
 	float: right;
+	width: auto;
 }
 
 
@@ -1258,6 +1265,7 @@ li li {
 	position: fixed;
 	width: 100%;
 	bottom: 0;
+	z-index: 1001;
 }
 .LeadKonnect .footer ul li {
 	list-style: none;
