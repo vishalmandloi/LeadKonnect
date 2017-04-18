@@ -12,6 +12,7 @@
         vm.searchType = "0";
         vm.createFor = "0";
         vm.notifications = [];
+        vm.notificationsRead = "";
         vm.updatenotificationcount = updatenotificationcount;
         vm.init = function(){
             GetNotifications();
@@ -89,6 +90,7 @@
                 if (response.Success) {
                     debugger;
                     vm.notifications = response.Result;
+                    vm.notificationsRead = vm.notifications.length; 
                 }
                 else {
                 }
@@ -102,6 +104,7 @@
 
             aPIInterFace.doServiceCall('Post', 'UpdateNotificationCount', objReq).then(function (response) {
                 if (response.Success) {
+                    vm.notificationsRead = "0";
                 }
                 else {
                 }

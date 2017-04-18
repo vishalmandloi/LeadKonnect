@@ -22,17 +22,17 @@
                             </span>
                           <!-- <span >(Active)</span> -->
                         </P>
-                        <button type="button" class="btn btn-default pull-right" ng-show="post.LeadStatus=='1' || post.LeadStatus==''" ng-click="vm.CloseLead(post)">Close Lead</button> 
+                        <!-- <button type="button" class="btn btn-default pull-right" ng-show="post.LeadStatus=='1' || post.LeadStatus==''" ng-click="vm.CloseLead(post)">Close Lead</button> --> 
                         <hr>
                         <div class="description">
                             <ul class="description-details">
                                 <li><span>Category: </span><span ng-bind="post.CategoryName"></span></li>
-                                <!-- <li><span>Sub Category: </span><span>Select Sub catagory</span></li> -->
+                                <li><span>Sub Category: </span><span ng-bind="post.SubCateName"></span></li>
                                 <li><span>Location: </span><span ng-bind="post.Location"></span></li>
                                 <li><span>Split/Share %: </span><span ng-bind="post.SharePercentage"></span></li>
                                  <li><span>Amount $: </span><span ng-bind="post.LeadAmount"></span></li>
                                 <li ng-if="post.LeadNeed"><span>Need: </span><span ng-bind="post.LeadNeed"></span></li>
-                                <li ng-if="post.TypeName"><span>Type: </span><span ng-bind="post.TypeName"></span></li>
+                                <li ng-if="post.LeadType"><span>Type: </span><span ng-bind="post.LeadType"></span></li>
                             </ul>
                         </div>
 

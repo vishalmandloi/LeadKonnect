@@ -26,7 +26,11 @@
             <ul>
                 <li class="post" ng-repeat="post in vm.posts">
                     <a ui-sref="user.leaddetail({ tab:post.LeadId })">
-                        <div class="pull-left list-icon"><img src="images/alert-1.png"></div>
+                        <div class="pull-left list-icon" ng-switch on="post.PostFor">
+                            <img src="images/alert-1.png" ng-switch-when="1">
+                            <img src="images/alert-2.png" ng-switch-when="2">
+                            <img src="images/alert-3.png" ng-switch-when="3">
+                        </div>
                         <div class="pull-right list-item">
                             <h1 ng-bind="post.Title"></h1>
                             <P ng-show="post.PostFor=='1'">Leads</P>
@@ -41,10 +45,10 @@
                                     <li><span>Split/Share %: </span><span ng-bind="post.SharePercentage"></span></li>
                                      <li><span>Amount $: </span><span ng-bind="post.LeadAmount"></span></li>
                                     <li ng-if="post.LeadNeed"><span>Need: </span><span ng-bind="post.LeadNeed"></span></li>
-                                    <li ng-if="post.TypeName"><span>Type: </span><span ng-bind="post.TypeName"></span></li>
+                                    <li ng-if="post.LeadType"><span>Type: </span><span ng-bind="post.LeadType"></span></li>
                                 </ul>
                             </div>
-                        </div>
+                         </div>   
                     </a>
                 </li>
             </ul>

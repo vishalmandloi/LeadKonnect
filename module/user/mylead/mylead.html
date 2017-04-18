@@ -43,7 +43,7 @@
 
                     </a>
                     <div class="dropdown-menu drop-sec">
-                        <div ng-repeat="inner in post.lstOffers">
+                        <div ng-repeat="inner in post.lstOffers" ng-if="vm.PostFor!='3'">
                           <div class="leads-details">
                             <div class="pull-left" ui-sref="user.profile({ tab:inner[0].UserId })" style="cursor: pointer;">
                                 <img src="images/person.jpg" class="img-circle">
@@ -86,6 +86,35 @@
                           </div>
                           <div class="divider"></div> 
                         </div>
+                          <div ng-repeat="offer in post.lstOffers" ng-if="vm.PostFor=='3'">
+                            <div class="leads-details">
+                              <div class="pull-left" ui-sref="user.profile({ tab:offer.UserId })" style="cursor: pointer;">
+                                  <img src="images/person.jpg" class="img-circle">
+                              </div>
+                              <div class="pull-left name-mailid">
+                                <h1>{{offer.FirstName}} {{offer.LastName}}</h1>
+                                <h5 ng-bind="offer.EmailId"></h5>
+                              </div>
+                              <p ng-bind="offer.OfferDescription"></p>
+                              <P ng-if="vm.PostFor!='3'" class="text-primary" ng-switch on="offer.OfferStatus" ng-show="offer.OfferStatus!='1'">Bid   
+                                  <span ng-switch-when="4">
+                                       Rejected
+                                  </span>
+                                  <span ng-switch-when="2">
+                                       Accepted
+                                  </span>
+                                  <a ng-switch-when="2" href="" class="btn-xs btn-success Feedback" data-toggle="modal" data-target="#ratings" ng-click="vm.FeedBackUserId=offer.UserId">Feedback</a>
+                              </P>                         
+                              
+                            </div>
+                            <div ng-show="offer.OfferStatus=='1' && (post.LeadStatus=='1' || post.LeadStatus=='')" ng-if="vm.PostFor!='3' && offer.UserId!=vm.currentUser.UserId">
+                                <button type="button" class="btn btn-default" ng-click="vm.ResponseOffer(offer,'2')">Accept Bid</button>
+                                <button type="button" data-toggle="modal" data-target="#DiscussionRpy" ng-click="vm.PostId=post.LeadId; vm.FeedBackUserId=offer.UserId;" class="btn btn-primary">Revised Bid</button>
+                                <button type="button" class="btn btn-danger" ng-click="vm.ResponseOffer(offer,'4')">Reject Bid</button>
+                            </div>  
+                          
+                            <div class="divider"></div> 
+                        </div>                        
                          <P ng-if="vm.PostFor=='3'" class="text-primary reply" >
                                   <a href="" style="float: left;" class="btn-xs btn-success Feedback" data-toggle="modal" data-target="#DiscussionRpy" ng-click="vm.PostId=post.LeadId">Reply</a>
                           </P>

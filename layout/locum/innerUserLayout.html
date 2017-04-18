@@ -14,10 +14,10 @@
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-ng-click="vm.updatenotificationcount()">
                                 <i class="fa fa-bell"></i>
-                                <span class="label label-warning" ng-bind="vm.notifications.length"></span>
+                                <span class="label label-warning" ng-bind="vm.notificationsRead"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">You have {{vm.notifications.length}} notifications</li>
+                                <li class="header">You have {{vm.notificationsRead}} notifications</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
