@@ -26,21 +26,24 @@
             <ul>
                 <li class="post" ng-repeat="post in vm.posts">
                     <a ui-sref="user.leaddetail({ tab:post.LeadId })">
-                        <h1 ng-bind="post.Title"></h1>
-                        <P ng-show="post.PostFor=='1'">Leads</P>
-                        <P ng-show="post.PostFor=='2'">Offer</P>
-                        <P ng-show="post.PostFor=='3'">Discussion</P>
-                        <hr>
-                        <div class="description">
-                            <ul class="description-details">
-                                <li><span>Category: </span><span ng-bind="post.CategoryName"></span></li>
-                                  <li><span>SubCategory: </span><span ng-bind="post.SubCateName"></span></li>
-                                <li><span>Location: </span><span ng-bind="post.Location"></span></li>
-                                <li><span>Split/Share %: </span><span ng-bind="post.SharePercentage"></span></li>
-                                 <li><span>Amount $: </span><span ng-bind="post.LeadAmount"></span></li>
-                                <li ng-if="post.LeadNeed"><span>Need: </span><span ng-bind="post.LeadNeed"></span></li>
-                                <li ng-if="post.TypeName"><span>Type: </span><span ng-bind="post.TypeName"></span></li>
-                            </ul>
+                        <div class="pull-left list-icon"><img src="images/alert-1.png"></div>
+                        <div class="pull-right list-item">
+                            <h1 ng-bind="post.Title"></h1>
+                            <P ng-show="post.PostFor=='1'">Leads</P>
+                            <P ng-show="post.PostFor=='2'">Offer</P>
+                            <P ng-show="post.PostFor=='3'">Discussion</P>
+                            <!-- <hr> -->
+                            <div class="description">
+                                <ul class="description-details">
+                                    <li><span>Category: </span><span ng-bind="post.CategoryName"></span></li>
+                                      <li><span>SubCategory: </span><span ng-bind="post.SubCateName"></span></li>
+                                    <li><span>Location: </span><span ng-bind="post.Location"></span></li>
+                                    <li><span>Split/Share %: </span><span ng-bind="post.SharePercentage"></span></li>
+                                     <li><span>Amount $: </span><span ng-bind="post.LeadAmount"></span></li>
+                                    <li ng-if="post.LeadNeed"><span>Need: </span><span ng-bind="post.LeadNeed"></span></li>
+                                    <li ng-if="post.TypeName"><span>Type: </span><span ng-bind="post.TypeName"></span></li>
+                                </ul>
+                            </div>
                         </div>
                     </a>
                 </li>

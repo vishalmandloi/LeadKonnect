@@ -565,6 +565,7 @@ body {
 		-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
     	box-shadow: 0 1px 1px rgba(0,0,0,.05);
     	margin-bottom: 20px;
+    	padding-bottom: 0;
 	}
 	.filter-suggestions .suggestions ul .post:last-child {
 		margin-bottom: 0;
@@ -657,16 +658,24 @@ body {
 		text-decoration: none;
 	    color: #333333;
 	    padding: 20px 20px;
-	    display: block;
+	    display: inline-block;
 	    cursor: pointer;
 	    border-radius: 10px;
+	    width: 100%;
 	} 
+	.filter-suggestions .suggestions ul li a .list-icon img {
+		width: 90px;
+		height: 90px;
+	}
+	.filter-suggestions .suggestions ul li a .list-item {
+		width: calc(100% - 100px);
+	}
 	.filter-suggestions .suggestions ul li a h1 {
 		color: #000;
 		font-weight: normal;
 		font-size: 22px;
 		color: #777;
-		margin-top: 0;
+		margin: 0;
 	}
 	.filter-suggestions .suggestions ul li a h1 span {
 		font-size: 16px;
@@ -709,6 +718,10 @@ body {
 		box-shadow: none;
 		border-radius: 0;
 	}
+	.filter-suggestions .suggestions ul li a .description-details li:first-child {
+		padding-left: 0;
+	}
+	
 	.filter-suggestions .suggestions ul li a .description-details li:last-child {
 		border-right: none;
 	}
@@ -767,19 +780,8 @@ li li {
 }
 #divMenu li li:first-child {
 	border-radius: 7px 7px 0 0;
-	/*
-   
-    
-    
-    
-    */
     position: relative;
-    /*height: 50px;
-    font-size: 20px;
-    text-align: left;
-    font-weight: 600;
-    line-height: 50px;*/
-     margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 #divMenu li li:first-child:after {
 	 content: '';
