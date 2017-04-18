@@ -421,11 +421,11 @@ body {
 .search-select .search-sec {
 	position: relative;
     display: inline-block;
-    width: 80%;
+    width: calc(100% - 250px);
 }
 .search-select .search-sec .search-icon {
 	position: absolute;
-    left: 42%;
+    left: 2%;
     top: 30%;
     color: #7b7a77;
     font-size: 20px;
@@ -437,10 +437,9 @@ body {
     color: #7b7a77;
 }
 .search-select .search-sec input {
-	padding: 21px 10px;
+	padding: 21px 10px 21px 50px;
 	border-radius: 3px 0px 0 3px;
 	outline: 0;
-	text-align: center;
 	border-radius: 20px;
 }
 .search-select .glyphicon-search {
@@ -452,10 +451,12 @@ body {
 	background-color: #f8f8f8;
 	padding: 10px;
     font-size: 16px;
+    width: 132px;
 }
 
 .search-select button {
 	border-radius: 0 5px 5px 0;
+	width: 50px;
 }
 
 
@@ -826,7 +827,7 @@ li li {
 }
 
 #divMenu ul li a {
-    width: 250px;
+    width: 280px;
     height: 54px;
     display: block;
     text-decoration: none;
@@ -1274,7 +1275,7 @@ li li {
 /*Messenger CSS End*/
 
 /*Footer CSS start */
-.LeadKonnect .footer {
+.LeadKonnect footer {
 	background-color: #262626;
 	padding: 9px 0;
 	text-align: center;
@@ -1283,14 +1284,14 @@ li li {
 	bottom: 0;
 	z-index: 1001;
 }
-.LeadKonnect .footer ul li {
+.LeadKonnect footer ul li {
 	list-style: none;
 	display: inline-block;
 	color: #989898;
 	padding: 0 30px;
 	font-size: 18px;
 }
-.LeadKonnect .footer ul li span {
+.LeadKonnect footer ul li span {
 	border: 2px solid #989898;
 	border-radius: 50%;
 	padding: 7px;
@@ -1471,6 +1472,9 @@ li li {
    .LeadKonnect .form-section .col-sm-10 {
    	width: 100%;
    }
+   .nav-list {
+   	display: none;
+   }
 }
 @media only screen and (max-width: 992px) {
    .sub-cat-selection {
@@ -1485,12 +1489,15 @@ li li {
 		float: none;
 		width: 100%;
 	}
-	.mobile-left-menu {
-		top: 70px;
-    	position: relative;
-    	background-color: #000;
-    	color: #fff;
-    	font-size: 20px;
-    	padding: 20px;
+	.nav-list {
+	   	display: block;
+	}
+	.LeadKonnect .nav-list .item li a {
+	    color: #fff !important;
+	}
+	.search-select .search-sec {
+		position: relative;
+	    display: inline-block;
+	    width: calc(100% - 210px);
 	}
 }
