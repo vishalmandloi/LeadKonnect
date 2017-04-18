@@ -76,23 +76,23 @@
                        <li><a class="dropdown-toggle"" ui-sref="user.dashboard"><span class="glyphicon glyphicon-home"></span></a></li>
                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lead<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
-                          <li><a ng-click="vm.createlead(1)">Create a lead</a></li>
-                          <li ui-sref="user.mylead({tab: '1'})"><a href="">Leads Created</a></li>
-                          <li ui-sref="user.appliedlead({tab: '1'})"><a href="">Leads Applied</a></li>
+                          <li><a ng-click="vm.createlead(1)" data-toggle="collapse" data-target="#myNavbar">Create a lead</a></li>
+                          <li ui-sref="user.mylead({tab: '1'})"><a href="" data-toggle="collapse" data-target="#myNavbar">Leads Created</a></li>
+                          <li ui-sref="user.appliedlead({tab: '1'})"><a href="" data-toggle="collapse" data-target="#myNavbar">Leads Applied</a></li>
                         </ul>
                       </li>
                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Offer<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
-                           <li><a ng-click="vm.createlead(2)">Create an offer</a></li>
-                          <li ui-sref="user.mylead({tab: '2'})"><a href="">Offers Created</a></li>
-                          <li ui-sref="user.appliedlead({tab: '2'})"><a href="">Offers Applied</a></li>
+                           <li><a ng-click="vm.createlead(2)" data-toggle="collapse" data-target="#myNavbar">Create an offer</a></li>
+                          <li ui-sref="user.mylead({tab: '2'})" data-toggle="collapse" data-target="#myNavbar"><a href="">Offers Created</a></li>
+                          <li ui-sref="user.appliedlead({tab: '2'})" data-toggle="collapse" data-target="#myNavbar"><a href="">Offers Applied</a></li>
                         </ul>
                       </li>
                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Discussion<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
-                           <li><a ng-click="vm.createlead(3)">Create a Discussion</a></li>
-                          <li ui-sref="user.mylead({tab: '3'})"><a href="">Discussions Created</a></li>
-                          <li ui-sref="user.appliedlead({tab: '3'})"><a href="">Discussions Applied</a></li>
+                           <li><a ng-click="vm.createlead(3)" data-toggle="collapse" data-target="#myNavbar">Create a Discussion</a></li>
+                          <li ui-sref="user.mylead({tab: '3'})"><a href="" data-toggle="collapse" data-target="#myNavbar">Discussions Created</a></li>
+                          <li ui-sref="user.appliedlead({tab: '3'})"><a href="" data-toggle="collapse" data-target="#myNavbar">Discussions Applied</a></li>
                         </ul>
                       </li>                      
                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  ui-sref="user.partner">Partners</a>
