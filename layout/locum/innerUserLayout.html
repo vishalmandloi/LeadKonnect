@@ -120,7 +120,9 @@
                 </div>
             </div>
         </nav>
-
+        <div class="mobile-left-menu">
+          <span class="glyphicon glyphicon-bell"></span>
+        </div>
         <div class="main-sec">
             <div class="">
                 <div class="row">
@@ -175,9 +177,11 @@
                     <div class="col-sm-10 form-section">
                         <div class="col-sm-10">
                             <div class="search-select">
-                                <span class="glyphicon glyphicon-search search-icon" style="cursor: pointer;" ng-show="vm.text.length>0" ng-click="vm.text='';vm.searchData(vm.text, vm.searchType)"></span>
-                                <input type="text" class="form-control pull-left" name="x" ng-model="vm.text" placeholder="Search term..." ng-enter="vm.searchData(vm.text, vm.searchType)">
-                                <span class="glyphicon glyphicon-remove" style="cursor: pointer;" ng-show="vm.text.length>0" ng-click="vm.text='';vm.searchData(vm.text, vm.searchType)"></span>
+                                <div class="search-sec">
+                                    <span class="glyphicon glyphicon-search search-icon" style="cursor: pointer;" ng-show="vm.text.length>0" ng-click="vm.text='';vm.searchData(vm.text, vm.searchType)"></span>
+                                    <input type="text" class="form-control pull-left" name="x" ng-model="vm.text" placeholder="Search term..." ng-enter="vm.searchData(vm.text, vm.searchType)">
+                                    <span class="glyphicon glyphicon-remove" style="cursor: pointer;" ng-show="vm.text.length>0" ng-click="vm.text='';vm.searchData(vm.text, vm.searchType)"></span>
+                                </div>
                                 <button class="btn btn-primary pull-right" type="button" ng-click="vm.searchData(vm.text, vm.searchType)"><span class="glyphicon glyphicon-search"></span>
                                 </button>
                                 <select class="all-options pull-right" ng-model="vm.searchType">
@@ -211,5 +215,4 @@
           </div>
         </footer>
     </div>
-
 
