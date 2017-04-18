@@ -142,8 +142,10 @@
                 aPIInterFace.doServiceCall('Post', 'MakeOffer', objReq).then(function (response) {
                     if (response.Success) {
                         alert(response.Message);
+                        vm.ReplyDiscussion = '';
                          LoaderStop();
-                         $('#btnDiscussionRpy').click();
+                         $('#DiscussionRpy').modal('hide');
+                         //$('#btnDiscussionRpy').click();
                          GetPosts();
                     } else {
                         alert(response.Message);

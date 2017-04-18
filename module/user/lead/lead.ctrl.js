@@ -104,7 +104,8 @@
                         //alertService.add('success', response.Message);
                         LoaderStop();
                         alert(response.Message);
-                        $state.go('user.dashboard');
+                        //$state.go('user.dashboard');
+                        $state.go('user.dashboard',{tab:1});
                          
                     } else {
                         //alertService.add('danger', response.Message);

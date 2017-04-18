@@ -27,9 +27,9 @@
                 <li class="post" ng-repeat="post in vm.posts">
                     <a ui-sref="user.leaddetail({ tab:post.LeadId })">
                         <div class="pull-left list-icon" ng-switch on="post.PostFor">
-                            <img src="images/alert-1.png" ng-switch-when="1">
+                            <img src="images/alert-3.png" ng-switch-when="1">
                             <img src="images/alert-2.png" ng-switch-when="2">
-                            <img src="images/alert-3.png" ng-switch-when="3">
+                            <img src="images/alert-1.png" ng-switch-when="3">
                         </div>
                         <div class="pull-right list-item">
                             <h1 ng-bind="post.Title"></h1>
@@ -41,9 +41,9 @@
                                 <ul class="description-details">
                                     <li><span>Category: </span><span ng-bind="post.CategoryName"></span></li>
                                       <li><span>SubCategory: </span><span ng-bind="post.SubCateName"></span></li>
-                                    <li><span>Location: </span><span ng-bind="post.Location"></span></li>
-                                    <li><span>Split/Share %: </span><span ng-bind="post.SharePercentage"></span></li>
-                                     <li><span>Amount $: </span><span ng-bind="post.LeadAmount"></span></li>
+                                    <li ng-show="post.PostFor!='3'"><span>Location: </span><span ng-bind="post.Location"></span></li>
+                                    <li ng-show="post.PostFor!='3'"><span>Split/Share %: </span><span ng-bind="post.SharePercentage"></span></li>
+                                     <li ng-show="post.PostFor!='3'"><span>Amount $: </span><span ng-bind="post.LeadAmount"></span></li>
                                     <li ng-if="post.LeadNeed"><span>Need: </span><span ng-bind="post.LeadNeed"></span></li>
                                     <li ng-if="post.LeadType"><span>Type: </span><span ng-bind="post.LeadType"></span></li>
                                 </ul>

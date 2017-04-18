@@ -25,15 +25,30 @@
             <h3 ng-bind="vm.postDetail.Title"></h3>
             <div class="detail-description" ng-bind="vm.postDetail.Description">
             </div>
-            <div class="form-sec" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId  && vm.postDetail.IfOffered=='False'"">
+            <div class="form-sec" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId  && vm.postDetail.IfOffered=='False' || vm.postDetail.PostFor=='3'">
                 <form>
                     <div class="form-group">
-                       <textarea class="form-control" rows="5" ng-model="vm.OfferDescription" placeholder="This is where I enter my Bid statement"></textarea>
+                       <textarea class="form-control" rows="5" ng-model="vm.OfferDescription" placeholder="Enter Details"></textarea>
                     </div>
                     <button ng-if="vm.postDetail.PostFor!='3'" type="submit" class="btn btn-info pull-right make-bid" ng-click="vm.MakeOffer()"><span></span> Make a Bid</button>
                      <button ng-if="vm.postDetail.PostFor=='3'" type="submit" class="btn btn-info pull-right" ng-click="vm.MakeOffer()">Reply</button>
                 </form>
             </div>
+              <div ng-repeat="offer in vm.postDetail.lstOffers" ng-if="vm.postDetail.PostFor=='3'">
+                <div class="leads-details">
+                  <div class="pull-left" ui-sref="user.profile({ tab:offer.UserId })" style="cursor: pointer;">
+                      <img src="images/person.jpg" class="img-circle">
+                  </div>
+                  <div class="pull-left name-mailid">
+                    <h1>{{offer.FirstName}} {{offer.LastName}}</h1>
+                    <h5 ng-bind="offer.EmailId"></h5>
+                  </div>
+                  <p ng-bind="offer.OfferDescription"></p>
+                  
+                </div>
+              
+                <div class="divider"></div> 
+            </div>             
         </div>
         <div class="right pull-right" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId && vm.postDetail.IsPartner=='False'">
             <a ng-click="vm.AddPartner()" class="btn btn-info btn-light pull-right">Add as Partner</a>

@@ -26,10 +26,18 @@
                                                 <i class="fa fa-users text-aqua"></i>
                                                  {{noti.NotificationDescription}}
                                             </a>
-                                            <a ui-sref="user.mylead({tab: noti.LeadFor})" ng-if="noti.NotificationType==1">
+                                            <a ui-sref="user.mylead({tab: noti.LeadFor})" ng-if="noti.NotificationType==1 && vm.currentUser.UserId == noti.LeadCreater">
                                                 <i class="fa fa-shopping-cart text-green"></i>
                                                  {{noti.NotificationDescription}}
-                                            </a>                                            
+                                            </a>   
+                                            <a ui-sref="user.appliedlead({tab: noti.LeadFor})" ng-if="noti.NotificationType==1 && vm.currentUser.UserId != noti.LeadCreater">
+                                                <i class="fa fa-shopping-cart text-green"></i>
+                                                 {{noti.NotificationDescription}}
+                                            </a>    
+                                            <a ui-sref="user.message" ng-if="noti.NotificationType==3">
+                                                <i class="fa fa-users text-aqua"></i>
+                                                 {{noti.NotificationDescription}}
+                                            </a>                                                                                                                               
                                         </li>
                                     </ul>
                                 </li>
@@ -55,7 +63,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default profile-but">Profile</a>
+                                        <a ui-sref="user.profile({ tab:vm.currentUser})"  class="btn btn-default profile-but">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a data-ng-click="vm.logout()" class="btn btn-default signout-but">Sign out</a>
@@ -68,39 +76,46 @@
                        <li><a class="dropdown-toggle"" ui-sref="user.dashboard"><span class="glyphicon glyphicon-home"></span></a></li>
                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Lead<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
-                          <li><a href="#">Lead 1</a></li>
-                          <li><a href="#">Lead 2</a></li>
-                          <li><a href="#">Lead 3</a></li>
+                          <li><a ng-click="vm.createlead(1)">Create a lead</a></li>
+                          <li ui-sref="user.mylead({tab: '1'})"><a href="">Leads Created</a></li>
+                          <li ui-sref="user.appliedlead({tab: '1'})"><a href="">Leads Applied</a></li>
                         </ul>
                       </li>
-                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Oppurtunity<span class="caret"></span></a>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Offer<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
-                          <li><a href="#">Oppurtunity 1</a></li>
-                          <li><a href="#">Oppurtunity 2</a></li>
-                          <li><a href="#">Oppurtunity 3</a></li>
+                           <li><a ng-click="vm.createlead(2)">Create an offer</a></li>
+                          <li ui-sref="user.mylead({tab: '2'})"><a href="">Offers Created</a></li>
+                          <li ui-sref="user.appliedlead({tab: '2'})"><a href="">Offers Applied</a></li>
                         </ul>
                       </li>
-                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Partners<span class="caret"></span></a>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Discussion<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
+                           <li><a ng-click="vm.createlead(3)">Create a Discussion</a></li>
+                          <li ui-sref="user.mylead({tab: '3'})"><a href="">Discussions Created</a></li>
+                          <li ui-sref="user.appliedlead({tab: '3'})"><a href="">Discussions Applied</a></li>
+                        </ul>
+                      </li>                      
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  ui-sref="user.partner">Partners</a>
+                       <!--  <ul class="dropdown-menu item">
                           <li><a href="#">Partners 1</a></li>
                           <li><a href="#">Partners 2</a></li>
                           <li><a href="#">Partners 3</a></li>
-                        </ul>
+                        </ul> -->
                       </li>
-                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Messages<span class="caret"></span></a>
-                        <ul class="dropdown-menu item">
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  ui-sref="user.message">Messages<!-- <span class="caret"></span> --></a>
+                      <!--   <ul class="dropdown-menu item">
                           <li><a href="#">Messages 1</a></li>
                           <li><a href="#">Messages 2</a></li>
                           <li><a href="#">Messages 3</a></li>
-                        </ul>
+                        </ul> -->
                       </li>
-                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+                     <!--   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
                         <ul class="dropdown-menu item">
                           <li><a href="#">Reports 1</a></li>
                           <li><a href="#">Reports 2</a></li>
                           <li><a href="#">Reports 3</a></li>
                         </ul>
-                      </li>
+                      </li> -->
                     </ul>
                 </div>
             </div>
@@ -151,19 +166,19 @@
                                         </ul>
                                 </li>
 
-                                <li ui-sref="user.message"><a href="">Messages<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-                                    <ul class="Messages">
+                                <li ui-sref="user.message"><a href="">Messages</a>
+                               <!--      <ul class="Messages">
 
                                             <li ui-sref="user.message">New</li>
                                             <li ui-sref="user.message">Inbox</li>
                                             <li ui-sref="user.message"  W2S3R2w$_*->Sent</li>
-                                        </ul>
+                                        </ul> -->
                                 </li>
-                                <li><a href="">Partners<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-                                     <ul>
+                                <li ui-sref="user.partner"><a href="">Partners</a>
+                                    <!--  <ul>
                                             <li ui-sref="user.partner">Manage Partners</li>
                                             <li ui-sref="user.partner">Business with Partners</li>
-                                        </ul>
+                                        </ul> -->
                                 </li>
                             </ul>
                         </div>

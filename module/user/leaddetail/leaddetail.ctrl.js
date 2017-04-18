@@ -66,6 +66,7 @@
                 }
                 aPIInterFace.doServiceCall('Post', 'MakeOffer', objReq).then(function (response) {
                     if (response.Success) {
+                        vm.OfferDescription ='';
                         GetPostDetail();
                         alert(response.Message);
                          LoaderStop();

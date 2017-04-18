@@ -72,7 +72,7 @@
              }
          })    
          .state('user.dashboard', {
-             url: '/dashboard',
+             url: '/dashboard/:tab',
              cache: false,
              views: {
                  'menuInnerContent': {

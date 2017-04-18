@@ -5,7 +5,10 @@
             <ul>
                 <li class="post dropdown" ng-repeat="post in vm.posts">
                     <a class="dropdown-toggle" data-toggle="dropdown">
-                        <h1>{{post.Title}}<span class="pull-right"><img src="images/play-button.png"></span><span class="pull-right">Bids: {{post.lstOffers.length}}</span></h1>
+                        <h1>{{post.Title}}<span class="pull-right"><img src="images/play-button.png"></span>
+                          <span ng-if="vm.PostFor!='3'" class="pull-right">Bids: {{post.lstOffers.length}}</span>
+                          <span ng-if="vm.PostFor=='3'" class="pull-right">Replies: {{post.lstOffers.length}}</span>
+                        </h1>
                         <P class="pull-left" ng-switch on="post.LeadStatus">
 
                           <span ng-show="vm.PostFor=='1'">Lead</span>
@@ -22,7 +25,7 @@
                             </span>
                           <!-- <span >(Active)</span> -->
                         </P>
-                        <button type="button" class="btn btn-default Close-lead pull-right" ng-show="post.LeadStatus=='1' || post.LeadStatus==''" ng-click="vm.CloseLead(post)">
+                        <button  ng-if="vm.PostFor!='3'" type="button" class="btn btn-default Close-lead pull-right" ng-show="post.LeadStatus=='1' || post.LeadStatus==''" ng-click="vm.CloseLead(post)">
 
                            <span ng-show="vm.PostFor=='1'">Close Lead</span>
                           <span ng-show="vm.PostFor=='2'">Close Offer</span>
@@ -32,12 +35,12 @@
                         <div class="description">
                             <ul class="description-details">
                                 <li><span>Category: </span><span ng-bind="post.CategoryName"></span></li>
-                                <!-- <li><span>Sub Category: </span><span>Select Sub catagory</span></li> -->
-                                <li><span>Location: </span><span ng-bind="post.Location"></span></li>
-                                <li><span>Split/Share %: </span><span ng-bind="post.SharePercentage"></span></li>
-                                 <li><span>Amount $: </span><span ng-bind="post.LeadAmount"></span></li>
+                                <li><span>Sub Category: </span><span ng-bind="post.SubCateName"></span></li>
+                                <li ng-if="vm.PostFor!='3'"><span>Location: </span><span ng-bind="post.Location"></span></li>
+                                <li ng-if="vm.PostFor!='3'"><span>Split/Share %: </span><span ng-bind="post.SharePercentage"></span></li>
+                                 <li ng-if="vm.PostFor!='3'"><span>Amount $: </span><span ng-bind="post.LeadAmount"></span></li>
                                 <li ng-if="post.LeadNeed"><span>Need: </span><span ng-bind="post.LeadNeed"></span></li>
-                                <li ng-if="post.TypeName"><span>Type: </span><span ng-bind="post.TypeName"></span></li>
+                                <li ng-if="post.LeadType"><span>Type: </span><span ng-bind="post.LeadType"></span></li>
                             </ul>
                         </div>
 
@@ -96,22 +99,8 @@
                                 <h5 ng-bind="offer.EmailId"></h5>
                               </div>
                               <p ng-bind="offer.OfferDescription"></p>
-                              <P ng-if="vm.PostFor!='3'" class="text-primary" ng-switch on="offer.OfferStatus" ng-show="offer.OfferStatus!='1'">Bid   
-                                  <span ng-switch-when="4">
-                                       Rejected
-                                  </span>
-                                  <span ng-switch-when="2">
-                                       Accepted
-                                  </span>
-                                  <a ng-switch-when="2" href="" class="btn-xs btn-success Feedback" data-toggle="modal" data-target="#ratings" ng-click="vm.FeedBackUserId=offer.UserId">Feedback</a>
-                              </P>                         
                               
                             </div>
-                            <div ng-show="offer.OfferStatus=='1' && (post.LeadStatus=='1' || post.LeadStatus=='')" ng-if="vm.PostFor!='3' && offer.UserId!=vm.currentUser.UserId">
-                                <button type="button" class="btn btn-default" ng-click="vm.ResponseOffer(offer,'2')">Accept Bid</button>
-                                <button type="button" data-toggle="modal" data-target="#DiscussionRpy" ng-click="vm.PostId=post.LeadId; vm.FeedBackUserId=offer.UserId;" class="btn btn-primary">Revised Bid</button>
-                                <button type="button" class="btn btn-danger" ng-click="vm.ResponseOffer(offer,'4')">Reject Bid</button>
-                            </div>  
                           
                             <div class="divider"></div> 
                         </div>                        

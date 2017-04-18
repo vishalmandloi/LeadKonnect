@@ -88,6 +88,7 @@
         } 
 
         function ratingClick(){
+                debugger
                 LoaderStart();
                 var objReq={
                     Rating : vm.FeedBackModel.Rating, 
