@@ -34,6 +34,8 @@
                      <button ng-if="vm.postDetail.PostFor=='3'" type="submit" class="btn btn-info pull-right" ng-click="vm.MakeOffer()">Reply</button>
                 </form>
             </div>
+            <div class="divider"></div>
+            <h3> Comments</h3>
               <div ng-repeat="offer in vm.postDetail.lstOffers" ng-if="vm.postDetail.PostFor=='3'">
                 <div class="leads-details">
                   <div class="pull-left" ui-sref="user.profile({ tab:offer.UserId })" style="cursor: pointer;">

@@ -126,23 +126,22 @@ body {
 }*/
 .LeadKonnect .banner .video-sec {
 	background-color: #323232;
-	height: calc(100vh - 126px);
+	height: calc(100vh - 80px);
 }
 .LeadKonnect .banner .signin-sec {
 	background-color: #f1f5fa;
-	height: calc(100vh - 126px);
+	height: calc(100vh - 80px);
 }
 .LeadKonnect .row {
     margin-right: 0px;
     margin-left: 0px;
 }
 .LeadKonnect .banner .home-video {
-	/*background-color: #278fb0;
-	border: 3px solid #278fb0;*/
 	width: 70%;
-	margin: 10% auto;
+	margin: 0 auto;
 	text-align: center;
 	border-radius: 0 0 50px 50px;
+	padding: 10% 0;
 }
 .LeadKonnect .banner .home-video iframe {
 	border-radius: 0 0 50px 50px;
@@ -597,13 +596,19 @@ body {
 		margin-bottom: 0;
 	}
 	.leads-details {
-		padding: 20px;
+		padding: 20px 0;
 		padding-bottom: 0;
 		clear: both;
 	}
 	.reply {
 		clear: both;
 		display: inline-block;
+	}
+	.divider {
+	    height: 1px;
+	    margin: 9px 0;
+	    overflow: hidden;
+	    background-color: #e5e5e5;
 	}
 	.leads-details .pull-left img {
 		width: 70px;
@@ -713,8 +718,7 @@ body {
 	.filter-suggestions .suggestions ul li a p {
 		color: #000;
 		font-weight: normal;
-		font-size: 16px;
-		font-style: italic;
+		font-size: 15px;
 		color: #777;
 		padding: 10px 0;
     	margin: 0;
@@ -899,9 +903,10 @@ li li {
 }
 .item-details .center .detail-list ul li {
 	border-right: 2px solid #595959;
-	font-size: 16px;
+	font-size: 15px;
 	padding: 0 10px;
 	line-height: 1;
+	color: #595959;
 }
 .item-details .center .detail-list ul li span:last-child {
 	color: #5e9ed9;
@@ -915,9 +920,10 @@ li li {
 	color: #fff;
 	padding: 10px 20px;
 	margin-bottom: 0;
+	font-size: 18px;
 }
 .item-details .center .detail-description {
-	font-size: 20px; 	
+	font-size: 16px; 	
 	background-color: #adb9ca;
 	color: #595959;
 	padding: 20px;
@@ -925,6 +931,8 @@ li li {
 }
 .item-details .center .form-sec {
 	margin-top: 15px; 
+	display: inline-block;
+	width: 100%;
 }
 .item-details .center .form-sec textarea {
 	background-color: #f3f5fb;
@@ -1003,7 +1011,6 @@ li li {
 	display: inline-block;
 	padding: 0 5px;
 	color: #fff;
-	float: right;
 	width: auto;
 }
 
@@ -1305,12 +1312,15 @@ li li {
 	text-align: center;
 	padding: 50px 10% 90px;
 	margin: 0 auto;
+	height: calc(100vh - 80px);
+	display: inline-table;
+	width: 100%;
 }
 .about-us .mission {
 	color: #fff;
 	margin: 0;
 	background-color: #fc9999;
-	padding: 10px;
+	padding: 2px;
 }
 .about-us p {
 	color: #323232;
@@ -1323,12 +1333,14 @@ li li {
 	color: #fff;
 	margin: 0;
 	background-color: #fc9999;
-	padding: 10px;
+	padding: 2px;
 	border-radius: 20px;
 	margin: 80px 0;
 }
 .about-us .about-details {
-	text-align: left
+	text-align: left;
+	width: 88%;
+	margin: 0 auto;
 }
 .about-us .about-details h5 {
 	color: #fc9999;
@@ -1341,13 +1353,15 @@ li li {
 	font-weight: 500;
 }
 .about-us img {
-	width: 100%;
-	margin-top: -80px;
+	width: 90%;
+    margin-top: -50px;
+    height: 220px;
 }
 .about-us .about-details1 {
 	text-align: left;
-	margin-left: 210px;
-    margin-top: -80px;
+    width: 55%;
+    margin: 0 auto;
+    margin-top: -4%;
 }
 .about-us .about-details1 h5 {
 	color: #fc9999;
@@ -1365,6 +1379,9 @@ li li {
 	background-color: #323232;
 	text-align: center;
 	padding-bottom: 90px;
+	height: calc(100vh - 90px);
+	display: inline-table;
+	width: 100%;
 }
 .howitworks .howitworks1 {
 	width: 70%;
@@ -1412,6 +1429,8 @@ li li {
 	background-color: #323232;
 	height: calc(100vh - 90px);
 	text-align: center;
+	display: inline-table;
+	width: 100%;
 }
 .support h1 {
 	background-color: #fc9999;
@@ -1499,5 +1518,16 @@ li li {
 		position: relative;
 	    display: inline-block;
 	    width: calc(100% - 210px);
+	}
+}
+@media only screen and (max-width: 500px) {
+	.support {
+		padding-bottom: 120px;
+	}
+	.about-us {
+		padding-bottom: 120px;
+	}
+	.howitworks {
+		padding-bottom: 120px;
 	}
 }

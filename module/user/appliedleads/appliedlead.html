@@ -63,9 +63,9 @@
                               
                             </div>
                             <div data-ng-if="offer.IsRevised==true" ng-show="offer.OfferStatus=='1' && (post.LeadStatus=='1' || post.LeadStatus=='')" >
-                                <button type="button" class="btn btn-default" ng-click="vm.ResponseOffer(offer,'2')">Accept Bid</button>
-                                <button type="button" data-toggle="modal" data-target="#DiscussionRpy" ng-click="vm.PostId=post.LeadId; vm.FeedBackUserId=post.UserId;" class="btn btn-primary">Revised Bid</button>
-                                <button type="button" class="btn btn-danger" ng-click="vm.ResponseOffer(offer,'4')">Reject Bid</button>
+                                <button type="button" class="btn btn-default Accepted-bid" ng-click="vm.ResponseOffer(offer,'2')">Accept Bid</button>
+                                <button type="button" data-toggle="modal" data-target="#DiscussionRpy" ng-click="vm.PostId=post.LeadId; vm.FeedBackUserId=post.UserId;" class="btn btn-default Revised-bid">Revised Bid</button>
+                                <button type="button" class="btn btn-default Rejected-bid" ng-click="vm.ResponseOffer(offer,'4')">Reject Bid</button>
                             </div>  
                           
                             <div class="divider"></div> 
@@ -86,7 +86,7 @@
                             <div class="divider"></div> 
                         </div>                         
                          <P ng-if="vm.PostFor=='3'" class="text-primary" >
-                                  <a href="" style="float: left;" class="btn-xs btn-success Feedback" data-toggle="modal" data-target="#DiscussionRpy" ng-click="vm.PostId=post.LeadId">Reply</a>
+                                  <a href="" class="btn-xs btn-success Feedback" data-toggle="modal" data-target="#DiscussionRpy" ng-click="vm.PostId=post.LeadId">Reply</a>
                           </P>
                         <div class="no-offers" ng-show="post.lstOffers==0">
                           No offers available
