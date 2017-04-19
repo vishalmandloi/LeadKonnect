@@ -1483,7 +1483,12 @@ li li {
 	font-size: 18px;
 	margin-right: 30px;
 }
-
+.shownewline{
+	background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
 
 
 

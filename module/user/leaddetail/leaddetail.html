@@ -23,7 +23,8 @@
                 </ul>
             </div>
             <h3 ng-bind="vm.postDetail.Title"></h3>
-            <div class="detail-description" ng-bind="vm.postDetail.Description">
+            <div class="detail-description">
+             <pre class="shownewline">{{vm.postDetail.Description}}</pre>
             </div>
             <div class="form-sec" ng-show="vm.currentUser.UserId!=vm.postDetail.UserId  && vm.postDetail.IfOffered=='False' || vm.postDetail.PostFor=='3'">
                 <form>
@@ -45,7 +46,9 @@
                     <h1>{{offer.FirstName}} {{offer.LastName}}</h1>
                     <h5 ng-bind="offer.EmailId"></h5>
                   </div>
-                  <p ng-bind="offer.OfferDescription"></p>
+                  <p>
+                       <pre>{{offer.OfferDescription}}</pre>
+                  </p>
                   
                 </div>
               
