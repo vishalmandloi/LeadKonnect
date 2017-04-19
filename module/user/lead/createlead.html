@@ -86,8 +86,19 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="control-label col-md-2" for="email">Deal Type</label>
+                <div class="col-md-10">
+                    <select class="form-control" required ng-model="vm.postModel.DealType">
+                        <option value="0">Split Amount</option>
+                        <option value="1">Fixed Amount</option>
+                    </select>                
+                </div>
+            </div>
+
+
             <!-- Text input-->
-            <div class="form-group" ng-hide="vm.postModel.PostFor=='3'">
+            <div class="form-group" ng-hide="vm.postModel.PostFor=='3' || vm.postModel.DealType!='0'">
                 <label class="control-label col-md-2" for="street">Split/Share %</label>
                 <div class="col-md-10">
                     <input id="street" name="street" type="text" placeholder="Enter Split/Share %" class="form-control input-md" required ng-model="vm.postModel.SharePercentage">

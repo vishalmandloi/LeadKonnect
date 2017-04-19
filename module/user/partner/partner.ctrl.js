@@ -38,8 +38,8 @@
         function ResponseRequest(req, reqStatus){
                 LoaderStart();
                 var objReq={
-                    PartnerId : req.PartnerId,
-                    FromUserId : 1,  
+                    PartnerId : req.PkId,
+                    FromUserId : req.RequestFrom,  
                     RequestResponse : reqStatus,
                     UserId: vm.currentUser.UserId                   
                 }

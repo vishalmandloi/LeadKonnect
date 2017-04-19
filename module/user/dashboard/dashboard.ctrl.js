@@ -11,9 +11,12 @@
 
         vm.init = function(){
         	vm.posts = postService.item.searchData;
-        	if(!vm.posts || !$stateParams.tab){
+        	if(!vm.posts){
 				    GetPosts();
         	}
+          else if(vm.posts==undefined && ($stateParams.tab==1 || $stateParams.tab==null)){
+            GetPosts();
+          }
         }
 
        function GetPosts(){

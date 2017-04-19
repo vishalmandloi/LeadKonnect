@@ -1,8 +1,9 @@
 ﻿<div  ng-init="vm.init()">
     <div class="partner" ng-repeat="ptr in vm.partners">
         <div class="leads-details">
-          <div class="pull-left">
-              <img src="images/person.jpg" class="img-circle">
+          <div class="pull-left" >
+              <img src="images/person.jpg" style="cursor: pointer;" class="img-circle"  ui-sref="user.profile({ tab:ptr.PartnerId})" ng-if="ptr.RequestFrom==vm.currentUser.UserId">
+              <img src="images/person.jpg" style="cursor: pointer;" class="img-circle"  ui-sref="user.profile({ tab:ptr.RequestFrom})" ng-if="ptr.RequestFrom!=vm.currentUser.UserId">
           </div>
           <div class="pull-left name-mailid">
             <h1>{{ptr.FirstName}} {{ptr.LastName}}</h1>

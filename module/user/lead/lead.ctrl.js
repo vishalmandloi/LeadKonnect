@@ -3,7 +3,7 @@
     angular.module('app')
       .controller('leadCtrl', leadCtrl);
 
-    function leadCtrl($scope, $http, UserSrv, $modal, aPIInterFace, $q, commonSvc, dialogs, alertService,$stateParams,$state) {
+    function leadCtrl($scope, $http, UserSrv, $modal, aPIInterFace, $q, commonSvc, dialogs, alertService,$stateParams,$state,postService) {
         var currentUser = JSON.parse(localStorage.getItem('app-user'));
         var vm = {};
         $scope.vm = vm;
@@ -45,7 +45,8 @@
                       "ShowDetails": "0",
                       "LeanType": "0",
                       "Description": "",
-                      "UserId": currentUser.UserId
+                      "UserId": currentUser.UserId,
+                      "DealType":"0"
                     }
         }
 
@@ -105,6 +106,7 @@
                         LoaderStop();
                         alert(response.Message);
                         //$state.go('user.dashboard');
+                        postService.item.searchData = null;
                         $state.go('user.dashboard',{tab:1});
                          
                     } else {
